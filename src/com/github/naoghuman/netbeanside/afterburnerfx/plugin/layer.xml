@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <!-- <folder name="Actions">
+        <folder name="File">
+            <file name="com-github-naoghuman-netbeanside-afterburnerfx-plugin-action-PluginAction.instance_hidden"/>
+            <file name="com-github-naoghuman-netbeanside-afterburnerfx-plugin-action-PluginAction.instance">
+                <attr name="delegate" methodvalue="org.openide.awt.Actions.inject"/>
+                <attr name="iconBase" stringvalue="com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/icon-at.png"/>
+                <attr name="injectable" stringvalue="com.github.naoghuman.netbeanside.afterburnerfx.plugin.action.PluginAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.context"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+                <attr name="selectionType" stringvalue="EXACTLY_ONE"/>
+                <attr name="type" stringvalue="org.openide.loaders.DataFolder"/>
+            </file>
+        </folder>
+    </folder> -->
+    <folder name="Templates">
+        <folder name="javafx">
+            <file name="AfterburnerFX Files">
+                <attr name="iconBase" stringvalue="com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/icon-at.png"/>
+                <attr name="instantiatingIterator" newvalue="com.github.naoghuman.netbeanside.afterburnerfx.plugin.PluginWizardIterator"/>
+                <attr name="instantiatingWizardURL" urlvalue="nbresloc:/com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/PluginDescription.html"/>
+                <attr name="requireProject" boolvalue="true"/>
+                <attr name="template" boolvalue="true"/>
+            </file>
+            
+            <file name="AfterburnerPresenter.java" url="template/AfterburnerPresenter.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
+            <file name="Afterburner.css" url="template/AfterburnerCss.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
+            <file name="Afterburner.fxml" url="template/AfterburnerFxml.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
+            <file name="Afterburner.properties" url="template/AfterburnerProperties.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
+            <file name="AfterburnerView.java" url="template/AfterburnerView.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>
