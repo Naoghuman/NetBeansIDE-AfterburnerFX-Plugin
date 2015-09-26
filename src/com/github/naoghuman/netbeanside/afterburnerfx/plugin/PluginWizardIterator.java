@@ -43,18 +43,8 @@ import org.openide.loaders.DataObject;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
-// TODO define position attribute
-//@TemplateRegistration(
-//        folder = "javafx",
-//        displayName = "#AfterburnerWizardIterator_displayName",
-//        iconBase = "de/pro/afterburner/netbeanside/plugin/Icons-Folder-Lavender-icon.png",
-//        description = "afterburner.html"
-//)
-//@Messages("AfterburnerWizardIterator_displayName=Afterburner")
 public final class PluginWizardIterator implements WizardDescriptor.InstantiatingIterator<WizardDescriptor>, IPluginSupport {
-
-    
-        
+ 
     private int index;
 
     private SourceGroupSupport supportBaseName;
@@ -168,13 +158,24 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     }
     
     private List<FileObject> createOptionalFiles() throws IOException {
+        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, Boolean.TRUE);
+        if (!shouldCreateCSS && !shouldCreateProperties) {
+            return new ArrayList<FileObject>();
+        }
+        
         final FileObject firstTemplate = Templates.getTemplate(wizard);
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
         final Map<String, DataObject> mapDataObjects = new HashMap<String, DataObject>();
         
         final Map<String, String> mapTemplatesAndExtentions = new HashMap<String, String>();
-        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__CSS, TEMPLATE_PARAMETER__CSS);
-        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
+        if (shouldCreateCSS) {
+            mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__CSS, TEMPLATE_PARAMETER__CSS);
+        }
+        
+        if (shouldCreateProperties) {
+            mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
+        }
         
         for (FileObject fileObject : fileObjects) {
             if (mapTemplatesAndExtentions.containsKey(fileObject.getNameExt())) {
@@ -186,8 +187,6 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
         
         final Map<String, String> parameters = new HashMap<String, String>();
-        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, Boolean.TRUE);
         final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         if (shouldCreateCSS) {
             parameters.put(TEMPLATE_PARAMETER__CSS, prefix);
@@ -209,28 +208,6 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         }
         
         return optionalFiles;
-    }
-    
-    private Map<String, String> createParameters(boolean shouldCreateCSS, boolean shouldCreateProperties) {
-        final String targetName = NbPreferences.forModule(PluginWizardIterator.class)
-                .get(PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
-        
-        final Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put(TEMPLATE_PARAMETER__FXML, targetName);
-        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, targetName + "Presenter"); // NOI18N
-        parameters.put(TEMPLATE_PARAMETER__PRESENTER, targetName + "Presenter"); // NOI18N
-        parameters.put(TEMPLATE_PARAMETER__VIEW, targetName + "View"); // NOI18N
-        
-        if (shouldCreateCSS) {
-            parameters.put(TEMPLATE_PARAMETER__CSS, targetName); // NOI18N
-        }
-        
-        if (shouldCreateProperties) {
-            parameters.put(TEMPLATE_PARAMETER__PROPERTIES, targetName); // NOI18N
-        }
-        parameters.put(TEMPLATE_PARAMETER__RESOURCES, shouldCreateProperties ? "true" : "false"); // NOI18N
-        
-        return parameters;
     }
     
     @Override
