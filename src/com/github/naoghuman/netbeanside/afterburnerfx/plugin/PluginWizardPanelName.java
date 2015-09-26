@@ -103,7 +103,7 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
         }
         
         final String errorMessage = PluginSupport.canUseFileName(component.getLocationFolder(), component.getPackageFileName(), 
-                component.getBaseName(), EXTENSION_FXML);
+                component.getBaseName(), TEMPLATE_PARAMETER__FXML);
         if (errorMessage != null) {
             settings.getNotificationLineSupport().setErrorMessage(errorMessage);
             return false;

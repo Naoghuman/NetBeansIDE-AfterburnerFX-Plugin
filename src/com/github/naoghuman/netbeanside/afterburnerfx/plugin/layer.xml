@@ -24,24 +24,23 @@
                 <attr name="requireProject" boolvalue="true"/>
                 <attr name="template" boolvalue="true"/>
             </file>
-            
-            <file name="AfterburnerPresenter.java" url="template/AfterburnerPresenter.ftl">
+            <file name="Template.css" url="template/TemplateCss.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
             </file>
-            <file name="Afterburner.css" url="template/AfterburnerCss.ftl">
+            <file name="Template.fxml" url="template/TemplateFxml.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
             </file>
-            <file name="Afterburner.fxml" url="template/AfterburnerFxml.ftl">
+            <file name="Template.properties" url="template/TemplateProperties.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
             </file>
-            <file name="Afterburner.properties" url="template/AfterburnerProperties.ftl">
+            <file name="TemplatePresenter.java" url="template/TemplatePresenter.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
             </file>
-            <file name="AfterburnerView.java" url="template/AfterburnerView.ftl">
+            <file name="TemplateView.java" url="template/TemplateView.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
             </file>

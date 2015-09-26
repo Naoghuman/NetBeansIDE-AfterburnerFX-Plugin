@@ -76,10 +76,10 @@ public class PluginWizardPanelOptional implements WizardDescriptor.Panel<WizardD
     @Override
     public void readSettings(WizardDescriptor wiz) {
         final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_BASENAME_CHOOSEN, "Afterburner"); // NOI18N
+                PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         
         String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
+                PROP_CHOOSEN_PACKAGE, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         packageName = packageName.replace(SIGN_CHAR_DOT, File.separatorChar);
         if (!packageName.endsWith(File.separator)) {
             packageName += File.separator;

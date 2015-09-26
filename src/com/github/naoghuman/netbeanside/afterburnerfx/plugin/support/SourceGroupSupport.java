@@ -41,8 +41,6 @@
  */
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin.support;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -58,8 +56,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.Icon;
 import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import org.netbeans.api.annotations.common.NonNull;
 import org.netbeans.api.java.project.JavaProjectConstants;
 import org.netbeans.api.project.Project;

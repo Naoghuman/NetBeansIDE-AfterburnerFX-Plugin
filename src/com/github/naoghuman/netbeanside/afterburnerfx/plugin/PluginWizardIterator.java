@@ -67,11 +67,11 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     }
     
     private void init() {
-        mapTemplatesAndExtentions.put(FILE_AFTERBURNER_CSS, EXTENSION_CSS);
-        mapTemplatesAndExtentions.put(FILE_AFTERBURNER_FXML, EXTENSION_FXML);
-        mapTemplatesAndExtentions.put(FILE_AFTERBURNER_PROPERTIES, EXTENSION_PROPERTIES);
-        mapTemplatesAndExtentions.put(FILE_AFTERBURNER_PRESENTER_JAVA, EXTENSION_PRESENTER);
-        mapTemplatesAndExtentions.put(FILE_AFTERBURNER_VIEW_JAVA, EXTENSION_VIEW);
+        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__CSS, TEMPLATE_PARAMETER__CSS);
+        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__FXML, TEMPLATE_PARAMETER__FXML);
+        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
+        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX_PRESENTER__JAVA, TEMPLATE_PARAMETER__PRESENTER);
+        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX_VIEW__JAVA, TEMPLATE_PARAMETER__VIEW);
     }
 
     private List<WizardDescriptor.Panel<WizardDescriptor>> getPanels() {
@@ -128,36 +128,6 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
         final Map<String, DataObject> map1 = new HashMap<String, DataObject>();
         
-        /*
-        TODO
-         - 2 methode
-            1) map the properties for generated the files
-                a) method for the primary files
-                    NbPreferences.forModule(PluginWizardIterator.class).put(
-                            PROP_BASENAME_CHOOSEN, getComponent().getBaseName());
-                    NbPreferences.forModule(PluginWizardIterator.class).put(
-                            PROP_CHOOSEN_PACKAGE, getComponent().getPackageName());
-                b) method for the optional files
-                    NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                            PROP_CREATE_CSS_FILE, getComponent().shouldCreateCSS());
-                    NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                            PROP_INJECT_CSS_FILE, getComponent().shouldInjectCSS());
-
-                    NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                            PROP_CREATE_PROPERTIES_FILE, getComponent().shouldCreateProperties());
-                    NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                            PROP_INJECT_PROPERTIES_FILE, getComponent().shouldInjectProperties());
-            2) create the files with the mapped properties
-        
-         - read flags for injection
-         - refactore the templates
-            - fxml-file with injection
-            - fxml-file without injection
-            - presenter-file with injection
-            - presenter-file without injection
-         - generate the files
-        
-        */
         final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
                 PROP_CREATE_CSS_FILE, Boolean.TRUE);
         final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
@@ -165,11 +135,11 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         
         for (FileObject fileObject : fileObjects) {
             if (mapTemplatesAndExtentions.containsKey(fileObject.getNameExt())) {
-                if (!shouldCreateCSS && fileObject.getNameExt().equals(FILE_AFTERBURNER_CSS)) {
+                if (!shouldCreateCSS && fileObject.getNameExt().equals(TEMPLATE__PREFIX__CSS)) {
                     continue;
                 }
                 
-                if (!shouldCreateProperties && fileObject.getNameExt().equals(FILE_AFTERBURNER_PROPERTIES)) {
+                if (!shouldCreateProperties && fileObject.getNameExt().equals(TEMPLATE__PREFIX__PROPERTIES)) {
                     continue;
                 }
                 
@@ -195,22 +165,22 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     
     private Map<String, String> createParameters(boolean shouldCreateCSS, boolean shouldCreateProperties) {
         final String targetName = NbPreferences.forModule(PluginWizardIterator.class)
-                .get(PROP_BASENAME_CHOOSEN, "Afterburner"); // NOI18N
+                .get(PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         
         final Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put(EXTENSION_FXML, targetName); // NOI18N
-        parameters.put(EXTENSION_CONTROLLER, targetName + "Presenter"); // NOI18N
-        parameters.put(EXTENSION_PRESENTER, targetName + "Presenter"); // NOI18N
-        parameters.put(EXTENSION_VIEW, targetName + "View"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__FXML, targetName);
+        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, targetName + "Presenter"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__PRESENTER, targetName + "Presenter"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__VIEW, targetName + "View"); // NOI18N
         
         if (shouldCreateCSS) {
-            parameters.put(EXTENSION_CSS, targetName); // NOI18N
+            parameters.put(TEMPLATE_PARAMETER__CSS, targetName); // NOI18N
         }
         
         if (shouldCreateProperties) {
-            parameters.put(EXTENSION_PROPERTIES, targetName); // NOI18N
+            parameters.put(TEMPLATE_PARAMETER__PROPERTIES, targetName); // NOI18N
         }
-        parameters.put(EXTENSION_RESOURCES, shouldCreateProperties ? "true" : "false"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__RESOURCES, shouldCreateProperties ? "true" : "false"); // NOI18N
         
         return parameters;
     }

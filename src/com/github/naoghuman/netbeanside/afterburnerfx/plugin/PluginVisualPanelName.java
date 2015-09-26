@@ -21,7 +21,6 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroup
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport.SourceGroupProxy;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -138,7 +137,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             if (targetFolder != null) {
                 int index = 0;
                 while (true) {
-                    FileObject fo = targetFolder.getFileObject(activeName, EXTENSION_FXML);
+                    FileObject fo = targetFolder.getFileObject(activeName, TEMPLATE_PARAMETER__FXML);
                     if (fo == null) {
                         break;
                     }

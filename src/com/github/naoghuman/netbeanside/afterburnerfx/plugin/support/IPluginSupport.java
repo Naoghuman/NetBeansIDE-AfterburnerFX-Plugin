@@ -26,20 +26,6 @@ public interface IPluginSupport {
     public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; //NOI18N
     public static final String DEFAULT_MAVEN_CSS_PACKAGE = "styles"; //NOI18N
     
-    public static final String EXTENSION_CONTROLLER = "controller"; // NOI18N
-    public static final String EXTENSION_CSS = "css"; // NOI18N
-    public static final String EXTENSION_FXML = "fxml"; // NOI18N
-    public static final String EXTENSION_PRESENTER = "presenter"; // NOI18N
-    public static final String EXTENSION_PROPERTIES = "properties"; // NOI18N
-    public static final String EXTENSION_RESOURCES = "resources"; // NOI18N
-    public static final String EXTENSION_VIEW = "view"; // NOI18N
-    
-    public static final String FILE_AFTERBURNER_CSS = "Afterburner.css"; // NOI18N
-    public static final String FILE_AFTERBURNER_FXML = "Afterburner.fxml"; // NOI18N
-    public static final String FILE_AFTERBURNER_PROPERTIES = "Afterburner.properties"; // NOI18N
-    public static final String FILE_AFTERBURNER_PRESENTER_JAVA = "AfterburnerPresenter.java"; // NOI18N
-    public static final String FILE_AFTERBURNER_VIEW_JAVA = "AfterburnerView.java"; // NOI18N
-    
     public static final String MSG_INFO_BASE_NAME_ISNT_VALID = "info.base.name.isnt.valid"; // NOI18N
     public static final String MSG_ERROR_BASE_NAME_CONTAINS_WRONG_FILENAME_CHARS = "error.base.name.contains.wrong.filename.chars"; // NOI18N
     public static final String MSG_ERROR_FILES_ALREADY_EXISTS = "error.files.already.exists"; // NOI18N
@@ -51,6 +37,7 @@ public interface IPluginSupport {
     
     public static final String PROP_BASENAME = "PROP_BASENAME"; // NOI18N
     public static final String PROP_BASENAME_CHOOSEN = "PROP_BASENAME_CHOOSEN"; // NOI18N
+    public static final String PROP_BASENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
     public static final String PROP_CHOOSEN_PACKAGE = "PROP_CHOOSEN_PACKAGE"; // NOI18N
     public static final String PROP_CREATE_CSS_FILE = "PROP_CREATE_CSS_FILE"; // NOI18N
     public static final String PROP_CREATE_PROPERTIES_FILE = "PROP_CREATE_PROPERTIES_FILE"; // NOI18N
@@ -58,4 +45,19 @@ public interface IPluginSupport {
     public static final String PROP_INJECT_PROPERTIES_FILE = "PROP_INJECT_PROPERTIES_FILE"; // NOI18N
     
     public static final Character SIGN_CHAR_DOT = '.';
+    
+    public static final String TEMPLATE_PARAMETER__CONTROLLER = "controller"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__CSS = "css"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__FXML = "fxml"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__PRESENTER = "presenter"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__PROPERTIES = "properties"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__RESOURCES = "resources"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__VIEW = "view"; // NOI18N
+    
+    public static final String TEMPLATE__PREFIX__CSS = "Template.css"; // NOI18N
+    public static final String TEMPLATE__PREFIX__FXML = "Template.fxml"; // NOI18N
+    public static final String TEMPLATE__PREFIX__PROPERTIES = "Template.properties"; // NOI18N
+    public static final String TEMPLATE__PREFIX_PRESENTER__JAVA = "TemplatePresenter.java"; // NOI18N
+    public static final String TEMPLATE__PREFIX_VIEW__JAVA = "TemplateView.java"; // NOI18N
+    
 }
