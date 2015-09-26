@@ -39,10 +39,10 @@ public interface IPluginSupport {
     public static final String PROP_BASENAME_CHOOSEN = "PROP_BASENAME_CHOOSEN"; // NOI18N
     public static final String PROP_BASENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
     public static final String PROP_CHOOSEN_PACKAGE = "PROP_CHOOSEN_PACKAGE"; // NOI18N
-    public static final String PROP_CREATE_CSS_FILE = "PROP_CREATE_CSS_FILE"; // NOI18N
-    public static final String PROP_CREATE_PROPERTIES_FILE = "PROP_CREATE_PROPERTIES_FILE"; // NOI18N
-    public static final String PROP_INJECT_CSS_FILE = "PROP_INJECT_CSS_FILE"; // NOI18N
-    public static final String PROP_INJECT_PROPERTIES_FILE = "PROP_INJECT_PROPERTIES_FILE"; // NOI18N
+    public static final String PROP__CSS_FILE__SHOULD_CREATE = "PROP__CSS_FILE__SHOULD_CREATE"; // NOI18N
+    public static final String PROP__CSS_FILE__SHOULD_INJECT = "PROP__CSS_FILE__SHOULD_INJECT"; // NOI18N
+    public static final String PROP__PROPERTIES_FILE__SHOULD_CREATE = "PROP__PROPERTIES_FILE__SHOULD_CREATE"; // NOI18N
+    public static final String PROP__PROPERTIES_FILE__SHOULD_INJECT = "PROP__PROPERTIES_FILE__SHOULD_INJECT"; // NOI18N
     
     public static final Character SIGN_CHAR_DOT = '.';
     

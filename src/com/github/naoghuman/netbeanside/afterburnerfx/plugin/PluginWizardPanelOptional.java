@@ -75,25 +75,19 @@ public class PluginWizardPanelOptional implements WizardDescriptor.Panel<WizardD
 
     @Override
     public void readSettings(WizardDescriptor wiz) {
-        final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
+        final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         
-        String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_CHOOSEN_PACKAGE, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
+        String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP_CHOOSEN_PACKAGE, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
         packageName = packageName.replace(SIGN_CHAR_DOT, File.separatorChar);
         if (!packageName.endsWith(File.separator)) {
             packageName += File.separator;
         }
         
-        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
-                PROP_CREATE_CSS_FILE, Boolean.TRUE);
-        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
-                PROP_INJECT_CSS_FILE, Boolean.TRUE);
+        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_INJECT, Boolean.TRUE);
         
-        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
-                PROP_CREATE_PROPERTIES_FILE, Boolean.TRUE);
-        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(
-                PROP_INJECT_PROPERTIES_FILE, Boolean.TRUE);
+        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_INJECT, Boolean.TRUE);
         
         component.initValues(baseName, packageName, shouldCreateCSS, shouldInjectCSS,
                 shouldCreateProperties, shouldInjectProperties);
@@ -101,15 +95,11 @@ public class PluginWizardPanelOptional implements WizardDescriptor.Panel<WizardD
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                PROP_CREATE_CSS_FILE, getComponent().shouldCreateCSS());
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                PROP_INJECT_CSS_FILE, getComponent().shouldInjectCSS());
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE__SHOULD_CREATE, getComponent().shouldCreateCSS());
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE__SHOULD_INJECT, getComponent().shouldInjectCSS());
         
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                PROP_CREATE_PROPERTIES_FILE, getComponent().shouldCreateProperties());
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(
-                PROP_INJECT_PROPERTIES_FILE, getComponent().shouldInjectProperties());
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, getComponent().shouldCreateProperties());
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE__SHOULD_INJECT, getComponent().shouldInjectProperties());
     }
 
 }

@@ -39,56 +39,64 @@ public final class PluginVisualPanelOptional extends JPanel {
     
     private void initComponents2() {
         // CSS
-        cbCreateCSS.addActionListener(new ActionListener() {
+        cbShouldCSScreated.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                cbCreateCSS.setForeground(cbCreateCSS.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                cbInjectCSS.setEnabled(cbCreateCSS.isSelected());
-                taInjectCSSfile.setDisabledTextColor(!cbCreateCSS.isSelected() 
-                        ? LIGHT_GRAY : cbInjectCSS.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taInjectCSSfile.invalidate();
-                taInjectCSSfile.repaint();
+                cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                
+                cbShouldCSSinjected.setEnabled(cbShouldCSScreated.isSelected());
+                if (!cbShouldCSScreated.isSelected()) {
+                    cbShouldCSSinjected.setSelected(Boolean.FALSE);
+                }
+                taShouldCSSinjected.setDisabledTextColor(!cbShouldCSScreated.isSelected() 
+                        ? LIGHT_GRAY : cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                taShouldCSSinjected.invalidate();
+                taShouldCSSinjected.repaint();
                 
                 updateTextCreateFollowingFiles();
             }
         });
         
-        cbInjectCSS.addActionListener(new ActionListener() {
+        cbShouldCSSinjected.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                taInjectCSSfile.setDisabledTextColor(cbInjectCSS.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taInjectCSSfile.invalidate();
-                taInjectCSSfile.repaint();
+                taShouldCSSinjected.setDisabledTextColor(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                taShouldCSSinjected.invalidate();
+                taShouldCSSinjected.repaint();
                 
                 updateTextCreateFollowingFiles();
             }
         });
         
         // Properties
-        cbCreateProperties.addActionListener(new ActionListener() {
+        cbShouldPropertiesCreated.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                cbCreateProperties.setForeground(cbCreateProperties.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                cbInjectProperties.setEnabled(cbCreateProperties.isSelected());
-                taInjectPropertiesFile.setDisabledTextColor(!cbCreateProperties.isSelected() 
-                        ? LIGHT_GRAY : cbInjectProperties.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taInjectPropertiesFile.invalidate();
-                taInjectPropertiesFile.repaint();
+                cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                
+                cbShouldPropertiesInjected.setEnabled(cbShouldPropertiesCreated.isSelected());
+                if (!cbShouldPropertiesCreated.isSelected()) {
+                    cbShouldPropertiesInjected.setSelected(Boolean.FALSE);
+                }
+                taShouldPropertiesInjected.setDisabledTextColor(!cbShouldPropertiesCreated.isSelected() 
+                        ? LIGHT_GRAY : cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                taShouldPropertiesInjected.invalidate();
+                taShouldPropertiesInjected.repaint();
                 
                 updateTextCreateFollowingFiles();
             }
         });
         
-        cbInjectProperties.addActionListener(new ActionListener() {
+        cbShouldPropertiesInjected.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                taInjectPropertiesFile.setDisabledTextColor(cbInjectProperties.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taInjectPropertiesFile.invalidate();
-                taInjectPropertiesFile.repaint();
+                taShouldPropertiesInjected.setDisabledTextColor(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+                taShouldPropertiesInjected.invalidate();
+                taShouldPropertiesInjected.repaint();
                 
                 updateTextCreateFollowingFiles();
             }
@@ -97,8 +105,8 @@ public final class PluginVisualPanelOptional extends JPanel {
         // TextAreas
         final JTextField tf = new JTextField();
         tf.setEnabled(false);
-        taInjectCSSfile.setBackground(tf.getBackground());
-        taInjectPropertiesFile.setBackground(tf.getBackground());
+        taShouldCSSinjected.setBackground(tf.getBackground());
+        taShouldPropertiesInjected.setBackground(tf.getBackground());
         taInfoOptionalFiles.setBackground(tf.getBackground());
     }
     
@@ -107,15 +115,15 @@ public final class PluginVisualPanelOptional extends JPanel {
         this.baseName = baseName;
         this.packageName = packageName;
         
-        cbCreateCSS.setSelected(shouldCreateCSS);
-        String info = taInjectCSSfile.getText().replace("{0}", baseName); // NOI18N
-        taInjectCSSfile.setText(info);
-        cbInjectCSS.setSelected(shouldInjectCSS);
+        cbShouldCSScreated.setSelected(shouldCreateCSS);
+        String info = taShouldCSSinjected.getText().replace("{0}", baseName); // NOI18N
+        taShouldCSSinjected.setText(info);
+        cbShouldCSSinjected.setSelected(shouldInjectCSS);
         
-        cbCreateProperties.setSelected(shouldCreateProperties);
-        info = taInjectPropertiesFile.getText().replace("{0}", baseName); // NOI18N
-        taInjectPropertiesFile.setText(info);
-        cbInjectProperties.setSelected(shouldInjectProperties);
+        cbShouldPropertiesCreated.setSelected(shouldCreateProperties);
+        info = taShouldPropertiesInjected.getText().replace("{0}", baseName); // NOI18N
+        taShouldPropertiesInjected.setText(info);
+        cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
         
         updateTextCreateFollowingFiles();
     }
@@ -126,38 +134,38 @@ public final class PluginVisualPanelOptional extends JPanel {
     }
     
     boolean shouldCreateCSS() {
-        return cbCreateCSS.isSelected();
+        return cbShouldCSScreated.isSelected();
     }
     
     boolean shouldInjectCSS() {
-        return cbInjectCSS.isSelected();
+        return cbShouldCSSinjected.isSelected();
     }
     
     boolean shouldCreateProperties() {
-        return cbCreateProperties.isSelected();
+        return cbShouldPropertiesCreated.isSelected();
     }
     
     boolean shouldInjectProperties() {
-        return cbInjectProperties.isSelected();
+        return cbShouldPropertiesInjected.isSelected();
     }
     
     private void updateTextCreateFollowingFiles() {
         taInfoOptionalFiles.setText(null);
         
-        final boolean shouldCreateCSS = cbCreateCSS.isSelected();
-        if (shouldCreateCSS) {
+        final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
+        if (shouldCSScreated) {
             final StringBuilder sb = new StringBuilder();
             sb.append("- ").append(packageName).append(baseName).append(".css"); // NOI18N
-            sb.append(cbInjectCSS.isSelected() ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(cbShouldCSSinjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
             
             taInfoOptionalFiles.append(sb.toString());
         }
         
-        final boolean shouldCreateProperties = cbCreateProperties.isSelected();
-        if (shouldCreateProperties) {
+        final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
+        if (shouldPropertiesCreated) {
             final StringBuilder sb = new StringBuilder();
             sb.append("- ").append(packageName).append(baseName).append(".properties"); // NOI18N
-            sb.append(cbInjectProperties.isSelected() ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(cbShouldPropertiesInjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
             
             taInfoOptionalFiles.append(sb.toString());
         }
@@ -172,49 +180,47 @@ public final class PluginVisualPanelOptional extends JPanel {
     private void initComponents() {
 
         spInjectCSSfile = new javax.swing.JScrollPane();
-        taInjectCSSfile = new javax.swing.JTextArea();
+        taShouldCSSinjected = new javax.swing.JTextArea();
         spInjectPropertiesFile = new javax.swing.JScrollPane();
-        taInjectPropertiesFile = new javax.swing.JTextArea();
+        taShouldPropertiesInjected = new javax.swing.JTextArea();
         separator = new javax.swing.JSeparator();
         lInfoOptionalFiles = new javax.swing.JLabel();
         spInfoOptionalFiles = new javax.swing.JScrollPane();
         taInfoOptionalFiles = new javax.swing.JTextArea();
-        cbInjectCSS = new javax.swing.JCheckBox();
-        cbInjectProperties = new javax.swing.JCheckBox();
-        cbCreateCSS = new javax.swing.JCheckBox();
-        cbCreateProperties = new javax.swing.JCheckBox();
+        cbShouldCSSinjected = new javax.swing.JCheckBox();
+        cbShouldPropertiesInjected = new javax.swing.JCheckBox();
+        cbShouldCSScreated = new javax.swing.JCheckBox();
+        cbShouldPropertiesCreated = new javax.swing.JCheckBox();
 
         spInjectCSSfile.setBorder(null);
-        spInjectCSSfile.setViewportBorder(null);
 
-        taInjectCSSfile.setEditable(false);
-        taInjectCSSfile.setColumns(20);
-        taInjectCSSfile.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taInjectCSSfile.setLineWrap(true);
-        taInjectCSSfile.setRows(3);
-        taInjectCSSfile.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taInjectCSSfile.text")); // NOI18N
-        taInjectCSSfile.setWrapStyleWord(true);
-        taInjectCSSfile.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
-        taInjectCSSfile.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taInjectCSSfile.setEnabled(false);
-        taInjectCSSfile.setMargin(new java.awt.Insets(3, 3, 0, 0));
-        spInjectCSSfile.setViewportView(taInjectCSSfile);
+        taShouldCSSinjected.setEditable(false);
+        taShouldCSSinjected.setColumns(20);
+        taShouldCSSinjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        taShouldCSSinjected.setLineWrap(true);
+        taShouldCSSinjected.setRows(3);
+        taShouldCSSinjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taShouldCSSinjected.text")); // NOI18N
+        taShouldCSSinjected.setWrapStyleWord(true);
+        taShouldCSSinjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
+        taShouldCSSinjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        taShouldCSSinjected.setEnabled(false);
+        taShouldCSSinjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
+        spInjectCSSfile.setViewportView(taShouldCSSinjected);
 
         spInjectPropertiesFile.setBorder(null);
-        spInjectPropertiesFile.setViewportBorder(null);
 
-        taInjectPropertiesFile.setEditable(false);
-        taInjectPropertiesFile.setColumns(20);
-        taInjectPropertiesFile.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taInjectPropertiesFile.setLineWrap(true);
-        taInjectPropertiesFile.setRows(3);
-        taInjectPropertiesFile.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taInjectPropertiesFile.text")); // NOI18N
-        taInjectPropertiesFile.setWrapStyleWord(true);
-        taInjectPropertiesFile.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
-        taInjectPropertiesFile.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taInjectPropertiesFile.setEnabled(false);
-        taInjectPropertiesFile.setMargin(new java.awt.Insets(3, 3, 0, 0));
-        spInjectPropertiesFile.setViewportView(taInjectPropertiesFile);
+        taShouldPropertiesInjected.setEditable(false);
+        taShouldPropertiesInjected.setColumns(20);
+        taShouldPropertiesInjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        taShouldPropertiesInjected.setLineWrap(true);
+        taShouldPropertiesInjected.setRows(3);
+        taShouldPropertiesInjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taShouldPropertiesInjected.text")); // NOI18N
+        taShouldPropertiesInjected.setWrapStyleWord(true);
+        taShouldPropertiesInjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
+        taShouldPropertiesInjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        taShouldPropertiesInjected.setEnabled(false);
+        taShouldPropertiesInjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
+        spInjectPropertiesFile.setViewportView(taShouldPropertiesInjected);
 
         org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.lInfoOptionalFiles.text")); // NOI18N
 
@@ -229,25 +235,25 @@ public final class PluginVisualPanelOptional extends JPanel {
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInfoOptionalFiles.setViewportView(taInfoOptionalFiles);
 
-        cbInjectCSS.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbInjectCSS, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbInjectCSS.text")); // NOI18N
-        cbInjectCSS.setFocusable(false);
-        cbInjectCSS.setPreferredSize(new java.awt.Dimension(20, 19));
-        cbInjectCSS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        cbShouldCSSinjected.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldCSSinjected.text")); // NOI18N
+        cbShouldCSSinjected.setFocusable(false);
+        cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(20, 19));
+        cbShouldCSSinjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        cbInjectProperties.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbInjectProperties, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbInjectProperties.text")); // NOI18N
-        cbInjectProperties.setFocusable(false);
-        cbInjectProperties.setPreferredSize(new java.awt.Dimension(20, 19));
-        cbInjectProperties.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        cbShouldPropertiesInjected.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesInjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldPropertiesInjected.text")); // NOI18N
+        cbShouldPropertiesInjected.setFocusable(false);
+        cbShouldPropertiesInjected.setPreferredSize(new java.awt.Dimension(20, 19));
+        cbShouldPropertiesInjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        cbCreateCSS.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbCreateCSS, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbCreateCSS.text")); // NOI18N
-        cbCreateCSS.setFocusable(false);
+        cbShouldCSScreated.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSScreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldCSScreated.text")); // NOI18N
+        cbShouldCSScreated.setFocusable(false);
 
-        cbCreateProperties.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbCreateProperties, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbCreateProperties.text")); // NOI18N
-        cbCreateProperties.setFocusable(false);
+        cbShouldPropertiesCreated.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesCreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldPropertiesCreated.text")); // NOI18N
+        cbShouldPropertiesCreated.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -261,18 +267,18 @@ public final class PluginVisualPanelOptional extends JPanel {
                     .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCreateCSS)
-                            .addComponent(cbCreateProperties))
+                            .addComponent(cbShouldCSScreated)
+                            .addComponent(cbShouldPropertiesCreated))
                         .addGap(0, 75, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbInjectProperties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spInjectPropertiesFile))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbInjectCSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spInjectCSSfile)))))
                 .addContainerGap())
@@ -281,16 +287,16 @@ public final class PluginVisualPanelOptional extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cbCreateCSS)
+                .addComponent(cbShouldCSScreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbInjectCSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spInjectCSSfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbCreateProperties)
+                .addComponent(cbShouldPropertiesCreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbInjectProperties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spInjectPropertiesFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,19 +309,18 @@ public final class PluginVisualPanelOptional extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox cbCreateCSS;
-    private javax.swing.JCheckBox cbCreateProperties;
-    private javax.swing.JCheckBox cbInjectCSS;
-    private javax.swing.JCheckBox cbInjectProperties;
+    private javax.swing.JCheckBox cbShouldCSScreated;
+    private javax.swing.JCheckBox cbShouldCSSinjected;
+    private javax.swing.JCheckBox cbShouldPropertiesCreated;
+    private javax.swing.JCheckBox cbShouldPropertiesInjected;
     private javax.swing.JLabel lInfoOptionalFiles;
     private javax.swing.JSeparator separator;
     private javax.swing.JScrollPane spInfoOptionalFiles;
     private javax.swing.JScrollPane spInjectCSSfile;
     private javax.swing.JScrollPane spInjectPropertiesFile;
     private javax.swing.JTextArea taInfoOptionalFiles;
-    private javax.swing.JTextArea taInjectCSSfile;
-    private javax.swing.JTextArea taInjectPropertiesFile;
+    private javax.swing.JTextArea taShouldCSSinjected;
+    private javax.swing.JTextArea taShouldPropertiesInjected;
     // End of variables declaration//GEN-END:variables
-
 
 }
