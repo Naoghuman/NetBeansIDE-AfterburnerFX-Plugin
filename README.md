@@ -6,10 +6,13 @@ NetBeansIDE-AfterburnerFX-Plugin
 Intention
 ===
 
-NetBeansIDE-AfterburnerFX-Plugin is a [NetBeans IDE] plugin which support the file 
-generation in convention with the library [afterburner.fx] in a [JavaFX] project.
-The plugin let allowed the user easily creating following files (BaseName.css, 
--.fxml, -.properties, -Presenter.java, -View.java) within one wizard.
+The `NetBeansIDE-AfterburnerFX-Plugin` is a [NetBeans IDE] plugin which supports the 
+file generation in convention with the library [afterburner.fx] in a [JavaFX] project.
+
+The plugin allows the user to easily create following files `[prefix].fxml`, 
+`[prefix]Presenter.java`, `[prefix]View.java`, `[prefix].css` *(optional)* and
+`[prefix].properties` *(optional)* in a wizard. Whereby the parameter `[prefix]` 
+is replaced with your choosen *package* and *file* name.
 
 
 
