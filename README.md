@@ -16,10 +16,25 @@ is replaced with your choosen *package* and *file* name.
 
 
 
-Screenshoots
+Screenshots
 ===
 
-* TODO add screenshoots
+The following screenshots shows the workflow to create the new 'AfterburnerFX Files' under Windows 7.
+
+##### 1. Choose File Type  
+![1-Choose-File-Type-Windows7.png][1-Choose-File-Type-Windows7]
+
+##### 2. Name and Location 
+![2-Name-And-Location-Windows7.png][2-Name-And-Location-Windows7]
+
+##### 3. Optional Files  
+![3-Optional-Files-Windows7.png][3-Optional-Files-Windows7]
+
+##### 4. Summary  
+![4-Summary-Window7.png][4-Summary-Window7]
+
+##### 5. Generated files  
+![5-Generated-Files-Windows7.png][5-Generated-Files-Windows7]
 
 
 
@@ -117,5 +132,14 @@ Contact<a name="Contact" />
 [NetBeans IDE]:https://netbeans.org/
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 
+
+
+[//]: # (Images)
+
+[1-Choose-File-Type-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203035/21c09472-67b4-11e5-92ed-c5826fa52349.png
+[2-Name-And-Location-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203034/21c03e96-67b4-11e5-8eab-fb64eeb3dbfa.png
+[3-Optional-Files-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203031/21bb4d3c-67b4-11e5-8ca8-f98700593e3d.png
+[4-Summary-Window7]:https://cloud.githubusercontent.com/assets/8161815/10203032/21bd95c4-67b4-11e5-8b9a-17575955a076.png
+[5-Generated-Files-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203033/21bed0e2-67b4-11e5-9a8f-bcbb7e6a15da.png
 
 
