@@ -30,11 +30,7 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
      * component from this class, just use getComponent().
      */
     private PluginVisualPanelSummary component;
-
-    // Get the visual component for the panel. In this template, the component
-    // is kept separate. This can be more efficient: if the wizard is created
-    // but never displayed, or not all panels are displayed, it is better to
-    // create only those which really need to be visible.
+    
     @Override
     public PluginVisualPanelSummary getComponent() {
         if (component == null) {
@@ -45,20 +41,12 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
 
     @Override
     public HelpCtx getHelp() {
-        // Show no Help button for this panel:
         return HelpCtx.DEFAULT_HELP;
-        // If you have context help:
-        // return new HelpCtx("help.key.here");
     }
 
     @Override
     public boolean isValid() {
-        // If it is always OK to press Next or Finish, then:
         return true;
-        // If it depends on some condition (form filled out...) and
-        // this condition changes (last form field filled in...) then
-        // use ChangeSupport to implement add/removeChangeListener below.
-        // WizardDescriptor.ERROR/WARNING/INFORMATION_MESSAGE will also be useful.
     }
 
     @Override
@@ -73,21 +61,19 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
 
     @Override
     public void readSettings(WizardDescriptor wiz) {
-        final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_BASENAME_CHOOSEN, "Afterburner"); // NOI18N
+        final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME_CHOOSEN, "Afterburner"); // NOI18N
         
-        String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
+        String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
         packageName = packageName.replace(SIGN_CHAR_DOT, File.separatorChar);
         if (!packageName.endsWith(File.separator)) {
             packageName += File.separator;
         }
         
-        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_INJECT, Boolean.TRUE);
+        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
         
-        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_INJECT, Boolean.TRUE);
+        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         
         component.initValues(baseName, packageName, shouldCreateCSS, shouldInjectCSS,
                 shouldCreateProperties, shouldInjectProperties);

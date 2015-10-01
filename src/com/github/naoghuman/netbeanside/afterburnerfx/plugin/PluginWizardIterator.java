@@ -110,104 +110,127 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
 
     @Override
     public Set<?> instantiate() throws IOException {
+        final List<DataObject> dataObjects = new ArrayList<DataObject>();
+        dataObjects.addAll(this.createDataObjectsForPrimaryFiles());
+        dataObjects.addAll(this.createDataObjectsForOptionalFiles());
+        
         final List<FileObject> files = new ArrayList<FileObject>();
-        files.addAll(this.createPrimaryFiles());
-        files.addAll(this.createOptionalFiles());
+        for (DataObject dataObject : dataObjects) {
+            files.add(dataObject.getPrimaryFile());
+        }
         
         return Collections.singleton(files);
     }
     
-    private List<FileObject> createPrimaryFiles() throws IOException {
+    private List<DataObject> createDataObjectsForPrimaryFiles() throws IOException {
+        final Map<String, DataObject> mapDataObjects = this.mapDataObjectsForPrimaryFiles();
+        final List<DataObject> dataObjects = new ArrayList<DataObject>();
+        final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
+        
+        final Map<String, String> parameters = this.mapParametersForPrimaryFiles();
+        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
+        parameters.putAll(this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties));
+        
+        for (String key : mapDataObjects.keySet()) {
+            final DataObject dataObject = mapDataObjects.get(key);
+            dataObjects.add(dataObject.createFromTemplate(dataFolder, parameters.get(key), parameters));
+        }
+        
+        return dataObjects;
+    }
+    
+    private Map<String, DataObject> mapDataObjectsForPrimaryFiles() throws IOException {
         final FileObject firstTemplate = Templates.getTemplate(wizard);
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
-        final Map<String, DataObject> mapDataObjects = new HashMap<String, DataObject>();
         
         final Map<String, String> mapTemplatesAndExtentions = new HashMap<String, String>();
-        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__FXML, TEMPLATE_PARAMETER__FXML);
-        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX_PRESENTER__JAVA, TEMPLATE_PARAMETER__PRESENTER);
-        mapTemplatesAndExtentions.put(TEMPLATE__PREFIX_VIEW__JAVA, TEMPLATE_PARAMETER__VIEW);
+        mapTemplatesAndExtentions.put(TEMPLATE_FILE__FXML, TEMPLATE_PARAMETER__FXML);
+        mapTemplatesAndExtentions.put(TEMPLATE_FILE__PRESENTER_JAVA, TEMPLATE_PARAMETER__PRESENTER);
+        mapTemplatesAndExtentions.put(TEMPLATE_FILE__VIEW_JAVA, TEMPLATE_PARAMETER__VIEW);
         
+        final Map<String, DataObject> mapDataObjects = new HashMap<String, DataObject>();
         for (FileObject fileObject : fileObjects) {
             if (mapTemplatesAndExtentions.containsKey(fileObject.getNameExt())) {
                 mapDataObjects.put(mapTemplatesAndExtentions.get(fileObject.getNameExt()), DataObject.find(fileObject));
             }
         }
         
-        final List<DataObject> dataObjects = new ArrayList<DataObject>();
-        final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
-        
+        return mapDataObjects;
+    }
+    
+    private Map<String, String> mapParametersForPrimaryFiles() {
         final Map<String, String> parameters = new HashMap<String, String>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(
-                PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
+        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME_CHOOSEN, PROP__BASENAME_CHOOSEN_DEFAULT_VALUE);
         parameters.put(TEMPLATE_PARAMETER__CONTROLLER, prefix + "Presenter"); // NOI18N
         parameters.put(TEMPLATE_PARAMETER__FXML, prefix);
         parameters.put(TEMPLATE_PARAMETER__PRESENTER, prefix + "Presenter"); // NOI18N
         parameters.put(TEMPLATE_PARAMETER__VIEW, prefix + "View"); // NOI18N
         
+        return parameters;
+    }
+    
+    private List<DataObject> createDataObjectsForOptionalFiles() throws IOException {
+        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
+        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
+        if (!shouldCreateCSS && !shouldCreateProperties) {
+            return new ArrayList<DataObject>();
+        }
+        
+        final Map<String, DataObject> mapDataObjects = this.mapDataObjectsForOptionalFiles(shouldCreateCSS, shouldCreateProperties);
+        final List<DataObject> dataObjects = new ArrayList<DataObject>();
+        final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
+        final Map<String, String> parameters = this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties);
+        
         for (String key : mapDataObjects.keySet()) {
             final DataObject dataObject = mapDataObjects.get(key);
             dataObjects.add(dataObject.createFromTemplate(dataFolder, parameters.get(key), parameters));
         }
         
-        final List<FileObject> primaryFiles = new ArrayList<FileObject>();
-        for (DataObject dataObject : dataObjects) {
-            primaryFiles.add(dataObject.getPrimaryFile());
-        }
-        
-        return primaryFiles;
+        return dataObjects;
     }
     
-    private List<FileObject> createOptionalFiles() throws IOException {
-        final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE__SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE__SHOULD_CREATE, Boolean.TRUE);
-        if (!shouldCreateCSS && !shouldCreateProperties) {
-            return new ArrayList<FileObject>();
-        }
-        
+    private Map<String, DataObject> mapDataObjectsForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) throws IOException {
         final FileObject firstTemplate = Templates.getTemplate(wizard);
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
-        final Map<String, DataObject> mapDataObjects = new HashMap<String, DataObject>();
         
         final Map<String, String> mapTemplatesAndExtentions = new HashMap<String, String>();
         if (shouldCreateCSS) {
-            mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__CSS, TEMPLATE_PARAMETER__CSS);
+            mapTemplatesAndExtentions.put(TEMPLATE_FILE__CSS, TEMPLATE_PARAMETER__CSS);
         }
         
         if (shouldCreateProperties) {
-            mapTemplatesAndExtentions.put(TEMPLATE__PREFIX__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
+            mapTemplatesAndExtentions.put(TEMPLATE_FILE__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
         }
         
+        final Map<String, DataObject> mapDataObjects = new HashMap<String, DataObject>();
         for (FileObject fileObject : fileObjects) {
             if (mapTemplatesAndExtentions.containsKey(fileObject.getNameExt())) {
                 mapDataObjects.put(mapTemplatesAndExtentions.get(fileObject.getNameExt()), DataObject.find(fileObject));
             }
         }
         
-        final List<DataObject> dataObjects = new ArrayList<DataObject>();
-        final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
-        
+        return mapDataObjects;
+    }
+    
+    private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) {
         final Map<String, String> parameters = new HashMap<String, String>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP_BASENAME_CHOOSEN, PROP_BASENAME_CHOOSEN_DEFAULT_VALUE);
+        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME_CHOOSEN, PROP__BASENAME_CHOOSEN_DEFAULT_VALUE);
         if (shouldCreateCSS) {
             parameters.put(TEMPLATE_PARAMETER__CSS, prefix);
         }
+            
+        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
+        parameters.put(TEMPLATE_PARAMETER__CSS_FILE_INJECT, shouldInjectCSS ? "true" : "false"); // NOI18N
         
         if (shouldCreateProperties) {
             parameters.put(TEMPLATE_PARAMETER__PROPERTIES, prefix);
         }
-        parameters.put(TEMPLATE_PARAMETER__RESOURCES, shouldCreateProperties ? "true" : "false"); // NOI18N
+            
+        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
+        parameters.put(TEMPLATE_PARAMETER__PROPERTIES_INJECT, shouldInjectProperties ? "true" : "false"); // NOI18N
         
-        for (String key : mapDataObjects.keySet()) {
-            final DataObject dataObject = mapDataObjects.get(key);
-            dataObjects.add(dataObject.createFromTemplate(dataFolder, parameters.get(key), parameters));
-        }
-        
-        final List<FileObject> optionalFiles = new ArrayList<FileObject>();
-        for (DataObject dataObject : dataObjects) {
-            optionalFiles.add(dataObject.getPrimaryFile());
-        }
-        
-        return optionalFiles;
+        return parameters;
     }
     
     @Override

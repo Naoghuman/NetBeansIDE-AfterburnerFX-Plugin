@@ -44,7 +44,6 @@ import org.openide.util.RequestProcessor;
 public final class PluginVisualPanelName extends JPanel implements ActionListener, 
         DocumentListener, IPluginSupport
 {
-    
     private static final ComboBoxModel WAIT_MODEL = SourceGroupSupport.getWaitModel();
 
     private final boolean isMaven;
@@ -77,10 +76,6 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
         tfBasename.getDocument().addDocumentListener(this);
         
         cbLocation.setRenderer(new SourceGroupSupport.GroupListCellRenderer());
-//        cbLocation.setMinimumSize(new Dimension(30, 25));
-//        cbLocation.setPreferredSize(new Dimension(100, 25));
-//        cbLocation.revalidate();
-//        cbLocation.repaint();
         cbLocation.addActionListener(this);
     
         cbPackage.getEditor().addActionListener(this);
@@ -89,10 +84,6 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             ((JTextField) packageEditor).getDocument().addDocumentListener(this);
         }
         cbPackage.setRenderer(PackageView.listRenderer());
-//        cbPackage.setMinimumSize(new Dimension(30, 25));
-//        cbPackage.setPreferredSize(new Dimension(100, 25));
-//        cbPackage.revalidate();
-//        cbPackage.repaint();
         
         taInfoPrimaryFiles.setBackground(tfProject.getBackground());
     }
@@ -131,8 +122,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
         }
         
         if (tfBasename.getText().trim().length() == 0) {
-            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(
-                    PROP_BASENAME, PluginSupport.getLastPackage(this.getPackageName()));
+            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME, PluginSupport.getLastPackage(this.getPackageName()));
             String activeName = baseName;
             if (targetFolder != null) {
                 int index = 0;

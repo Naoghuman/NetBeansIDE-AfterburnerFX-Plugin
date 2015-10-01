@@ -16,13 +16,13 @@ import javafx.fxml.Initializable;
  * @author ${user}
  */
 public class ${presenter} implements Initializable {
-<#if resources?? && resources != "false">
+<#if propertiesinject?? && propertiesinject != "false">
     private ResourceBundle resources = null;
 
 </#if>
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-<#if resources?? && resources != "false">
+<#if propertiesinject?? && propertiesinject != "false">
         this.resources = resources;
 <#else>
         

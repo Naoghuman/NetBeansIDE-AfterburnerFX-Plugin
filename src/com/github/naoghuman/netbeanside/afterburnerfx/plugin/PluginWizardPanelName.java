@@ -54,10 +54,6 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
         this.isMaven = isMaven;
     }
     
-    // Get the visual component for the panel. In this template, the component
-    // is kept separate. This can be more efficient: if the wizard is created
-    // but never displayed, or not all panels are displayed, it is better to
-    // create only those which really need to be visible.
     @Override
     public PluginVisualPanelName getComponent() {
         if (component == null) {
@@ -69,10 +65,7 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
 
     @Override
     public HelpCtx getHelp() {
-        // Show no Help button for this panel:
         return HelpCtx.DEFAULT_HELP;
-        // If you have context help:
-        // return new HelpCtx("help.key.here");
     }
 
     @Override
@@ -130,21 +123,12 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
         
         final FileObject preselectedFolder = Templates.getTargetFolder(settings);
         component.initValues(Templates.getTemplate(settings), preselectedFolder);
-// XXX todo own titel for wizard
-//        // XXX hack, TemplateWizard in final setTemplateImpl() forces new wizard's title
-//        // this name is used in NewFileWizard to modify the title
-//        Object substitute = component.getClientProperty("NewFileWizard_Title"); // NOI18N
-//        if (substitute != null) {
-//            settings.putProperty("NewFileWizard_Title", substitute); // NOI18N
-//        }
     }
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
-        NbPreferences.forModule(PluginWizardIterator.class).put(
-                PROP_BASENAME_CHOOSEN, getComponent().getBaseName());
-        NbPreferences.forModule(PluginWizardIterator.class).put(
-                PROP_CHOOSEN_PACKAGE, getComponent().getPackageName());
+        NbPreferences.forModule(PluginWizardIterator.class).put(PROP__BASENAME_CHOOSEN, getComponent().getBaseName());
+        NbPreferences.forModule(PluginWizardIterator.class).put(PROP__CHOOSEN_PACKAGE, getComponent().getPackageName());
     }
 
 }
