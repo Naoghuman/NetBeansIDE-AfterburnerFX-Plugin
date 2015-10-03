@@ -122,7 +122,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
         }
         
         if (tfBasename.getText().trim().length() == 0) {
-            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME, PluginSupport.getLastPackage(this.getPackageName()));
+            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME, PluginSupport.getLastPackageNameAsClassName(this.getPackageName()));
             String activeName = baseName;
             if (targetFolder != null) {
                 int index = 0;

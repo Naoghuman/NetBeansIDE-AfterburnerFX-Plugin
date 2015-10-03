@@ -42,7 +42,7 @@ public final class PluginSupport implements IPluginSupport {
                 : targetFolder.getFileObject(relFileName) != null;
     }
     
-    public static String getLastPackage(String packageName) {
+    public static String getLastPackageNameAsClassName(String packageName) {
         if (packageName == null) {
             return ""; // NOI18N
         }
@@ -146,7 +146,7 @@ public final class PluginSupport implements IPluginSupport {
     }
     
     public  static boolean isValidBaseName(String baseName) {
-        if(baseName == null || baseName.isEmpty()) {
+        if(baseName == null || baseName.trim().isEmpty()) {
             return false;
         }
         
