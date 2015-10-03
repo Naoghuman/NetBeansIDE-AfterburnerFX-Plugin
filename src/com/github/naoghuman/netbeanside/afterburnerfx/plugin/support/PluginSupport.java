@@ -145,14 +145,6 @@ public final class PluginSupport implements IPluginSupport {
         return null;
     }
     
-    public  static boolean isValidBaseName(String baseName) {
-        if(baseName == null || baseName.trim().isEmpty()) {
-            return false;
-        }
-        
-        return true;
-    }
-    
     public  static boolean isBaseNameContainsWrongFileNameChars(String baseName) {
         if(!isValidBaseName(baseName)) {
             return false;
@@ -188,41 +180,37 @@ public final class PluginSupport implements IPluginSupport {
         return false;
     }
     
+    public  static boolean isValidBaseName(String baseName) {
+        if(baseName == null || baseName.trim().isEmpty()) {
+            return false;
+        }
+        
+        return true;
+    }
+    
     public static boolean isValidBaseNameAndPackage(String baseName, FileObject root, String packageName) {
-        
-        System.out.println("base-name   : " + baseName);
-        System.out.println("package-name: " + packageName);
-        
         if (!isValidBaseName(baseName)) {
-            System.out.println("  --> !isValidBaseName(baseName)");
             return false;
         }
         
         if (!isValidPackageName(packageName)) {
-            System.out.println("  --> !isValidPackageName(packageName)");
             return false;
         }
         
         if (!isValidPackage(root, packageName)) {
-            System.out.println("  --> !isValidPackage(root, packageName)");
             return false;
         }
         
         if (baseName.equalsIgnoreCase(packageName)) {
-            System.out.println("  --> (baseName.equalsIgnoreCase(packageName))");
             return true;
         }
         
         final StringTokenizer st = new StringTokenizer(packageName, "."); // NOI18N
         if (!st.hasMoreTokens()) {
-            System.out.println("  --> (!st.hasMoreTokens())");
             return false;
         }
         
-        System.out.println("  --> (!packageName.toLowerCase().endsWith(\".\" + baseName.toLowerCase())): " + (!packageName.toLowerCase().endsWith("." + baseName.toLowerCase())));
-        
         if (!packageName.toLowerCase().endsWith("." + baseName.toLowerCase())) { // NOI18N
-            System.out.println("  ----<");
             return false;
         }
         
@@ -230,13 +218,16 @@ public final class PluginSupport implements IPluginSupport {
     }
     
     public static boolean isValidPackageName(String packageName) {
+        if (packageName == null) {
+            return false;
+        }
+        
+        packageName = packageName.trim();
         if (packageName.isEmpty()) {
-            System.out.println(" - packageName.isEmpty()");
             return false;
         }
         
         if (packageName.startsWith(".") || packageName.endsWith(".")) { // NOI18N
-            System.out.println(" - (packageName.startsWith(\".\") || packageName.endsWith(\".\"))");
             return false;
         }
         
@@ -244,12 +235,10 @@ public final class PluginSupport implements IPluginSupport {
         while (st.hasMoreTokens()) {
             final String token = st.nextToken();
             if (token.isEmpty()) {
-                System.out.println(" - token.isEmpty(): " + token);
                 return false;
             }
             
             if (!Utilities.isJavaIdentifier(token)) {
-                System.out.println(" - !Utilities.isJavaIdentifier(token): " + token);
                 return false;
             }
         }

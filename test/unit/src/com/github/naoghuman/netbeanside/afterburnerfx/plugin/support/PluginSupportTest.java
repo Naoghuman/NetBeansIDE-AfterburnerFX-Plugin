@@ -39,66 +39,138 @@ public class PluginSupportTest {
     
     @Test
     public void extractClassNameFromPackageWithNULL() {
-        String packageName = null;
-        String className = PluginSupport.extractClassNameFromPackage(packageName);
+        final String packageName = null;
+        final String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.isEmpty());
     }
     
     @Test
     public void extractClassNameFromPackageWithTrimEmpty() {
-        String packageName = "  "; // NOI18N
-        String className = PluginSupport.extractClassNameFromPackage(packageName);
+        final String packageName = "  "; // NOI18N
+        final String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.isEmpty());
     }
     
     @Test
     public void extractClassNameFromPackageWithSimplePackage() {
-        String packageName = "package"; // NOI18N
-        String className = PluginSupport.extractClassNameFromPackage(packageName);
+        final String packageName = "package"; // NOI18N
+        final String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.equals("Package")); // NOI18N
     }
     
     @Test
     public void extractClassNameFromPackageWithExtendedPackage() {
-        String packageName = "org.my.package"; // NOI18N
-        String className = PluginSupport.extractClassNameFromPackage(packageName);
+        final String packageName = "org.my.package"; // NOI18N
+        final String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.equals("Package")); // NOI18N
     }
     
     @Test
     public void isValidBaseNameNULL() {
-        String baseName = null;
-        boolean isValid = PluginSupport.isValidBaseName(baseName);
+        final String baseName = null;
+        final boolean isValid = PluginSupport.isValidBaseName(baseName);
         
         assertFalse(isValid);
     }
     
     @Test
     public void isValidBaseNameEmpty() {
-        String baseName = "";
-        boolean isValid = PluginSupport.isValidBaseName(baseName);
+        final String baseName = ""; // NOI18N
+        final boolean isValid = PluginSupport.isValidBaseName(baseName);
         
         assertFalse(isValid);
     }
     
     @Test
     public void isValidBaseNameTrimEmpty() {
-        String baseName = " ";
-        boolean isValid = PluginSupport.isValidBaseName(baseName);
+        final String baseName = " "; // NOI18N
+        final boolean isValid = PluginSupport.isValidBaseName(baseName);
         
         assertFalse(isValid);
     }
     
     @Test
     public void isValidBaseNameXy() {
-        String baseName = "xy";
-        boolean isValid = PluginSupport.isValidBaseName(baseName);
+        final String baseName = "xy"; // NOI18N
+        final boolean isValid = PluginSupport.isValidBaseName(baseName);
         
         assertTrue(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameNULL() {
+        final String packageName = null;
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameEmpty() {
+        final String packageName = "";  // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameTrimEmpty() {
+        final String packageName = " ";  // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameStartWithDot() {
+        final String packageName = ".org.my.package";  // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameEndWithDot() {
+        final String packageName = "org.my.package.";  // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameSimplePackage() {
+        final String packageName = "mypackage"; // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertTrue(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameSimplePackageJavaKeyWord() {
+        final String packageName = "package"; // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameExtendedPackage() {
+        final String packageName = "org.mypackage"; // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertTrue(isValid);
+    }
+    
+    @Test
+    public void isValidPackageNameExtendedPackageJavaKeyWord() {
+        final String packageName = "org.package"; // NOI18N
+        final boolean isValid = PluginSupport.isValidPackageName(packageName);
+        
+        assertFalse(isValid);
     }
     
 }
