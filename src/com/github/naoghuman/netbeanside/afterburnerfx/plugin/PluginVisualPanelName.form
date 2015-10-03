@@ -117,6 +117,9 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="@SuppressWarnings(&quot;rawtypes&quot;)"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lLocation">
       <Properties>
@@ -132,6 +135,9 @@
       <Properties>
         <Property name="editable" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="@SuppressWarnings(&quot;rawtypes&quot;)"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lPackage">
       <Properties>

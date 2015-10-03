@@ -38,33 +38,33 @@ public class PluginSupportTest {
     }
     
     @Test
-    public void getLastPackageNameAsClassNameNULL() {
+    public void extractClassNameFromPackageWithNULL() {
         String packageName = null;
-        String className = PluginSupport.getLastPackageNameAsClassName(packageName);
+        String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.isEmpty());
     }
     
     @Test
-    public void getLastPackageNameAsClassNameTrimEmpty() {
+    public void extractClassNameFromPackageWithTrimEmpty() {
         String packageName = "  "; // NOI18N
-        String className = PluginSupport.getLastPackageNameAsClassName(packageName);
+        String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.isEmpty());
     }
     
     @Test
-    public void getLastPackageNameAsClassNameWithSimplePackage() {
+    public void extractClassNameFromPackageWithSimplePackage() {
         String packageName = "package"; // NOI18N
-        String className = PluginSupport.getLastPackageNameAsClassName(packageName);
+        String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.equals("Package")); // NOI18N
     }
     
     @Test
-    public void getLastPackageNameAsClassNameWithExtendedPackage() {
+    public void extractClassNameFromPackageWithExtendedPackage() {
         String packageName = "org.my.package"; // NOI18N
-        String className = PluginSupport.getLastPackageNameAsClassName(packageName);
+        String className = PluginSupport.extractClassNameFromPackage(packageName);
         
         assertTrue(className.equals("Package")); // NOI18N
     }

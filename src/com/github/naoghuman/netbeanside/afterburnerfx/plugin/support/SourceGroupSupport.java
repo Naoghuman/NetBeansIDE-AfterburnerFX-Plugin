@@ -300,6 +300,7 @@ public class SourceGroupSupport {
             this.sourceGroup = sourceGroup;
         }
         
+        @SuppressWarnings({"rawtypes", "unchecked"})
         public ComboBoxModel getPackagesComboBoxModel() {
             if(sourceGroup != null) {
                 return PackageView.createListView(sourceGroup);
@@ -418,6 +419,7 @@ public class SourceGroupSupport {
 //            wrapper.setOpaque(false);
 //        }
 
+        @SuppressWarnings("rawtypes")
         @Override
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             // #93658: GTK needs name to render cell renderer "natively"
@@ -474,6 +476,7 @@ public class SourceGroupSupport {
         return null;
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static ComboBoxModel getWaitModel() {
         return new DefaultComboBoxModel(new String[] {
             NbBundle.getMessage(SourceGroupSupport.class, "msg.combobox.model.please.wait")});

@@ -42,7 +42,7 @@ public final class PluginSupport implements IPluginSupport {
                 : targetFolder.getFileObject(relFileName) != null;
     }
     
-    public static String getLastPackageNameAsClassName(String packageName) {
+    public static String extractClassNameFromPackage(String packageName) {
         if (packageName == null) {
             return ""; // NOI18N
         }
