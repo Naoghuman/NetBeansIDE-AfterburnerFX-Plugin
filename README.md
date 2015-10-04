@@ -64,9 +64,9 @@ Features<a name="Features" />
 Requirements<a name="Requirements" />
 ---
 
-* [NetBeans IDE] should be installed :) .
-* The plugin should be used in context from a [JavaFX] project.
-* In your [JavaFX] project you should use the library [afterburner.fx].
+* You should use [NetBeans IDE] as your development ide ![emoticon_smile.png][emoticon_smile].
+* The plugin should be used in context from a [JavaFX] project ![emoticon_grin.png][emoticon_grin].
+* In your [JavaFX] project you should use the library [afterburner.fx] ![emoticon_tongue.png][emoticon_tongue].
 
 
 
@@ -102,6 +102,7 @@ License<a name="License" />
 ---
 
 * The project `NetBeansIDE-AfterburnerFX-Plugin` is licensed under [General Public License 3.0].
+* The smilys icons in this document are from [famfamfam]. Click [famfamfam ReadMe] for more information.
 
 
 
@@ -122,7 +123,8 @@ Contact<a name="Contact" />
 [//]: # (Links)
 
 [afterburner.fx]:https://github.com/AdamBien/afterburner.fx/
-[NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
+[famfamfam]:http://www.famfamfam.com/
+[famfamfam ReadMe]:https://github.com/Naoghuman/NetBeansIDE-AfterburnerFX-Plugin/files/7315/readme_famfamfam.txt
 [FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
 [Issue]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/issues
@@ -133,6 +135,7 @@ Contact<a name="Contact" />
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Maven]:http://maven.apache.org/
 [NetBeans IDE]:https://netbeans.org/
+[NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 
 
@@ -146,4 +149,6 @@ Contact<a name="Contact" />
 [4-Summary-Window7]:https://cloud.githubusercontent.com/assets/8161815/10203032/21bd95c4-67b4-11e5-8b9a-17575955a076.png
 [5-Generated-Files-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203033/21bed0e2-67b4-11e5-9a8f-bcbb7e6a15da.png
 
-
+[emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
+[emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
+[emoticon_tongue]:https://cloud.githubusercontent.com/assets/8161815/10268706/741f41fe-6ac1-11e5-88ea-1b4d807b2283.png
