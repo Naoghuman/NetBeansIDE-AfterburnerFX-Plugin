@@ -188,6 +188,19 @@ public final class PluginSupport implements IPluginSupport {
         return true;
     }
     
+    public static boolean checkIfBaseNameEqualsLastPackageName(String baseName, String packageName) {
+        final StringTokenizer st = new StringTokenizer(packageName, "."); // NOI18N
+        if (!st.hasMoreTokens()) {
+            return false;
+        }
+        
+        if (!packageName.toLowerCase().endsWith(baseName.toLowerCase())) { // NOI18N
+            return false;
+        }
+        
+        return true;
+    }
+    
     public static boolean isValidBaseNameAndPackage(String baseName, FileObject root, String packageName) {
         if (!isValidBaseName(baseName)) {
             return false;
@@ -205,16 +218,7 @@ public final class PluginSupport implements IPluginSupport {
             return true;
         }
         
-        final StringTokenizer st = new StringTokenizer(packageName, "."); // NOI18N
-        if (!st.hasMoreTokens()) {
-            return false;
-        }
-        
-        if (!packageName.toLowerCase().endsWith("." + baseName.toLowerCase())) { // NOI18N
-            return false;
-        }
-        
-        return true;
+        return checkIfBaseNameEqualsLastPackageName(baseName, packageName);
     }
     
     public static boolean isValidPackageName(String packageName) {

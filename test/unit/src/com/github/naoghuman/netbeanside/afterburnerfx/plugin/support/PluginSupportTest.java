@@ -173,4 +173,40 @@ public class PluginSupportTest {
         assertFalse(isValid);
     }
     
+    @Test
+    public void checkIfBaseNameEqualsLastPackageNameIsFalse1() {
+        final String baseName = "package1"; // NOI18N
+        final String packageName = "package"; // NOI18N
+        
+        final boolean isValid = PluginSupport.checkIfBaseNameEqualsLastPackageName(baseName, packageName);
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void checkIfBaseNameEqualsLastPackageNameIsFalse2() {
+        final String baseName = "package1"; // NOI18N
+        final String packageName = "org.package"; // NOI18N
+        
+        final boolean isValid = PluginSupport.checkIfBaseNameEqualsLastPackageName(baseName, packageName);
+        assertFalse(isValid);
+    }
+    
+    @Test
+    public void checkIfBaseNameEqualsLastPackageNameIsTrue1() {
+        final String baseName = "package"; // NOI18N
+        final String packageName = "package"; // NOI18N
+        
+        final boolean isValid = PluginSupport.checkIfBaseNameEqualsLastPackageName(baseName, packageName);
+        assertTrue(isValid);
+    }
+    
+    @Test
+    public void checkIfBaseNameEqualsLastPackageNameIsTrue2() {
+        final String baseName = "package"; // NOI18N
+        final String packageName = "org.package"; // NOI18N
+        
+        final boolean isValid = PluginSupport.checkIfBaseNameEqualsLastPackageName(baseName, packageName);
+        assertTrue(isValid);
+    }
+    
 }
