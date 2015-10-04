@@ -74,11 +74,15 @@ Installation<a name="Installation" />
 ---
 
 * If not installed download the [JRE 8] or the [JDK 8].
-  * Optional: To work better with [FXML] files in a [JavaFX] application download 
-    the [JavaFX Scene Builder] in the section 'Additional Resources'.
+    * Optional: To work better with [FXML] files in a [JavaFX] application download 
+      the [JavaFX Scene Builder] in the section 'Additional Resources'.
 * If not installed download the [NetBeans IDE].
-* Download [NetBeansIDE-AfterburnerFX-Plugin.nbm].
-* TODO add steps to install manuell the plugin in [NetBeans IDE].
+* Manual installation from the plugin in [NetBeans IDE].
+    * Download the plugin [NetBeansIDE-AfterburnerFX-Plugin.nbm].
+    * Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
+    * In the opened dialog click on the tab 'Downloaded`.
+    * Click on the button `Add Plugins...` and select the downloaded plugin.
+    * At last click `Install`. 
 * TODO if UC is okay, then add here the steps to install the plugin throught the UC.
 
 
