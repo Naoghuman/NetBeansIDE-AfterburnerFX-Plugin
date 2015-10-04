@@ -65,8 +65,8 @@ Requirements<a name="Requirements" />
 ---
 
 * You should use [NetBeans IDE] as your development ide ![emoticon_smile.png][emoticon_smile].
-* The plugin should be used in context from a [JavaFX] project ![emoticon_grin.png][emoticon_grin].
-* In your [JavaFX] project you should use the library [afterburner.fx] ![emoticon_tongue.png][emoticon_tongue].
+* The plugin should be installed in your [NetBeans IDE] ![emoticon_tongue.png][emoticon_tongue].
+* In your [JavaFX] project the library [afterburner.fx] should be injected ![emoticon_grin.png][emoticon_grin].
 
 
 
