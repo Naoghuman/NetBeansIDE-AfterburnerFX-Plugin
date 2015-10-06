@@ -21,9 +21,6 @@ import javax.swing.JTextField;
 
 public final class PluginVisualPanelSummary extends JPanel {
 
-    /**
-     * Creates new form AfterburnerVisualPanel3
-     */
     public PluginVisualPanelSummary() {
         initComponents();
         initComponents2();

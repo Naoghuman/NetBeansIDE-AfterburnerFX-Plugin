@@ -57,7 +57,26 @@ Content
 
 Features<a name="Features" />
 ---
-* TODO add features
+
+* Allowed the fast generation from the [MVC] (Model-View-Controller) files for 
+  your [JavaFX] project within one wizard in convention with the library 
+  [afterburner.fx].
+* Following files will (can) be created in one workflow with the new wizard:
+    * Primary files: `BasicName`.fxml, `BasicName`Presenter.java and `BasicName`View.java 
+      where `BasicName` *(lowercase)* must be equals like the last packagename 
+      *(lowercase)* ([More informations about the convention JavaFX - afterburner.fx]).
+    * Optional files: `BasicName`.css, `BasicName`.properties.
+    * The optional files if checked for generation can also injected or not into 
+      `BasicName`.fxml and / or `BasicName`Presenter.java (
+      [More informations about the injection from Optional Files into Primary Files]).
+* The wizard gives the user `feedback` if the choosen `BasicName` and `package name`
+  aren't in convention with the library [afterburner.fx].
+* Feedback is also given if the choosen `BasicName` and / or `package name` 
+  doesn't follow the rules from the [Java Naming Convention].
+* The plugin is developed with the [NetBeans IDE] 8.0.2.
+* The plugin is a [NetBeans IDE] plugin ![emoticon_smile.png][emoticon_smile].
+* The plugin is an [Open Source] project.
+* Tested with [JUnit] tests.
 
 
 

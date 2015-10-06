@@ -18,7 +18,6 @@ package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -29,9 +28,6 @@ public final class PluginVisualPanelOptional extends JPanel {
     private String baseName;
     private String packageName;
 
-    /**
-     * Creates new form AfterburnerVisualPanel2
-     */
     public PluginVisualPanelOptional() {
         initComponents();
         initComponents2();
@@ -39,67 +35,51 @@ public final class PluginVisualPanelOptional extends JPanel {
     
     private void initComponents2() {
         // CSS
-        cbShouldCSScreated.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                
-                cbShouldCSSinjected.setEnabled(cbShouldCSScreated.isSelected());
-                if (!cbShouldCSScreated.isSelected()) {
-                    cbShouldCSSinjected.setSelected(Boolean.FALSE);
-                }
-                taShouldCSSinjected.setDisabledTextColor(!cbShouldCSScreated.isSelected() 
-                        ? LIGHT_GRAY : cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taShouldCSSinjected.invalidate();
-                taShouldCSSinjected.repaint();
-                
-                updateTextCreateFollowingFiles();
+        cbShouldCSScreated.addActionListener((ActionEvent e) -> {
+            cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            
+            cbShouldCSSinjected.setEnabled(cbShouldCSScreated.isSelected());
+            if (!cbShouldCSScreated.isSelected()) {
+                cbShouldCSSinjected.setSelected(Boolean.FALSE);
             }
+            taShouldCSSinjected.setDisabledTextColor(!cbShouldCSScreated.isSelected()
+                    ? LIGHT_GRAY : cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldCSSinjected.invalidate();
+            taShouldCSSinjected.repaint();
+            
+            updateTextCreateFollowingFiles();
         });
         
-        cbShouldCSSinjected.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                taShouldCSSinjected.setDisabledTextColor(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taShouldCSSinjected.invalidate();
-                taShouldCSSinjected.repaint();
-                
-                updateTextCreateFollowingFiles();
-            }
+        cbShouldCSSinjected.addActionListener((ActionEvent e) -> {
+            taShouldCSSinjected.setDisabledTextColor(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldCSSinjected.invalidate();
+            taShouldCSSinjected.repaint();
+            
+            updateTextCreateFollowingFiles();
         });
         
         // Properties
-        cbShouldPropertiesCreated.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                
-                cbShouldPropertiesInjected.setEnabled(cbShouldPropertiesCreated.isSelected());
-                if (!cbShouldPropertiesCreated.isSelected()) {
-                    cbShouldPropertiesInjected.setSelected(Boolean.FALSE);
-                }
-                taShouldPropertiesInjected.setDisabledTextColor(!cbShouldPropertiesCreated.isSelected() 
-                        ? LIGHT_GRAY : cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taShouldPropertiesInjected.invalidate();
-                taShouldPropertiesInjected.repaint();
-                
-                updateTextCreateFollowingFiles();
+        cbShouldPropertiesCreated.addActionListener((ActionEvent e) -> {
+            cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            
+            cbShouldPropertiesInjected.setEnabled(cbShouldPropertiesCreated.isSelected());
+            if (!cbShouldPropertiesCreated.isSelected()) {
+                cbShouldPropertiesInjected.setSelected(Boolean.FALSE);
             }
+            taShouldPropertiesInjected.setDisabledTextColor(!cbShouldPropertiesCreated.isSelected()
+                    ? LIGHT_GRAY : cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldPropertiesInjected.invalidate();
+            taShouldPropertiesInjected.repaint();
+            
+            updateTextCreateFollowingFiles();
         });
         
-        cbShouldPropertiesInjected.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                taShouldPropertiesInjected.setDisabledTextColor(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-                taShouldPropertiesInjected.invalidate();
-                taShouldPropertiesInjected.repaint();
-                
-                updateTextCreateFollowingFiles();
-            }
+        cbShouldPropertiesInjected.addActionListener((ActionEvent e) -> {
+            taShouldPropertiesInjected.setDisabledTextColor(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldPropertiesInjected.invalidate();
+            taShouldPropertiesInjected.repaint();
+            
+            updateTextCreateFollowingFiles();
         });
         
         // TextAreas

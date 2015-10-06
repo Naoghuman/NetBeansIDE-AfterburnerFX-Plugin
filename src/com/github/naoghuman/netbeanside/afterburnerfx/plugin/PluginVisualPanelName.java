@@ -56,10 +56,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     private boolean ignoreRootCombo;
     
     private RequestProcessor.Task updatePackagesTask;
-    
-    /**
-     * Creates new form AfterburnerVisualPanel1
-     */
+
     public PluginVisualPanelName(
             Project project, SourceGroupSupport sourceGroupSupport,
             ChangeSupport changeSupport, boolean isMaven
@@ -187,18 +184,12 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             updatePackagesTask.cancel();
         }
 
-        updatePackagesTask = new RequestProcessor("ComboBoxUpdatePackages").post(new Runnable() { // NOI18N
-            @Override
-            public void run() {
-                final ComboBoxModel model = ((SourceGroupProxy) item).getPackagesComboBoxModel();
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        model.setSelectedItem(cbPackage.getEditor().getItem());
-                        cbPackage.setModel(model);
-                    }
-                });
-            }
+        updatePackagesTask = new RequestProcessor("ComboBoxUpdatePackages").post(() -> { // NOI18N
+            final ComboBoxModel model = ((SourceGroupProxy) item).getPackagesComboBoxModel();
+            SwingUtilities.invokeLater(() -> {
+                model.setSelectedItem(cbPackage.getEditor().getItem());
+                cbPackage.setModel(model);
+            });
         });
     }
     

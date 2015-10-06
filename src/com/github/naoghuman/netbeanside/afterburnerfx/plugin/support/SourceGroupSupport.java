@@ -104,14 +104,14 @@ public class SourceGroupSupport {
     // add
     
     public void addSourceGroups(@NonNull SourceGroup[] sourceGroups) {
-        if(sourceGroups == null || sourceGroups.length == 0) {
+        if(sourceGroups.length == 0) {
             return;
         }
         if(groups == null) {
-            groups = new ArrayList<SourceGroupProxy>();
+            groups = new ArrayList<>();
         }
-        for(int i = 0; i < sourceGroups.length; i++) {
-            groups.add(new SourceGroupProxy(sourceGroups[i]));
+        for (SourceGroup sourceGroup : sourceGroups) {
+            groups.add(new SourceGroupProxy(sourceGroup));
         }
         if(currentSourceGroup == null) {
             currentSourceGroup = groups.get(0);
@@ -123,7 +123,7 @@ public class SourceGroupSupport {
             return;
         }
         if(groups == null) {
-            groups = new ArrayList<SourceGroupProxy>();
+            groups = new ArrayList<>();
         }
         groups.add(new SourceGroupProxy(project, displayName, packageProxy));
         if(currentSourceGroup == null) {
@@ -148,10 +148,10 @@ public class SourceGroupSupport {
     }
     
     public File[] getSourceGroupsAsFiles() {
-        List<File> list = new ArrayList<File>();
-        for(SourceGroupProxy p : groups) {
+        List<File> list = new ArrayList<>();
+        groups.stream().forEach((p) -> {
             list.add(FileUtil.toFile(p.getRootFolder()));
-        }
+        });
         return list.toArray(new File[0]);
     }
     
@@ -222,11 +222,9 @@ public class SourceGroupSupport {
             if(create == true && !currentSourceGroup.isReal()) {
                 SourceGroup created = SourceGroupModifier.createSourceGroup(currentSourceGroup.getProject(), getType(), JavaProjectConstants.SOURCES_HINT_MAIN);
                 if(created != null) {
-                    for(SourceGroupProxy p : groups) {
-                        if(!p.isReal()) {
-                            p.setSourceGroup(created);
-                        }
-                    }
+                    groups.stream().filter((p) -> (!p.isReal())).forEach((p) -> {
+                        p.setSourceGroup(created);
+                    });
                     return getCurrentPackageFolder(create);
                 }
             }
@@ -237,7 +235,7 @@ public class SourceGroupSupport {
                     try {
                         folder = rootFolder;
                         StringTokenizer tk = new StringTokenizer(currentPackageName, "/."); // NOI18N
-                        String name = null;
+                        String name;
                         while (tk.hasMoreTokens()) {
                             name = tk.nextToken();
                             FileObject fo = folder.getFileObject(name, ""); // NOI18N
@@ -284,7 +282,7 @@ public class SourceGroupSupport {
             this.project = project;
             this.root = project.getProjectDirectory();
             this.displayName = displayName;
-            this.packageProxy = new ArrayList<String>();
+            this.packageProxy = new ArrayList<>();
             this.packageProxy.addAll(Arrays.asList(packageProxy));
         }
         
