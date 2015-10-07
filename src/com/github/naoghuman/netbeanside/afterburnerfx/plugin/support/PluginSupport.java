@@ -123,7 +123,7 @@ public final class PluginSupport implements IPluginSupport {
 
         // test whether the selected folder on selected filesystem already exists
         if (targetFolder == null) {
-            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR_TARGET_FOLDER_DOESNT_EXISTS);
+            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR__TARGET_FOLDER_DOESNT_EXISTS);
         }
 
         // target package should be writable
@@ -131,14 +131,14 @@ public final class PluginSupport implements IPluginSupport {
                 : FileUtil.toFile(targetFolder);
         if (targetPackage != null) {
             if (targetPackage.exists() && !targetPackage.canWrite()) {
-                return NbBundle.getMessage(PluginSupport.class, MSG_ERROR_TARGET_FOLDER_IS_READONLY);
+                return NbBundle.getMessage(PluginSupport.class, MSG_ERROR__TARGET_FOLDER_IS_READONLY);
             }
         } else if (!targetFolder.canWrite()) {
-            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR_TARGET_FOLDER_IS_READONLY);
+            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR__TARGET_FOLDER_IS_READONLY);
         }
 
         if (existFileName(targetFolder, relFileName)) {
-            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR_FILES_ALREADY_EXISTS, newObjectNameToDisplay);
+            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR__FILES_ALREADY_EXISTS, newObjectNameToDisplay);
         }
 
         // all ok

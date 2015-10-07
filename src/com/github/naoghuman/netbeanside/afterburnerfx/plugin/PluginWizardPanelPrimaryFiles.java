@@ -28,7 +28,7 @@ import org.openide.util.ChangeSupport;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbPreferences;
 
-public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescriptor>, IPluginSupport {
+public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<WizardDescriptor>, IPluginSupport {
 
     private final ChangeSupport changeSupport = new ChangeSupport(this);
     
@@ -43,21 +43,21 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
      * The visual component that displays this panel. If you need to access the
      * component from this class, just use getComponent().
      */
-    private PluginVisualPanelName component;
+    private PluginVisualPanelPrimaryFiles component;
 
     /**
      * Creates new form AfterburnerVisualPanel1
      */
-    public PluginWizardPanelName(Project project, SourceGroupSupport sourceGroupSupport, boolean isMaven) {
+    public PluginWizardPanelPrimaryFiles(Project project, SourceGroupSupport sourceGroupSupport, boolean isMaven) {
         this.project = project;
         this.sourceGroupSupport = sourceGroupSupport;
         this.isMaven = isMaven;
     }
     
     @Override
-    public PluginVisualPanelName getComponent() {
+    public PluginVisualPanelPrimaryFiles getComponent() {
         if (component == null) {
-            component = new PluginVisualPanelName(project, sourceGroupSupport, changeSupport, isMaven);
+            component = new PluginVisualPanelPrimaryFiles(project, sourceGroupSupport, changeSupport, isMaven);
         }
         
         return component;
@@ -71,27 +71,27 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
     @Override
     public boolean isValid() {
         if (!PluginSupport.isValidBaseName(component.getBaseName())) {
-            PluginSupport.setInfoMessage(MSG_INFO_BASE_NAME_ISNT_VALID, settings);
+            PluginSupport.setInfoMessage(MSG_INFO__FILE_NAME_ISNT_VALID, settings);
             return false;
         }
         
         if (!PluginSupport.isBaseNameContainsWrongFileNameChars(component.getBaseName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR_BASE_NAME_CONTAINS_WRONG_FILENAME_CHARS, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS, settings);
             return false;
         }
           
         if (!PluginSupport.isValidPackageName(component.getPackageName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR_PACKAGE_NAME_ISNT_VALID, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_NAME_ISNT_VALID, settings);
             return false;
         }
         
         if (!PluginSupport.isValidPackage(component.getLocationFolder(), component.getPackageName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR_PACKAGE_ISNT_FOLDER, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_ISNT_FOLDER, settings);
             return false;
         }
         
         if (!PluginSupport.isValidBaseNameAndPackage(component.getBaseName(), component.getLocationFolder(), component.getPackageName())) {
-            PluginSupport.setWarningMessage(MSG_WARNING_BASE_AND_PACKAGE_NAME_ARENT_EQUALS, settings);
+            PluginSupport.setWarningMessage(MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS, settings);
             return false;
         }
         
@@ -127,7 +127,7 @@ public class PluginWizardPanelName implements WizardDescriptor.Panel<WizardDescr
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
-        NbPreferences.forModule(PluginWizardIterator.class).put(PROP__BASENAME_CHOOSEN, getComponent().getBaseName());
+        NbPreferences.forModule(PluginWizardIterator.class).put(PROP__FILENAME_CHOOSEN, getComponent().getBaseName());
         NbPreferences.forModule(PluginWizardIterator.class).put(PROP__CHOOSEN_PACKAGE, getComponent().getPackageName());
     }
 

@@ -84,7 +84,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         }
         
         panels = new ArrayList<>();
-        panels.add(new PluginWizardPanelName(project, supportBaseName, isMaven));
+        panels.add(new PluginWizardPanelPrimaryFiles(project, supportBaseName, isMaven));
         panels.add(new PluginWizardPanelOptional());
         panels.add(new PluginWizardPanelSummary());
         
@@ -161,7 +161,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     
     private Map<String, String> mapParametersForPrimaryFiles() {
         final Map<String, String> parameters = new HashMap<>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME_CHOOSEN, PROP__BASENAME_CHOOSEN_DEFAULT_VALUE);
+        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         parameters.put(TEMPLATE_PARAMETER__CONTROLLER, prefix + "Presenter"); // NOI18N
         parameters.put(TEMPLATE_PARAMETER__FXML, prefix);
         parameters.put(TEMPLATE_PARAMETER__PRESENTER, prefix + "Presenter"); // NOI18N
@@ -215,7 +215,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     
     private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) {
         final Map<String, String> parameters = new HashMap<>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME_CHOOSEN, PROP__BASENAME_CHOOSEN_DEFAULT_VALUE);
+        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         if (shouldCreateCSS) {
             parameters.put(TEMPLATE_PARAMETER__CSS, prefix);
         }

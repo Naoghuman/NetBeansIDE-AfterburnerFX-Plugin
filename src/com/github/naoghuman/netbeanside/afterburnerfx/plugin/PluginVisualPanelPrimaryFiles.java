@@ -41,7 +41,7 @@ import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 import org.openide.util.RequestProcessor;
 
-public final class PluginVisualPanelName extends JPanel implements ActionListener, 
+public final class PluginVisualPanelPrimaryFiles extends JPanel implements ActionListener, 
         DocumentListener, IPluginSupport
 {
     @SuppressWarnings("rawtypes")
@@ -57,7 +57,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     
     private RequestProcessor.Task updatePackagesTask;
 
-    public PluginVisualPanelName(
+    public PluginVisualPanelPrimaryFiles(
             Project project, SourceGroupSupport sourceGroupSupport,
             ChangeSupport changeSupport, boolean isMaven
     ) {
@@ -72,7 +72,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     
     @SuppressWarnings("unchecked")
     private void initComponents2() {
-        tfBasename.getDocument().addDocumentListener(this);
+        tfFileName.getDocument().addDocumentListener(this);
         
         cbLocation.setRenderer(new SourceGroupSupport.GroupListCellRenderer());
         cbLocation.addActionListener(this);
@@ -121,8 +121,8 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             }
         }
         
-        if (tfBasename.getText().trim().length() == 0) {
-            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__BASENAME, PluginSupport.extractClassNameFromPackage(this.getPackageName()));
+        if (tfFileName.getText().trim().length() == 0) {
+            final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME, PluginSupport.extractClassNameFromPackage(this.getPackageName()));
             String activeName = baseName;
             if (targetFolder != null) {
                 int index = 0;
@@ -136,8 +136,8 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
                 }
             }
             
-            tfBasename.setText(activeName);
-            tfBasename.selectAll();
+            tfFileName.setText(activeName);
+            tfFileName.selectAll();
         }
         
         updatePackages();
@@ -145,7 +145,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     }
 
     public String getBaseName() {
-        final String text = tfBasename.getText().trim();
+        final String text = tfFileName.getText().trim();
         return (text.length()) == 0 ? null : text;
     }
     
@@ -156,7 +156,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
 
     @Override
     public String getName() {
-        return "Name and Location"; // NOI18N
+        return "Primary Files"; // NOI18N
     }
 
     public String getPackageFileName() {
@@ -201,8 +201,8 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             return;
         }
         
-        final String baseName = this.getBaseName();
-        if (baseName == null || baseName.isEmpty()) {
+        final String fileName = this.getBaseName();
+        if (fileName == null || fileName.isEmpty()) {
             return;
         }
         
@@ -210,9 +210,9 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
         if (!packageName.endsWith(File.separator)) {
             packageName += File.separator;
         }
-        taInfoPrimaryFiles.append("- " + packageName + baseName + ".fxml\n"); // NOI18N
-        taInfoPrimaryFiles.append("- " + packageName + baseName + "Presenter.java\n"); // NOI18N
-        taInfoPrimaryFiles.append("- " + packageName + baseName + "View.java"); // NOI18N
+        taInfoPrimaryFiles.append("- " + packageName + fileName + ".fxml\n"); // NOI18N
+        taInfoPrimaryFiles.append("- " + packageName + fileName + "Presenter.java\n"); // NOI18N
+        taInfoPrimaryFiles.append("- " + packageName + fileName + "View.java"); // NOI18N
     }
 
     /**
@@ -224,8 +224,8 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lBasename = new javax.swing.JLabel();
-        tfBasename = new javax.swing.JTextField();
+        lFileName = new javax.swing.JLabel();
+        tfFileName = new javax.swing.JTextField();
         tfProject = new javax.swing.JTextField();
         lProject = new javax.swing.JLabel();
         cbLocation = new javax.swing.JComboBox();
@@ -237,29 +237,29 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
         spInfoPrimaryFiles = new javax.swing.JScrollPane();
         taInfoPrimaryFiles = new javax.swing.JTextArea();
 
-        org.openide.awt.Mnemonics.setLocalizedText(lBasename, org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.lBasename.text")); // NOI18N
-        lBasename.setPreferredSize(new java.awt.Dimension(100, 20));
+        org.openide.awt.Mnemonics.setLocalizedText(lFileName, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lFileName.text")); // NOI18N
+        lFileName.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        tfBasename.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.tfBasename.text")); // NOI18N
+        tfFileName.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfFileName.text")); // NOI18N
 
         tfProject.setEditable(false);
-        tfProject.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.tfProject.text")); // NOI18N
+        tfProject.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfProject.text")); // NOI18N
         tfProject.setEnabled(false);
 
-        org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.lProject.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lProject.text")); // NOI18N
         lProject.setPreferredSize(new java.awt.Dimension(100, 20));
 
         cbLocation.setEnabled(false);
 
-        org.openide.awt.Mnemonics.setLocalizedText(lLocation, org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.lLocation.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lLocation, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lLocation.text")); // NOI18N
         lLocation.setPreferredSize(new java.awt.Dimension(100, 20));
 
         cbPackage.setEditable(true);
 
-        org.openide.awt.Mnemonics.setLocalizedText(lPackage, org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.lPackage.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lPackage, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lPackage.text")); // NOI18N
         lPackage.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelName.class, "PluginVisualPanelName.lInfoPrimaryFiles.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles.text")); // NOI18N
         lInfoPrimaryFiles.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         spInfoPrimaryFiles.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -283,14 +283,14 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
                     .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lBasename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfProject)
-                            .addComponent(tfBasename)
+                            .addComponent(tfFileName)
                             .addComponent(cbLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbPackage, 0, 276, Short.MAX_VALUE)))
                     .addComponent(separator)
@@ -302,8 +302,8 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lBasename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfBasename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,7 +331,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     private javax.swing.JComboBox cbLocation;
     @SuppressWarnings("rawtypes")
     private javax.swing.JComboBox cbPackage;
-    private javax.swing.JLabel lBasename;
+    private javax.swing.JLabel lFileName;
     private javax.swing.JLabel lInfoPrimaryFiles;
     private javax.swing.JLabel lLocation;
     private javax.swing.JLabel lPackage;
@@ -339,7 +339,7 @@ public final class PluginVisualPanelName extends JPanel implements ActionListene
     private javax.swing.JSeparator separator;
     private javax.swing.JScrollPane spInfoPrimaryFiles;
     private javax.swing.JTextArea taInfoPrimaryFiles;
-    private javax.swing.JTextField tfBasename;
+    private javax.swing.JTextField tfFileName;
     private javax.swing.JTextField tfProject;
     // End of variables declaration//GEN-END:variables
 

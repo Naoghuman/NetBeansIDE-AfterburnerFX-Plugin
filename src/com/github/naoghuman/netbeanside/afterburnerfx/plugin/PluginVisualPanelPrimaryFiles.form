@@ -22,7 +22,7 @@
                   <Component id="lInfoPrimaryFiles" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lBasename" min="-2" max="-2" attributes="0"/>
+                          <Component id="lFileName" min="-2" max="-2" attributes="0"/>
                           <Component id="lProject" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lPackage" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lLocation" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -30,7 +30,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfProject" max="32767" attributes="0"/>
-                          <Component id="tfBasename" max="32767" attributes="0"/>
+                          <Component id="tfFileName" max="32767" attributes="0"/>
                           <Component id="cbLocation" alignment="0" max="32767" attributes="0"/>
                           <Component id="cbPackage" alignment="0" pref="276" max="32767" attributes="0"/>
                       </Group>
@@ -47,8 +47,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lBasename" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfBasename" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lFileName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfFileName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -77,20 +77,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lBasename">
+    <Component class="javax.swing.JLabel" name="lFileName">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.lBasename.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.lFileName.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 20]"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfBasename">
+    <Component class="javax.swing.JTextField" name="tfFileName">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.tfBasename.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfFileName.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -98,7 +98,7 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.tfProject.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfProject.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -106,7 +106,7 @@
     <Component class="javax.swing.JLabel" name="lProject">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.lProject.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.lProject.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 20]"/>
@@ -124,7 +124,7 @@
     <Component class="javax.swing.JLabel" name="lLocation">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.lLocation.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.lLocation.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 20]"/>
@@ -142,7 +142,7 @@
     <Component class="javax.swing.JLabel" name="lPackage">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.lPackage.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.lPackage.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 20]"/>
@@ -152,7 +152,7 @@
     <Component class="javax.swing.JLabel" name="lInfoPrimaryFiles">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelName.lInfoPrimaryFiles.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="3"/>
       </Properties>

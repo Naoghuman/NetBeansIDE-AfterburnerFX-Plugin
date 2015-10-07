@@ -26,25 +26,31 @@ public interface IPluginSupport {
     public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; //NOI18N
     public static final String DEFAULT_MAVEN_CSS_PACKAGE = "styles"; //NOI18N
     
-    public static final String MSG_INFO_BASE_NAME_ISNT_VALID = "info.base.name.isnt.valid"; // NOI18N
-    public static final String MSG_ERROR_BASE_NAME_CONTAINS_WRONG_FILENAME_CHARS = "error.base.name.contains.wrong.filename.chars"; // NOI18N
-    public static final String MSG_ERROR_FILES_ALREADY_EXISTS = "error.files.already.exists"; // NOI18N
-    public static final String MSG_ERROR_PACKAGE_ISNT_FOLDER = "error.package.isnt.folder"; // NOI18N
-    public static final String MSG_ERROR_PACKAGE_NAME_ISNT_VALID = "error.package.name.isnt.valid"; // NOI18N
-    public static final String MSG_ERROR_TARGET_FOLDER_DOESNT_EXISTS = "error.target.folder.doesnt.exists"; // NOI18N
-    public static final String MSG_ERROR_TARGET_FOLDER_IS_READONLY = "error.target.folder.is.readonly"; // NOI18N
-    public static final String MSG_WARNING_BASE_AND_PACKAGE_NAME_ARENT_EQUALS = "warning.base.and.package.name.arent.equals"; // NOI18N
+    public static final String MSG_INFO__FILE_NAME_ISNT_VALID = "info.filename.isnt.valid"; // NOI18N
+    public static final String MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS = "error.filename.contains.wrong.chars"; // NOI18N
+    public static final String MSG_ERROR__FILES_ALREADY_EXISTS = "error.files.already.exists"; // NOI18N
+    public static final String MSG_ERROR__PACKAGE_ISNT_FOLDER = "error.package.isnt.folder"; // NOI18N
+    public static final String MSG_ERROR__PACKAGE_NAME_ISNT_VALID = "error.package.name.isnt.valid"; // NOI18N
+    public static final String MSG_ERROR__TARGET_FOLDER_DOESNT_EXISTS = "error.target.folder.doesnt.exists"; // NOI18N
+    public static final String MSG_ERROR__TARGET_FOLDER_IS_READONLY = "error.target.folder.is.readonly"; // NOI18N
+    public static final String MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS = "warning.file.and.package.name.arent.equals"; // NOI18N
     
-    public static final String PROP__BASENAME = "PROP__BASENAME"; // NOI18N
-    public static final String PROP__BASENAME_CHOOSEN = "PROP__BASENAME_CHOOSEN"; // NOI18N
-    public static final String PROP__BASENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
     public static final String PROP__CHOOSEN_PACKAGE = "PROP__CHOOSEN_PACKAGE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_CREATE = "PROP__CSS_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_INJECT = "PROP__CSS_FILE_SHOULD_INJECT"; // NOI18N
+    public static final String PROP__FILENAME = "PROP__FILENAME"; // NOI18N
+    public static final String PROP__FILENAME_CHOOSEN = "PROP__FILENAME_CHOOSEN"; // NOI18N
+    public static final String PROP__FILENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_CREATE = "PROP__PROPERTIES_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_INJECT = "PROP__PROPERTIES_FILE_SHOULD_INJECT"; // NOI18N
     
     public static final Character SIGN_CHAR_DOT = '.';
+    
+    public static final String TEMPLATE_FILE__CSS = "Template.css"; // NOI18N
+    public static final String TEMPLATE_FILE__FXML = "Template.fxml"; // NOI18N
+    public static final String TEMPLATE_FILE__PROPERTIES = "Template.properties"; // NOI18N
+    public static final String TEMPLATE_FILE__PRESENTER_JAVA = "TemplatePresenter.java"; // NOI18N
+    public static final String TEMPLATE_FILE__VIEW_JAVA = "TemplateView.java"; // NOI18N
     
     public static final String TEMPLATE_PARAMETER__CONTROLLER = "controller"; // NOI18N
     public static final String TEMPLATE_PARAMETER__CSS = "css"; // NOI18N
@@ -54,11 +60,5 @@ public interface IPluginSupport {
     public static final String TEMPLATE_PARAMETER__PROPERTIES = "properties"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES_INJECT = "propertiesinject"; // NOI18N
     public static final String TEMPLATE_PARAMETER__VIEW = "view"; // NOI18N
-    
-    public static final String TEMPLATE_FILE__CSS = "Template.css"; // NOI18N
-    public static final String TEMPLATE_FILE__FXML = "Template.fxml"; // NOI18N
-    public static final String TEMPLATE_FILE__PROPERTIES = "Template.properties"; // NOI18N
-    public static final String TEMPLATE_FILE__PRESENTER_JAVA = "TemplatePresenter.java"; // NOI18N
-    public static final String TEMPLATE_FILE__VIEW_JAVA = "TemplateView.java"; // NOI18N
     
 }
