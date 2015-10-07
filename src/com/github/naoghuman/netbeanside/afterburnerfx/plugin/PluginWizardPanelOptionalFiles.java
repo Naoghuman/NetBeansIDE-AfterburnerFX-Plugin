@@ -23,18 +23,18 @@ import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbPreferences;
 
-public class PluginWizardPanelOptional implements WizardDescriptor.Panel<WizardDescriptor>, IPluginSupport {
+public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<WizardDescriptor>, IPluginSupport {
 
     /**
      * The visual component that displays this panel. If you need to access the
      * component from this class, just use getComponent().
      */
-    private PluginVisualPanelOptional component;
+    private PluginVisualPanelOptionalFiles component;
     
     @Override
-    public PluginVisualPanelOptional getComponent() {
+    public PluginVisualPanelOptionalFiles getComponent() {
         if (component == null) {
-            component = new PluginVisualPanelOptional();
+            component = new PluginVisualPanelOptionalFiles();
         }
         return component;
     }

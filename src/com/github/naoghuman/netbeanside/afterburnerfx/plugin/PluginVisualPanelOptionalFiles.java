@@ -21,14 +21,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public final class PluginVisualPanelOptional extends JPanel {
+public final class PluginVisualPanelOptionalFiles extends JPanel {
     
     private static final Color LIGHT_GRAY = new Color(109, 109, 109);
     
     private String baseName;
     private String packageName;
 
-    public PluginVisualPanelOptional() {
+    public PluginVisualPanelOptionalFiles() {
         initComponents();
         initComponents2();
     }
@@ -179,7 +179,7 @@ public final class PluginVisualPanelOptional extends JPanel {
         taShouldCSSinjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taShouldCSSinjected.setLineWrap(true);
         taShouldCSSinjected.setRows(3);
-        taShouldCSSinjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taShouldCSSinjected.text")); // NOI18N
+        taShouldCSSinjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldCSSinjected.text")); // NOI18N
         taShouldCSSinjected.setWrapStyleWord(true);
         taShouldCSSinjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
         taShouldCSSinjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -194,7 +194,7 @@ public final class PluginVisualPanelOptional extends JPanel {
         taShouldPropertiesInjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taShouldPropertiesInjected.setLineWrap(true);
         taShouldPropertiesInjected.setRows(3);
-        taShouldPropertiesInjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.taShouldPropertiesInjected.text")); // NOI18N
+        taShouldPropertiesInjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldPropertiesInjected.text")); // NOI18N
         taShouldPropertiesInjected.setWrapStyleWord(true);
         taShouldPropertiesInjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
         taShouldPropertiesInjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -202,7 +202,7 @@ public final class PluginVisualPanelOptional extends JPanel {
         taShouldPropertiesInjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInjectPropertiesFile.setViewportView(taShouldPropertiesInjected);
 
-        org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.lInfoOptionalFiles.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
 
         spInfoOptionalFiles.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         spInfoOptionalFiles.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -216,23 +216,23 @@ public final class PluginVisualPanelOptional extends JPanel {
         spInfoOptionalFiles.setViewportView(taInfoOptionalFiles);
 
         cbShouldCSSinjected.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldCSSinjected.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldCSSinjected.text")); // NOI18N
         cbShouldCSSinjected.setFocusable(false);
         cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(20, 19));
         cbShouldCSSinjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldPropertiesInjected.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesInjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldPropertiesInjected.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesInjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldPropertiesInjected.text")); // NOI18N
         cbShouldPropertiesInjected.setFocusable(false);
         cbShouldPropertiesInjected.setPreferredSize(new java.awt.Dimension(20, 19));
         cbShouldPropertiesInjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldCSScreated.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSScreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldCSScreated.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSScreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldCSScreated.text")); // NOI18N
         cbShouldCSScreated.setFocusable(false);
 
         cbShouldPropertiesCreated.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesCreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptional.class, "PluginVisualPanelOptional.cbShouldPropertiesCreated.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesCreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldPropertiesCreated.text")); // NOI18N
         cbShouldPropertiesCreated.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

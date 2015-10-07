@@ -85,7 +85,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         
         panels = new ArrayList<>();
         panels.add(new PluginWizardPanelPrimaryFiles(project, supportBaseName, isMaven));
-        panels.add(new PluginWizardPanelOptional());
+        panels.add(new PluginWizardPanelOptionalFiles());
         panels.add(new PluginWizardPanelSummary());
         
         final String[] steps = createSteps();
