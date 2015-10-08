@@ -22,22 +22,22 @@ Screenshots
 The following screenshots shows the workflow to create the new 'AfterburnerFX Files' under Windows 7.
 
 ##### 1. Open the Wizard
-![0-Open-Wizard-Windows7.png][0-Open-Wizard-Windows7]
+![0_Open-Wizard_Windows-7.png][0_Open-Wizard_Windows-7]
 
 ##### 2. Choose File Type  
-![1-Choose-File-Type-Windows7.png][1-Choose-File-Type-Windows7]
+![1_Choose-File-Type_Windows-7.png][1_Choose-File-Type_Windows-7]
 
-##### 3. Name and Location 
-![2-Name-And-Location-Windows7.png][2-Name-And-Location-Windows7]
+##### 3. Primary Files 
+![2_Primary-Files_Windows-7.png][2_Primary-Files_Windows-7]
 
 ##### 4. Optional Files  
-![3-Optional-Files-Windows7.png][3-Optional-Files-Windows7]
+![3_Optional-Files_Windows-7.png][3_Optional-Files_Windows-7]
 
 ##### 5. Summary  
-![4-Summary-Window7.png][4-Summary-Window7]
+![4_Summary_Window-7.png][4_Summary_Window-7]
 
 ##### 6. Generated files  
-![5-Generated-Files-Windows7.png][5-Generated-Files-Windows7]
+![5_Generated-Files_Windows-7.png][5_Generated-Files_Windows-7]
 
 
 
@@ -165,12 +165,12 @@ Contact<a name="Contact" />
 
 [//]: # (Images)
 
-[0-Open-Wizard-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10226251/ba1e5170-6866-11e5-9fad-44e5ae6ad686.png
-[1-Choose-File-Type-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203035/21c09472-67b4-11e5-92ed-c5826fa52349.png
-[2-Name-And-Location-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203034/21c03e96-67b4-11e5-8eab-fb64eeb3dbfa.png
-[3-Optional-Files-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203031/21bb4d3c-67b4-11e5-8ca8-f98700593e3d.png
-[4-Summary-Window7]:https://cloud.githubusercontent.com/assets/8161815/10203032/21bd95c4-67b4-11e5-8b9a-17575955a076.png
-[5-Generated-Files-Windows7]:https://cloud.githubusercontent.com/assets/8161815/10203033/21bed0e2-67b4-11e5-9a8f-bcbb7e6a15da.png
+[0_Open-Wizard_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10226251/ba1e5170-6866-11e5-9fad-44e5ae6ad686.png
+[1_Choose-File-Type_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372766/ca2aa2a2-6de9-11e5-9146-a9d72b761e74.png
+[2_Primary-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372764/ca26a166-6de9-11e5-9aea-cd01c7fecbbb.png
+[3_Optional-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372767/ca2b210a-6de9-11e5-85c5-84fb06706222.png
+[4_Summary_Window-7]:https://cloud.githubusercontent.com/assets/8161815/10372765/ca282482-6de9-11e5-96eb-4dcd92b720e2.png
+[5_Generated-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372768/ca2c93b4-6de9-11e5-839b-b8edc6b3cb27.png
 
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
