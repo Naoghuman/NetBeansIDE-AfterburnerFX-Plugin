@@ -61,25 +61,26 @@ The screenshots are taken under [Windows 7].
 Features<a name="Features" />
 ---
 
-* Allowed the fast generation from the [MVC] (Model-View-Controller) files for 
-  your [JavaFX] project within one wizard in convention with the library 
-  [afterburner.fx].
-* Following files will (can) be created in one workflow with the new wizard:
-    * Primary files: `BasicName`.fxml, `BasicName`Presenter.java and `BasicName`View.java 
-      where `BasicName` *(lowercase)* must be equals like the last packagename 
-      *(lowercase)* ([More informations about the convention JavaFX - afterburner.fx]).
-    * Optional files: `BasicName`.css, `BasicName`.properties.
-    * The optional files if checked for generation can also injected or not into 
-      `BasicName`.fxml and / or `BasicName`Presenter.java (
-      [More informations about the injection from Optional Files into Primary Files]).
-* The wizard gives the user `feedback` if the choosen `BasicName` and `package name`
-  aren't in convention with the library [afterburner.fx].
-* Feedback is also given if the choosen `BasicName` and / or `package name` 
-  doesn't follow the rules from the [Java Naming Convention].
+* Create a new wizard in [NetBeans IDE] which allowed the fast generation from 
+  the [Model-View-Controller] files for your [JavaFX] project in convention with 
+  the library [afterburner.fx].
+* Following files can be created in the new wizard:
+    * Primary files: `[prefix].fxml`, `[prefix]Presenter.java` and `[prefix]View.java` 
+      where **[prefix]** *(lowercase)* must be equals like the last **packagename** 
+      *(lowercase)*.
+    * Optional files: `[prefix]`.css, `[prefix]`.properties. The optional files 
+      if checked for generation can also optional injected into following files: 
+      The **.css** file can be injected into the `[prefix]`.fxml and / or the 
+      **.properties** file into the `[prefix]Presenter.java`.
+* The wizard gives the user `feedback` if the choosen `[prefix]` and `package name`
+  aren't in convention with the library [afterburner.fx]. The **[prefix]** 
+  *(lowercase)*  and the last **package name** must equals.
+* Feedback is also given if the choosen `[prefix]` and / or `package name` doesn't 
+  follow the rules from the [Java Naming Convention].
 * The plugin is developed with the [NetBeans IDE] 8.0.2.
 * The plugin is a [NetBeans IDE] plugin ![emoticon_smile.png][emoticon_smile].
 * The plugin is an [Open Source] project.
-* Tested with [JUnit] tests.
+* The plugin is tested with [JUnit] tests.
 
 
 
@@ -160,9 +161,11 @@ Contact<a name="Contact" />
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [JavaFX Scene Builder]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[Java Naming Convention]:http://www.oracle.com/technetwork/java/codeconventions-135099.html
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Maven]:http://maven.apache.org/
+[Model-View-Controller]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [NetBeans IDE]:https://netbeans.org/
 [NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
