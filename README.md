@@ -16,10 +16,26 @@ wizard where *[prefix]* is your choosen `file and package` name.
 
 
 
-Screenshots
+Content
 ===
 
-The following screenshots shows the workflow to create the new 'AfterburnerFX Files' under Windows 7.
+* [Screenshots](#Screenshots)
+* [Features](#Features)
+* [Requirements](#Requirements)
+* [Installation](#Installation)
+* [Documentation](#Documentation)
+* [Contribution](#Contribution)
+* [License](#License)
+* [Autor](#Autor)
+* [Contact](#Contact)
+
+
+
+Screenshots<a name="Screenshots" />
+---
+
+The following screenshots shows the workflow to create the new 'AfterburnerFX Files'. 
+The screenshots are taken under [Windows 7].
 
 ##### 1. Open the Wizard
 ![0_Open-Wizard_Windows-7.png][0_Open-Wizard_Windows-7]
@@ -39,19 +55,6 @@ The following screenshots shows the workflow to create the new 'AfterburnerFX Fi
 ##### 6. Generated files  
 ![5_Generated-Files_Windows-7.png][5_Generated-Files_Windows-7]
 
-
-
-Content
----
-
-* [Features](#Features)
-* [Requirements](#Requirements)
-* [Installation](#Installation)
-* [Documentation](#Documentation)
-* [Contribution](#Contribution)
-* [License](#License)
-* [Autor](#Autor)
-* [Contact](#Contact)
 
 
 
@@ -85,7 +88,8 @@ Requirements<a name="Requirements" />
 
 * You should use [NetBeans IDE] as your development ide ![emoticon_smile.png][emoticon_smile].
 * The plugin should be installed in your [NetBeans IDE] ![emoticon_tongue.png][emoticon_tongue].
-* In your [JavaFX] project the library [afterburner.fx] should be injected ![emoticon_grin.png][emoticon_grin].
+* In your [JavaFX] project the library [afterburner.fx] should be injected 
+  ![emoticon_grin.png][emoticon_grin].
 
 
 
@@ -125,14 +129,16 @@ License<a name="License" />
 ---
 
 * The project `NetBeansIDE-AfterburnerFX-Plugin` is licensed under [General Public License 3.0].
-* The smilys icons in this document are from [famfamfam]. Click [famfamfam ReadMe] for more information.
+* The smilys icons in this document are from [famfamfam]. Click [famfamfam ReadMe] 
+  for more information.
 
 
 
 Autor<a name="Autor" />
 ---
 
-* The project `NetBeansIDE-AfterburnerFX-Plugin` is maintained by me, Peter Rogge. See [Contact](#Contact).
+* The project `NetBeansIDE-AfterburnerFX-Plugin` is maintained by me, Peter Rogge. 
+  See [Contact](#Contact).
 
 
 
@@ -160,6 +166,7 @@ Contact<a name="Contact" />
 [NetBeans IDE]:https://netbeans.org/
 [NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
+[Windows 7]:https://de.wikipedia.org/wiki/Microsoft_Windows_7
 
 
 
@@ -175,3 +182,5 @@ Contact<a name="Contact" />
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
 [emoticon_tongue]:https://cloud.githubusercontent.com/assets/8161815/10268706/741f41fe-6ac1-11e5-88ea-1b4d807b2283.png
+
+
