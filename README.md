@@ -87,6 +87,7 @@ Features<a name="Features" />
 Requirements<a name="Requirements" />
 ---
 
+* On your system you need [JRE 8] or [JDK 8] installed.
 * You should use [NetBeans IDE] as your development ide ![emoticon_smile.png][emoticon_smile].
 * The plugin should be installed in your [NetBeans IDE] ![emoticon_tongue.png][emoticon_tongue].
 * In your [JavaFX] project the library [afterburner.fx] should be injected 
