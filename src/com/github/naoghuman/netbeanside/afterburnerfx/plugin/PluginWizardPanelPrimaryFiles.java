@@ -19,6 +19,7 @@ package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import java.beans.PropertyChangeSupport;
 import javax.swing.event.ChangeListener;
 import org.netbeans.api.project.Project;
 import org.netbeans.spi.project.ui.templates.support.Templates;
@@ -37,6 +38,7 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     private final Project project;
     private final SourceGroupSupport sourceGroupSupport;
     
+    private PropertyChangeSupport propertyChangeSupport;
     private WizardDescriptor settings;
     
     /**
@@ -52,12 +54,15 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
         this.project = project;
         this.sourceGroupSupport = sourceGroupSupport;
         this.isMaven = isMaven;
+        
+        propertyChangeSupport = new PropertyChangeSupport(this);
     }
     
     @Override
     public PluginVisualPanelPrimaryFiles getComponent() {
         if (component == null) {
             component = new PluginVisualPanelPrimaryFiles(project, sourceGroupSupport, changeSupport, isMaven);
+            propertyChangeSupport.addPropertyChangeListener(component);
         }
         
         return component;
@@ -72,26 +77,36 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     public boolean isValid() {
         if (!PluginSupport.isValidBaseName(component.getBaseName())) {
             PluginSupport.setInfoMessage(MSG_INFO__FILE_NAME_ISNT_VALID, settings);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
         
         if (!PluginSupport.isBaseNameContainsWrongFileNameChars(component.getBaseName())) {
             PluginSupport.setErrorMessage(MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS, settings);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
           
         if (!PluginSupport.isValidPackageName(component.getPackageName())) {
             PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_NAME_ISNT_VALID, settings);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
         
         if (!PluginSupport.isValidPackage(component.getLocationFolder(), component.getPackageName())) {
             PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_ISNT_FOLDER, settings);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
         
         if (!PluginSupport.isValidBaseNameAndPackage(component.getBaseName(), component.getLocationFolder(), component.getPackageName())) {
             PluginSupport.setWarningMessage(MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS, settings);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
         
@@ -99,10 +114,13 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
                 component.getBaseName(), TEMPLATE_PARAMETER__FXML);
         if (errorMessage != null) {
             settings.getNotificationLineSupport().setErrorMessage(errorMessage);
+            propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
+            
             return false;
         }
         
         PluginSupport.clearMessages(settings);
+        propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.TRUE);
             
         return true;
     }

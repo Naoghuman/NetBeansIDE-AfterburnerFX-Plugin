@@ -23,6 +23,8 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupp
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -42,7 +44,7 @@ import org.openide.util.NbPreferences;
 import org.openide.util.RequestProcessor;
 
 public final class PluginVisualPanelPrimaryFiles extends JPanel implements ActionListener, 
-        DocumentListener, IPluginSupport
+        DocumentListener, IPluginSupport, PropertyChangeListener
 {
     @SuppressWarnings("rawtypes")
     private static final ComboBoxModel WAIT_MODEL = SourceGroupSupport.getWaitModel();
@@ -194,7 +196,15 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     }
     
     private void updateTextCreateFollowingFiles() {
+        this.updateTextCreateFollowingFiles(Boolean.TRUE);
+    }
+    
+    private void updateTextCreateFollowingFiles(boolean shouldInfoCreateFollwingFiles) {
         taInfoPrimaryFiles.setText(null);
+        
+        if (!shouldInfoCreateFollwingFiles) {
+            return;
+        }
             
         final Object selectedItem = cbLocation.getSelectedItem();
         if (!(selectedItem instanceof SourceGroupProxy)) {
@@ -375,6 +385,15 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     @Override
     public void removeUpdate(DocumentEvent e) {
         changedUpdate(e);
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        final String propertyName = evt.getPropertyName();
+        if (propertyName.equals(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES)) {
+            final boolean shouldInfoCreateFollwingFiles = (Boolean) evt.getNewValue();
+            this.updateTextCreateFollowingFiles(shouldInfoCreateFollwingFiles);
+        }
     }
     
 }
