@@ -66,11 +66,11 @@ Features<a name="Features" />
   the library [afterburner.fx].
 * Following files can be created in the new wizard:
     * Primary files: `[prefix].fxml`, `[prefix]Presenter.java` and `[prefix]View.java` 
-      where **[prefix]** *(lowercase)* must be equals like the last **packagename** 
+      where **[prefix]** *(lowercase)* must be equals like the last **package name** 
       *(lowercase)*.
     * Optional files: `[prefix]`.css, `[prefix]`.properties. The optional files 
       if checked for generation can also optional injected into following files: 
-      The **.css** file can be injected into the `[prefix]`.fxml and / or the 
+      The **.css** file can be injected into the `[prefix]`.fxml and the 
       **.properties** file into the `[prefix]Presenter.java`.
 * The wizard gives the user `feedback` if the choosen `[prefix]` and `package name`
   aren't in convention with the library [afterburner.fx]. The **[prefix]** 
@@ -89,9 +89,9 @@ Requirements<a name="Requirements" />
 
 * On your system you need [JRE 8] or [JDK 8] installed.
 * You should use [NetBeans IDE] as your development ide ![emoticon_smile.png][emoticon_smile].
-* The plugin should be installed in your [NetBeans IDE] ![emoticon_tongue.png][emoticon_tongue].
+* The plugin should be installed in your [NetBeans IDE] ![emoticon_grin.png][emoticon_grin].
 * In your [JavaFX] project the library [afterburner.fx] should be injected 
-  ![emoticon_grin.png][emoticon_grin].
+  ![emoticon_tongue.png][emoticon_tongue].
 
 
 
@@ -131,8 +131,9 @@ License<a name="License" />
 ---
 
 * The project `NetBeansIDE-AfterburnerFX-Plugin` is licensed under [General Public License 3.0].
-* The smilys icons in this document are from [famfamfam]. Click [famfamfam ReadMe] 
+* The `smilys` icons in this document are from [famfamfam]. Click [famfamfam ReadMe] 
   for more information.
+* The `at` icon is downloaded from [iconfinder] with the [MIT License].
 
 
 
@@ -166,6 +167,7 @@ Contact<a name="Contact" />
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Maven]:http://maven.apache.org/
+[MIT License]:https://opensource.org/licenses/MIT
 [Model-View-Controller]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [NetBeans IDE]:https://netbeans.org/
 [NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
@@ -186,5 +188,5 @@ Contact<a name="Contact" />
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
 [emoticon_tongue]:https://cloud.githubusercontent.com/assets/8161815/10268706/741f41fe-6ac1-11e5-88ea-1b4d807b2283.png
-
+[iconfinder]:https://www.iconfinder.com/icons/211625/at_icon#size=16
 
