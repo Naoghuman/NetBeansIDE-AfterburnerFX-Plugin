@@ -23,7 +23,6 @@ Content
 * [Features](#Features)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
-* [Documentation](#Documentation)
 * [Contribution](#Contribution)
 * [License](#License)
 * [Autor](#Autor)
@@ -102,20 +101,14 @@ Installation<a name="Installation" />
     * Optional: To work better with [FXML] files in a [JavaFX] application download 
       the [JavaFX Scene Builder] in the section 'Additional Resources'.
 * If not installed download the [NetBeans IDE].
-* Manual installation from the plugin in [NetBeans IDE].
-    * Download the plugin [NetBeansIDE-AfterburnerFX-Plugin.nbm].
-    * Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
-    * In the opened dialog click on the tab 'Downloaded`.
-    * Click on the button `Add Plugins...` and select then downloaded plugin.
-    * At last click `Install`.
-* TODO if UC is okay, then add here the steps to install the plugin throught the UC.
 
 
-
-Documentation<a name="Documentation" />
----
-
-* TODO add documentation
+##### Manual installation from the plugin in [NetBeans IDE]
+* Download the plugin [NetBeansIDE-AfterburnerFX-Plugin.nbm].
+* Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
+* In the opened dialog click on the tab 'Downloaded`.
+* Click on the button `Add Plugins...` and select then downloaded plugin.
+* At last click `Install`.
 
 
 
@@ -131,9 +124,12 @@ License<a name="License" />
 ---
 
 * The project `NetBeansIDE-AfterburnerFX-Plugin` is licensed under [General Public License 3.0].
+
+
+##### Images
 * The `smilys` icons in this document are from [famfamfam]. Click [famfamfam ReadMe] 
   for more information.
-* The `at` icon is downloaded from [iconfinder] with the [MIT License].
+* The `at` icon in the project is downloaded from [iconfinder] with the [MIT License].
 
 
 
@@ -166,11 +162,13 @@ Contact<a name="Contact" />
 [Java Naming Convention]:http://www.oracle.com/technetwork/java/codeconventions-135099.html
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
+[JUnit]:http://junit.org/
 [Maven]:http://maven.apache.org/
 [MIT License]:https://opensource.org/licenses/MIT
 [Model-View-Controller]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [NetBeans IDE]:https://netbeans.org/
 [NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
+[Open Source]:https://en.wikipedia.org/wiki/Open_source
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 [Windows 7]:https://de.wikipedia.org/wiki/Microsoft_Windows_7
 
