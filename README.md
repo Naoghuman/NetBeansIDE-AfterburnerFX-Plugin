@@ -7,12 +7,12 @@ Intention
 ===
 
 The `NetBeansIDE-AfterburnerFX-Plugin` is a [NetBeans IDE] plugin which supports
-the file generation in convention with the library [afterburner.fx] in a [JavaFX] 
+the file generation in **convention** with the library [afterburner.fx] in a [JavaFX] 
 project.
 
-The following files `[prefix].fxml`, `[prefix]Presenter.java`, `[prefix]View.java` 
-and *optional* `[prefix].css` and `[prefix].properties` will be created in a new 
-wizard where *[prefix]* is your choosen `file and package` name.
+The following primary files `[prefix].fxml`, `[prefix]Presenter.java`, `[prefix]View.java` 
+and optional `[prefix].css` and `[prefix].properties` will be created in a new 
+wizard where **[prefix]** is your choosen `file and package` name.
 
 
 
@@ -177,7 +177,7 @@ Contact<a name="Contact" />
 [//]: # (Images)
 
 [0_Open-Wizard_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10226251/ba1e5170-6866-11e5-9fad-44e5ae6ad686.png
-[1_Choose-File-Type_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372766/ca2aa2a2-6de9-11e5-9146-a9d72b761e74.png
+[1_Choose-File-Type_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10536880/ae05ccb8-73ee-11e5-9314-fec5e83bdd1c.png
 [2_Primary-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372764/ca26a166-6de9-11e5-9aea-cd01c7fecbbb.png
 [3_Optional-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372767/ca2b210a-6de9-11e5-85c5-84fb06706222.png
 [4_Summary_Window-7]:https://cloud.githubusercontent.com/assets/8161815/10372765/ca282482-6de9-11e5-96eb-4dcd92b720e2.png

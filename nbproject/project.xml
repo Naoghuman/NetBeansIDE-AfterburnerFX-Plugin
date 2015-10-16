@@ -107,7 +107,11 @@
                     </run-dependency>
                 </dependency>
             </module-dependencies>
-            <public-packages/>
+            <public-packages>
+                <package>com.github.naoghuman.netbeanside.afterburnerfx.plugin</package>
+                <package>com.github.naoghuman.netbeanside.afterburnerfx.plugin.action</package>
+                <package>com.github.naoghuman.netbeanside.afterburnerfx.plugin.support</package>
+            </public-packages>
         </data>
     </configuration>
 </project>
