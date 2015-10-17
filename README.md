@@ -123,11 +123,12 @@ Contribution<a name="Contribution" />
 License<a name="License" />
 ---
 
+##### Project
 * The project `NetBeansIDE-AfterburnerFX-Plugin` is licensed under [General Public License 3.0].
 
 
 ##### Images
-* The `smilys` icons in this document are from [famfamfam]. Click [famfamfam ReadMe] 
+* The `smilys` in this document are from [famfamfam]. Click [famfamfam ReadMe] 
   for more information.
 * The `at` icon in the project is downloaded from [iconfinder] with the [MIT License].
 
