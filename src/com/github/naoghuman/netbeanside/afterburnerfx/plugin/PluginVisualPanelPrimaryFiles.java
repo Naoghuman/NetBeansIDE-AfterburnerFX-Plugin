@@ -37,7 +37,6 @@ import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectUtils;
 import org.netbeans.spi.java.project.support.ui.PackageView;
 import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileUtil;
 import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
@@ -48,8 +47,6 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
 {
     @SuppressWarnings("rawtypes")
     private static final ComboBoxModel WAIT_MODEL = SourceGroupSupport.getWaitModel();
-
-    private final boolean isMaven;
     
     private final ChangeSupport changeSupport;
     private final Project project;
@@ -61,12 +58,11 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
 
     public PluginVisualPanelPrimaryFiles(
             Project project, SourceGroupSupport sourceGroupSupport,
-            ChangeSupport changeSupport, boolean isMaven
+            ChangeSupport changeSupport
     ) {
         this.project = project;
         this.sourceGroupSupport = sourceGroupSupport;
         this.changeSupport = changeSupport;
-        this.isMaven = isMaven;
         
         initComponents();
         initComponents2();
@@ -106,21 +102,10 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
         cbLocation.setSelectedItem(preselectedGroup);
         ignoreRootCombo = false;
         
-        FileObject targetFolder = preselectedFolder;
-        if(isMaven) {
-            cbPackage.getEditor().setItem(PluginWizardIterator.DEFAULT_MAVEN_FXML_PACKAGE);
-            targetFolder = null;
-            if(preselectedGroup.isReal()) {
-                final File f = new File(preselectedGroup.getRootFolder().getPath() + File.separator + PluginWizardIterator.DEFAULT_MAVEN_FXML_PACKAGE);
-                if(f.exists()) {
-                    targetFolder = FileUtil.toFileObject(f);
-                }
-            }
-        } else {
-            final Object preselectedPackage = PluginSupport.getPreselectedPackage(preselectedGroup, preselectedFolder);
-            if (preselectedPackage != null) {
-                cbPackage.getEditor().setItem(preselectedPackage);
-            }
+        final FileObject targetFolder = preselectedFolder;
+        final Object preselectedPackage = PluginSupport.getPreselectedPackage(preselectedGroup, preselectedFolder);
+        if (preselectedPackage != null) {
+            cbPackage.getEditor().setItem(preselectedPackage);
         }
         
         if (tfFileName.getText().trim().length() == 0) {

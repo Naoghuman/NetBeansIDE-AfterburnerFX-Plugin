@@ -16,7 +16,6 @@
  */
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
-import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import java.awt.Component;
@@ -40,14 +39,13 @@ import org.openide.WizardDescriptor;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataFolder;
 import org.openide.loaders.DataObject;
-import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
 public final class PluginWizardIterator implements WizardDescriptor.InstantiatingIterator<WizardDescriptor>, IPluginSupport {
  
     private int index;
 
-    private SourceGroupSupport supportBaseName;
+    private SourceGroupSupport sourceGroupSupport;
     private WizardDescriptor wizard;
     
     private List<WizardDescriptor.Panel<WizardDescriptor>> panels;
@@ -66,25 +64,13 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         }
         
         final Project project = Templates.getProject(wizard);
-        final boolean isMaven = PluginSupport.isMavenProject(project);
         final Sources sources = ProjectUtils.getSources(project);
-        final SourceGroup[] sourceGroupsResources = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_RESOURCES);
         final SourceGroup[] sourceGroupsJava = sources.getSourceGroups(JavaProjectConstants.SOURCES_TYPE_JAVA);
-        if(isMaven) {
-            supportBaseName = new SourceGroupSupport(JavaProjectConstants.SOURCES_TYPE_RESOURCES);
-            if(sourceGroupsResources != null && sourceGroupsResources.length > 0) {
-                supportBaseName.addSourceGroups(sourceGroupsResources);
-            } else {
-                supportBaseName.addSourceGroupProxy(project, NbBundle.getMessage(PluginWizardIterator.class,"LAB_ProjectResources"), // NOI18N
-                        new String[]{ DEFAULT_MAVEN_FXML_PACKAGE, DEFAULT_MAVEN_IMAGES_PACKAGE, DEFAULT_MAVEN_CSS_PACKAGE });
-            }
-        } else {
-            supportBaseName = new SourceGroupSupport(JavaProjectConstants.SOURCES_TYPE_JAVA);
-            supportBaseName.addSourceGroups(sourceGroupsJava);
-        }
+        sourceGroupSupport = new SourceGroupSupport(JavaProjectConstants.SOURCES_TYPE_JAVA);
+        sourceGroupSupport.addSourceGroups(sourceGroupsJava);
         
         panels = new ArrayList<>();
-        panels.add(new PluginWizardPanelPrimaryFiles(project, supportBaseName, isMaven));
+        panels.add(new PluginWizardPanelPrimaryFiles(project, sourceGroupSupport));
         panels.add(new PluginWizardPanelOptionalFiles());
         panels.add(new PluginWizardPanelSummary());
         

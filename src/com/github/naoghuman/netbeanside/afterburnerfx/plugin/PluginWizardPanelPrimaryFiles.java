@@ -33,12 +33,10 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
 
     private final ChangeSupport changeSupport = new ChangeSupport(this);
     
-    private final boolean isMaven;
-    
     private final Project project;
     private final SourceGroupSupport sourceGroupSupport;
     
-    private PropertyChangeSupport propertyChangeSupport;
+    private final PropertyChangeSupport propertyChangeSupport;
     private WizardDescriptor settings;
     
     /**
@@ -47,13 +45,9 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
      */
     private PluginVisualPanelPrimaryFiles component;
 
-    /**
-     * Creates new form AfterburnerVisualPanel1
-     */
-    public PluginWizardPanelPrimaryFiles(Project project, SourceGroupSupport sourceGroupSupport, boolean isMaven) {
+    public PluginWizardPanelPrimaryFiles(Project project, SourceGroupSupport sourceGroupSupport) {
         this.project = project;
         this.sourceGroupSupport = sourceGroupSupport;
-        this.isMaven = isMaven;
         
         propertyChangeSupport = new PropertyChangeSupport(this);
     }
@@ -61,7 +55,7 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     @Override
     public PluginVisualPanelPrimaryFiles getComponent() {
         if (component == null) {
-            component = new PluginVisualPanelPrimaryFiles(project, sourceGroupSupport, changeSupport, isMaven);
+            component = new PluginVisualPanelPrimaryFiles(project, sourceGroupSupport, changeSupport);
             propertyChangeSupport.addPropertyChangeListener(component);
         }
         
