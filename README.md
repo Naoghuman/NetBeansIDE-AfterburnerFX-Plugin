@@ -108,7 +108,9 @@ Installation<a name="Installation" />
 * Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
 * In the opened dialog click on the tab 'Downloaded`.
 * Click on the button `Add Plugins...` and select then downloaded plugin.
-* At last click `Install`.
+* Clicking `Install` will prompt the dialog `Verify Certifcate`.
+    * Optional: You can view the certificate with the button `Show certificate`.
+    * Click the button `Continue` for installing the plugin.
 
 
 
