@@ -104,10 +104,20 @@ Installation<a name="Installation" />
 
 
 ##### Manual installation from the plugin in [NetBeans IDE]
-* Download the plugin [NetBeansIDE-AfterburnerFX-Plugin.nbm].
+* Download the plugin from here [NetBeansIDE-AfterburnerFX-Plugin.nbm (GitHub)]
+  or from here [NetBeansIDE-AfterburnerFX-Plugin.nbm (NetBeans Plugin Portal)].
 * Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
 * In the opened dialog click on the tab 'Downloaded`.
 * Click on the button `Add Plugins...` and select then downloaded plugin.
+* Clicking `Install` will prompt the dialog `Verify Certifcate`.
+    * Optional: You can view the certificate with the button `Show certificate`.
+    * Click the button `Continue` for installing the plugin.
+
+
+##### Installation through the `Update Center` from [NetBeans IDE]
+* Use `Tool` -> `Plugins` action in the IDE.
+* Click on the tab `Available Plugins` and then `Check for Newest`.
+* Search and checked the plugin in the list from available plugins.
 * Clicking `Install` will prompt the dialog `Verify Certifcate`.
     * Optional: You can view the certificate with the button `Show certificate`.
     * Click the button `Continue` for installing the plugin.
@@ -170,7 +180,8 @@ Contact<a name="Contact" />
 [MIT License]:https://opensource.org/licenses/MIT
 [Model-View-Controller]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [NetBeans IDE]:https://netbeans.org/
-[NetBeansIDE-AfterburnerFX-Plugin.nbm]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
+[NetBeansIDE-AfterburnerFX-Plugin.nbm (GitHub)]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
+[NetBeansIDE-AfterburnerFX-Plugin.nbm (NetBeans Plugin Portal)]:http://plugins.netbeans.org/plugin/60847/netbeanside-afterburnerfx-plugin
 [Open Source]:https://en.wikipedia.org/wiki/Open_source
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 [Windows 7]:https://de.wikipedia.org/wiki/Microsoft_Windows_7
