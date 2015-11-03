@@ -21,6 +21,10 @@ Content
 
 * [Screenshots](#Screenshots)
 * [Features](#Features)
+    * [General](#General)
+    * [Generated Files](#GeneratedFiles)
+    * [Injection from the Optional Files](#InjectionOptionalFiles)
+    * [Feedback](#Feedback)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
     * [General installation](#GeneralInstallation)
@@ -59,30 +63,76 @@ The screenshots are taken under [Windows 7].
 
 
 
-
 Features<a name="Features" />
 ---
 
-* Create a new wizard in [NetBeans IDE] which allowed the fast generation from 
-  the [Model-View-Controller] files for your [JavaFX] project in convention with 
+##### General<a name="General" />
+* The plugin create a new wizard in [NetBeans IDE] which allowed the fast generation 
+  from the [Model-View-Controller] files for your [JavaFX] project in convention with 
   the library [afterburner.fx].
-* Following files can be created in the new wizard:
-    * Primary files: `[prefix].fxml`, `[prefix]Presenter.java` and `[prefix]View.java` 
-      where **[prefix]** *(lowercase)* must be equals like the last **package name** 
-      *(lowercase)*.
-    * Optional files: `[prefix]`.css, `[prefix]`.properties. The optional files 
-      if checked for generation can also optional injected into following files: 
-      The **.css** file can be injected into the `[prefix]`.fxml and the 
-      **.properties** file into the `[prefix]Presenter.java`.
-* The wizard gives the user `feedback` if the choosen `[prefix]` and `package name`
-  aren't in convention with the library [afterburner.fx]. The **[prefix]** 
-  *(lowercase)*  and the last **package name** must equals.
-* Feedback is also given if the choosen `[prefix]` and / or `package name` doesn't 
-  follow the rules from the [Java Naming Convention].
 * The plugin is developed with the [NetBeans IDE] 8.0.2.
 * The plugin is a [NetBeans IDE] plugin ![emoticon_smile.png][emoticon_smile].
 * The plugin is an [Open Source] project.
 * The plugin is tested with [JUnit] tests.
+
+
+##### Generated Files<a name="GeneratedFiles" />
+Following files can be created in the new wizard:
+* Primary files: `[prefix].fxml`, `[prefix]Presenter.java` and `[prefix]View.java` 
+  where **[prefix]** *(lowercase)* must be equals like the last **package name** 
+  *(lowercase)*.
+* Optional files: `[prefix]`.css, `[prefix]`.properties. The optional files 
+  if checked for generation can also optional injected into following files: 
+  The **.css** file can be injected into the `[prefix]`.fxml and the 
+  **.properties** file into the `[prefix]Presenter.java`.
+    * In the page `Optional Files` from the wizard the decision from the user will 
+      be saved.
+
+
+##### Injection from the Optional Files<a name="InjectionOptionalFiles" />
+Comparison with/without injection from the **Optional File** `ImportDialog.css` 
+in `ImportDialog.fxml`.
+```java
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
+
+</AnchorPane>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
+    <stylesheets>
+        <URL value="@Importdialog.css"/>
+    </stylesheets>
+</AnchorPane>
+```
+
+Comparison with/without injection from the **Optional File** `ImportDialog.properties` 
+in ImportDialogPresenter.java`.
+```java
+public class ImportdialogPresenter implements Initializable {
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+}
+
+public class ImportdialogPresenter implements Initializable {
+
+    private ResourceBundle resources = null;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.resources = resources;
+    }
+}
+```
+
+
+##### Feedback<a name="Feedback" />
+* The wizard gives the user `feedback` if the choosen `[prefix]` and `package name`
+  aren't in convention with the library [afterburner.fx]. The **[prefix]** 
+  *(lowercase)*  and the last **package name** must be equals.
+* Feedback is also given if the choosen `[prefix]` and / or `package name` doesn't 
+  follow the rules from the [Java Naming Convention].
 
 
 
