@@ -23,6 +23,9 @@ Content
 * [Features](#Features)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
+    * [General installation](#GeneralInstallation)
+    * [Manual installation from the plugin in NetBeans IDE](#ManualInstallation)
+    * [Installation through the Update Center from NetBeans IDE](#InstallationUpdateCenter)
 * [Contribution](#Contribution)
 * [License](#License)
 * [Autor](#Autor)
@@ -97,13 +100,14 @@ Requirements<a name="Requirements" />
 Installation<a name="Installation" />
 ---
 
+##### General installation<a name="GeneralInstallation" />
 * If not installed download the [JRE 8] or the [JDK 8].
     * Optional: To work better with [FXML] files in a [JavaFX] application download 
       the [JavaFX Scene Builder] in the section 'Additional Resources'.
 * If not installed download the [NetBeans IDE].
 
 
-##### Manual installation from the plugin in [NetBeans IDE]
+##### Manual installation from the plugin in [NetBeans IDE]<a name="ManualInstallation" />
 * Download the plugin from here [NetBeansIDE-AfterburnerFX-Plugin.nbm (GitHub)]
   or from here [NetBeansIDE-AfterburnerFX-Plugin.nbm (NetBeans Plugin Portal)].
 * Click in the toolbar from the [NetBeans IDE] on `Tools`, then `Plugins`.
@@ -114,7 +118,7 @@ Installation<a name="Installation" />
     * Click the button `Continue` for installing the plugin.
 
 
-##### Installation through the `Update Center` from [NetBeans IDE]
+##### Installation through the `Update Center` from [NetBeans IDE]<a name="InstallationUpdateCenter" />
 * Use `Tool` -> `Plugins` action in the IDE.
 * Click on the tab `Available Plugins` and then `Check for Newest`.
 * Search and checked the plugin in the list from available plugins.
