@@ -29,6 +29,7 @@ public final class PluginVisualPanelSummary extends JPanel {
     private void initComponents2() {
         // TextAreas
         final JTextField tf = new JTextField();
+        tf.setEditable(false);
         tf.setEnabled(false);
         taInfoPrimaryFiles.setBackground(tf.getBackground());
         taInfoOptionalFiles.setBackground(tf.getBackground());

@@ -84,6 +84,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         
         // TextAreas
         final JTextField tf = new JTextField();
+        tf.setEditable(false);
         tf.setEnabled(false);
         taShouldCSSinjected.setBackground(tf.getBackground());
         taShouldPropertiesInjected.setBackground(tf.getBackground());
