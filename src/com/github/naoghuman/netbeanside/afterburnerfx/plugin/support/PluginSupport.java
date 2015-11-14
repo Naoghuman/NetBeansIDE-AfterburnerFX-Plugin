@@ -99,24 +99,18 @@ public final class PluginSupport implements IPluginSupport {
      * @return localized error message or null if all right
      */
     public static String canUseFileName(FileObject targetFolder, String folderName, String newObjectName, String extension) {
-        String newObjectNameToDisplay = newObjectName;
+//        String newObjectNameToDisplay = newObjectName;
+        final String fileAndPackageName = newObjectName;
         if (newObjectName != null) {
             newObjectName = newObjectName.replace('.', '/'); // NOI18N
         }
+        
         if (extension != null && extension.length() > 0) {
             final StringBuilder sb = new StringBuilder();
             sb.append(newObjectName);
             sb.append('.'); // NOI18N
             sb.append(extension);
             newObjectName = sb.toString();
-        }
-
-        if (extension != null && extension.length() > 0) {
-            final StringBuilder sb = new StringBuilder();
-            sb.append(newObjectNameToDisplay);
-            sb.append('.'); // NOI18N
-            sb.append(extension);
-            newObjectNameToDisplay = sb.toString();
         }
 
         final String relFileName = folderName + '/' + newObjectName; // NOI18N
@@ -138,7 +132,10 @@ public final class PluginSupport implements IPluginSupport {
         }
 
         if (existFileName(targetFolder, relFileName)) {
-            return NbBundle.getMessage(PluginSupport.class, MSG_ERROR__FILES_ALREADY_EXISTS, newObjectNameToDisplay);
+            String msgFilesAlreadyExists = NbBundle.getMessage(PluginSupport.class, MSG_ERROR__FILES_ALREADY_EXISTS);
+            msgFilesAlreadyExists = String.format(msgFilesAlreadyExists, fileAndPackageName);
+            
+            return msgFilesAlreadyExists;
         }
 
         // all ok
