@@ -41,25 +41,25 @@ Screenshots<a name="Screenshots" />
 ---
 
 The following screenshots shows the workflow to create the new 'AfterburnerFX Files'. 
-The screenshots are taken under [Windows 7].
+The screenshots are taken under [Windows 10].
 
 ##### 1. Open the Wizard
-![0_Open-Wizard_Windows-7.png][0_Open-Wizard_Windows-7]
+![0_Open-Wizard_Windows-10.png][0_Open-Wizard_Windows-10]
 
 ##### 2. Choose File Type  
-![1_Choose-File-Type_Windows-7.png][1_Choose-File-Type_Windows-7]
+![1_Choose-File-Type_Windows-10.png][1_Choose-File-Type_Windows-10]
 
 ##### 3. Primary Files 
-![2_Primary-Files_Windows-7.png][2_Primary-Files_Windows-7]
+![2_Primary-Files_Windows-10.png][2_Primary-Files_Windows-10]
 
 ##### 4. Optional Files  
-![3_Optional-Files_Windows-7.png][3_Optional-Files_Windows-7]
+![3_Optional-Files_Windows-10.png][3_Optional-Files_Windows-10]
 
 ##### 5. Summary  
-![4_Summary_Window-7.png][4_Summary_Window-7]
+![4_Summary_Window-10.png][4_Summary_Window-10]
 
 ##### 6. Generated files  
-![5_Generated-Files_Windows-7.png][5_Generated-Files_Windows-7]
+![5_Generated-Files_Windows-10.png][5_Generated-Files_Windows-10]
 
 
 
@@ -245,12 +245,12 @@ Contact<a name="Contact" />
 
 [//]: # (Images)
 
-[0_Open-Wizard_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10226251/ba1e5170-6866-11e5-9fad-44e5ae6ad686.png
-[1_Choose-File-Type_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10536880/ae05ccb8-73ee-11e5-9314-fec5e83bdd1c.png
-[2_Primary-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372764/ca26a166-6de9-11e5-9aea-cd01c7fecbbb.png
-[3_Optional-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372767/ca2b210a-6de9-11e5-85c5-84fb06706222.png
-[4_Summary_Window-7]:https://cloud.githubusercontent.com/assets/8161815/10372765/ca282482-6de9-11e5-96eb-4dcd92b720e2.png
-[5_Generated-Files_Windows-7]:https://cloud.githubusercontent.com/assets/8161815/10372768/ca2c93b4-6de9-11e5-839b-b8edc6b3cb27.png
+[0_Open-Wizard_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164893/2a584f04-8afe-11e5-884a-59ad1680de73.png
+[1_Choose-File-Type_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164896/2a5a363e-8afe-11e5-9a0c-5434d7a24121.png
+[2_Primary-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164892/2a564646-8afe-11e5-8895-560e46135b8b.png
+[3_Optional-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164894/2a5901a6-8afe-11e5-8c8e-c0b2d3fd7cd8.png
+[4_Summary_Window-10]:https://cloud.githubusercontent.com/assets/8161815/11164897/2a5b4182-8afe-11e5-8008-6cbde3131a63.png
+[5_Generated-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164895/2a596c9a-8afe-11e5-9154-6dd026215711.png
 
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
