@@ -196,7 +196,8 @@ License<a name="License" />
 ##### Images
 * The `smilys` in this document are from [famfamfam]. Click [famfamfam ReadMe] 
   for more information.
-* The `at` icon in the project is downloaded from [iconfinder] with the [MIT License].
+* The action icon is the changed [NetBeans IDE] `class.png` icon from the modul
+  `java.source`.
 
 
 

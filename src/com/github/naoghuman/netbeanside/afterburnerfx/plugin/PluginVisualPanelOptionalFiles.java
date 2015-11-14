@@ -219,13 +219,13 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         cbShouldCSSinjected.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldCSSinjected.text")); // NOI18N
         cbShouldCSSinjected.setFocusable(false);
-        cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(20, 19));
+        cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(22, 22));
         cbShouldCSSinjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldPropertiesInjected.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesInjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldPropertiesInjected.text")); // NOI18N
         cbShouldPropertiesInjected.setFocusable(false);
-        cbShouldPropertiesInjected.setPreferredSize(new java.awt.Dimension(20, 19));
+        cbShouldPropertiesInjected.setPreferredSize(new java.awt.Dimension(22, 22));
         cbShouldPropertiesInjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldCSScreated.setSelected(true);

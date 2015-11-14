@@ -204,7 +204,7 @@
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[20, 19]"/>
+          <Dimension value="[22, 22]"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="3"/>
       </Properties>
@@ -217,7 +217,7 @@
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[20, 19]"/>
+          <Dimension value="[22, 22]"/>
         </Property>
         <Property name="verticalAlignment" type="int" value="3"/>
       </Properties>

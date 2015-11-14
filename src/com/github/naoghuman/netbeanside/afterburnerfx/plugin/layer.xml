@@ -17,12 +17,13 @@
     </folder> -->
     <folder name="Templates">
         <folder name="javafx">
-            <file name="AfterburnerFX Files">
-                <attr name="iconBase" stringvalue="com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/icon-at.png"/>
+            <file name="JavaFX AfterburnerFX Files">
+                <attr name="iconBase" stringvalue="com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/files.png"/>
                 <attr name="instantiatingIterator" newvalue="com.github.naoghuman.netbeanside.afterburnerfx.plugin.PluginWizardIterator"/>
                 <attr name="instantiatingWizardURL" urlvalue="nbresloc:/com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/PluginDescription.html"/>
                 <attr name="requireProject" boolvalue="true"/>
                 <attr name="template" boolvalue="true"/>
+                <attr name="position" intvalue="0"/>
             </file>
             <file name="Template.css" url="template/TemplateCss.ftl">
                 <attr name="template" boolvalue="false"/>
