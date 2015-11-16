@@ -248,7 +248,7 @@ Contact<a name="Contact" />
 [0_Open-Wizard_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164893/2a584f04-8afe-11e5-884a-59ad1680de73.png
 [1_Choose-File-Type_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164896/2a5a363e-8afe-11e5-9a0c-5434d7a24121.png
 [2_Primary-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164892/2a564646-8afe-11e5-8895-560e46135b8b.png
-[3_Optional-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164894/2a5901a6-8afe-11e5-8c8e-c0b2d3fd7cd8.png
+[3_Optional-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11187278/2146d80c-8c86-11e5-8598-378dda5e225c.png
 [4_Summary_Window-10]:https://cloud.githubusercontent.com/assets/8161815/11164897/2a5b4182-8afe-11e5-8008-6cbde3131a63.png
 [5_Generated-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164895/2a596c9a-8afe-11e5-9154-6dd026215711.png
 
