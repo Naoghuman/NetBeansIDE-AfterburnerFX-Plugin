@@ -211,6 +211,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         
         if (shouldCreateProperties) {
             parameters.put(TEMPLATE_PARAMETER__PROPERTIES, prefix);
+            parameters.put(TEMPLATE_PARAMETER__PRESENTER, prefix + "Presenter"); // NOI18N
         }
             
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
