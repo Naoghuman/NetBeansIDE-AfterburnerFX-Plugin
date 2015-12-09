@@ -13,6 +13,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 #### Enhancement
+#19 [Optional Files] Enhance the commentary in the optional .css file.
 #18 [Optional Files] Enhance the commentary in the optional .properties file.
 
 

@@ -18,7 +18,11 @@ package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__CHOOSEN_PACKAGE;
+import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__FILENAME_CHOOSEN_DEFAULT_VALUE;
+import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.SIGN_CHAR_DOT;
 import java.awt.Component;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -203,7 +207,12 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final Map<String, String> parameters = new HashMap<>();
         final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         if (shouldCreateCSS) {
+            parameters.put(TEMPLATE_PARAMETER__CONTROLLER, prefix + "Presenter"); // NOI18N
             parameters.put(TEMPLATE_PARAMETER__CSS, prefix);
+            parameters.put(TEMPLATE_PARAMETER__FXML, prefix);
+            
+            final String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
+            parameters.put(TEMPLATE_PARAMETER__PACKAGE2, packageName);
         }
             
         final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);

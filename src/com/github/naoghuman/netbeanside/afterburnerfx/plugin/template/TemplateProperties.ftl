@@ -12,7 +12,6 @@
 #     public void initialize(URL location, ResourceBundle resources) {
 #         this.resources = resources;
 #     }
-#
 # }
 #
 # The above shown sourcecode will be automatically generated if you have the

@@ -57,6 +57,7 @@ public interface IPluginSupport {
     public static final String TEMPLATE_PARAMETER__CSS = "css"; // NOI18N
     public static final String TEMPLATE_PARAMETER__CSS_FILE_INJECT = "cssinject"; // NOI18N
     public static final String TEMPLATE_PARAMETER__FXML = "fxml"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__PACKAGE2 = "package2"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PRESENTER = "presenter"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES = "properties"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES_INJECT = "propertiesinject"; // NOI18N
