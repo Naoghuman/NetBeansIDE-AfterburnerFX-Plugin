@@ -20,9 +20,7 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroup
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__CHOOSEN_PACKAGE;
 import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__FILENAME_CHOOSEN_DEFAULT_VALUE;
-import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.SIGN_CHAR_DOT;
 import java.awt.Component;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,9 +38,12 @@ import org.netbeans.api.project.SourceGroup;
 import org.netbeans.api.project.Sources;
 import org.netbeans.spi.project.ui.templates.support.Templates;
 import org.openide.WizardDescriptor;
+import org.openide.cookies.OpenCookie;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataFolder;
 import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObjectNotFoundException;
+import org.openide.util.Exceptions;
 import org.openide.util.NbPreferences;
 
 public final class PluginWizardIterator implements WizardDescriptor.InstantiatingIterator<WizardDescriptor>, IPluginSupport {
@@ -107,6 +108,14 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final List<FileObject> files = new ArrayList<>();
         dataObjects.stream().forEach((dataObject) -> {
             files.add(dataObject.getPrimaryFile());
+            try {
+                DataObject.find(dataObject.getPrimaryFile())
+                        .getLookup()
+                        .lookup(OpenCookie.class)
+                        .open();
+            } catch (DataObjectNotFoundException ex) {
+                Exceptions.printStackTrace(ex);
+            }
         });
         
         return Collections.singleton(files);
