@@ -42,19 +42,21 @@ import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 import org.openide.util.RequestProcessor;
 
-public final class PluginVisualPanelPrimaryFiles extends JPanel implements ActionListener, 
+public final class PluginVisualPanelPrimaryFiles extends JPanel implements// ActionListener, 
         DocumentListener, IPluginSupport, PropertyChangeListener
 {
-    @SuppressWarnings("rawtypes")
-    private static final ComboBoxModel WAIT_MODEL = SourceGroupSupport.getWaitModel();
+//    @SuppressWarnings("rawtypes")
+//    private static final ComboBoxModel WAIT_MODEL = SourceGroupSupport.getWaitModel();
     
     private final ChangeSupport changeSupport;
     private final Project project;
     private final SourceGroupSupport sourceGroupSupport;
     
-    private boolean ignoreRootCombo;
+    private SourceGroupProxy preselectedGroup;
     
-    private RequestProcessor.Task updatePackagesTask;
+//    private boolean ignoreRootCombo;
+    
+//    private RequestProcessor.Task updatePackagesTask;
 
     public PluginVisualPanelPrimaryFiles(
             Project project, SourceGroupSupport sourceGroupSupport,
@@ -72,15 +74,15 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     private void initComponents2() {
         tfFileName.getDocument().addDocumentListener(this);
         
-        cbLocation.setRenderer(new SourceGroupSupport.GroupListCellRenderer());
-        cbLocation.addActionListener(this);
+//        cbLocation.setRenderer(new SourceGroupSupport.GroupListCellRenderer());
+//        cbLocation.addActionListener(this);
     
-        cbPackage.getEditor().addActionListener(this);
-        final Component packageEditor = cbPackage.getEditor().getEditorComponent();
-        if (packageEditor instanceof JTextField) {
-            ((JTextField) packageEditor).getDocument().addDocumentListener(this);
-        }
-        cbPackage.setRenderer(PackageView.listRenderer());
+//        cbPackage.getEditor().addActionListener(this);
+//        final Component packageEditor = cbPackage.getEditor().getEditorComponent();
+//        if (packageEditor instanceof JTextField) {
+//            ((JTextField) packageEditor).getDocument().addDocumentListener(this);
+//        }
+//        cbPackage.setRenderer(PackageView.listRenderer());
         
         taInfoPrimaryFiles.setBackground(tfProject.getBackground());
     }
@@ -95,17 +97,18 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
         
         tfProject.setText(ProjectUtils.getInformation(project).getDisplayName());
         
-        cbLocation.setModel(new DefaultComboBoxModel(sourceGroupSupport.getSourceGroups().toArray()));
-        final SourceGroupProxy preselectedGroup = SourceGroupSupport.getContainingSourceGroup(
-                sourceGroupSupport, preselectedFolder);
-        ignoreRootCombo = true;
-        cbLocation.setSelectedItem(preselectedGroup);
-        ignoreRootCombo = false;
+//        cbLocation.setModel(new DefaultComboBoxModel(sourceGroupSupport.getSourceGroups().toArray()));
+        preselectedGroup = SourceGroupSupport.getContainingSourceGroup(sourceGroupSupport, preselectedFolder);
+        tfLocation.setText(String.valueOf(preselectedGroup.getDisplayName()));
+//        ignoreRootCombo = true;
+//        cbLocation.setSelectedItem(preselectedGroup);
+//        ignoreRootCombo = false;
         
         final FileObject targetFolder = preselectedFolder;
         final Object preselectedPackage = PluginSupport.getPreselectedPackage(preselectedGroup, preselectedFolder);
         if (preselectedPackage != null) {
-            cbPackage.getEditor().setItem(preselectedPackage);
+//            cbPackage.getEditor().setItem(preselectedPackage);
+            tfPackage.setText(String.valueOf(preselectedPackage));
         }
         
         if (tfFileName.getText().trim().length() == 0) {
@@ -127,7 +130,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
             tfFileName.selectAll();
         }
         
-        updatePackages();
+//        updatePackages();
         updateTextCreateFollowingFiles();
     }
 
@@ -137,8 +140,9 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     }
     
     public FileObject getLocationFolder() {
-        final Object selectedItem  = cbLocation.getSelectedItem();
-        return (selectedItem instanceof SourceGroupProxy) ? ((SourceGroupProxy)selectedItem).getRootFolder() : null;
+//        final Object selectedItem  = cbLocation.getSelectedItem();
+//        return (selectedItem instanceof SourceGroupProxy) ? ((SourceGroupProxy)selectedItem).getRootFolder() : null;
+        return preselectedGroup.getRootFolder();
     }
 
     @Override
@@ -147,38 +151,42 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     }
 
     public String getPackageFileName() {
-        final String packageName = cbPackage.getEditor().getItem().toString();
+//        final String packageName = cbPackage.getEditor().getItem().toString();
+        final String packageName = tfPackage.getText();
         return packageName.replace(SIGN_CHAR_DOT, File.separatorChar);
     }
     
     /**
      * Name of selected package, or "" for default package.
+     * @return 
      */
     public String getPackageName() {
-        return cbPackage.getEditor().getItem().toString();
+//        return cbPackage.getEditor().getItem().toString();
+        final String packageName = tfPackage.getText();
+        return packageName;
     }
     
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    private void updatePackages() {
-        final Object item = cbLocation.getSelectedItem();
-        if (!(item instanceof SourceGroupProxy)) {
-            return;
-        }
-        WAIT_MODEL.setSelectedItem(cbPackage.getEditor().getItem());
-        cbPackage.setModel(WAIT_MODEL);
-
-        if (updatePackagesTask != null) {
-            updatePackagesTask.cancel();
-        }
-
-        updatePackagesTask = new RequestProcessor("ComboBoxUpdatePackages").post(() -> { // NOI18N
-            final ComboBoxModel model = ((SourceGroupProxy) item).getPackagesComboBoxModel();
-            SwingUtilities.invokeLater(() -> {
-                model.setSelectedItem(cbPackage.getEditor().getItem());
-                cbPackage.setModel(model);
-            });
-        });
-    }
+//    @SuppressWarnings({"rawtypes", "unchecked"})
+//    private void updatePackages() {
+//        final Object item = cbLocation.getSelectedItem();
+//        if (!(item instanceof SourceGroupProxy)) {
+//            return;
+//        }
+//        WAIT_MODEL.setSelectedItem(cbPackage.getEditor().getItem());
+//        cbPackage.setModel(WAIT_MODEL);
+//
+//        if (updatePackagesTask != null) {
+//            updatePackagesTask.cancel();
+//        }
+//
+//        updatePackagesTask = new RequestProcessor("ComboBoxUpdatePackages").post(() -> { // NOI18N
+//            final ComboBoxModel model = ((SourceGroupProxy) item).getPackagesComboBoxModel();
+//            SwingUtilities.invokeLater(() -> {
+//                model.setSelectedItem(cbPackage.getEditor().getItem());
+//                cbPackage.setModel(model);
+//            });
+//        });
+//    }
     
     private void updateTextCreateFollowingFiles() {
         this.updateTextCreateFollowingFiles(Boolean.TRUE);
@@ -191,10 +199,10 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
             return;
         }
             
-        final Object selectedItem = cbLocation.getSelectedItem();
-        if (!(selectedItem instanceof SourceGroupProxy)) {
-            return;
-        }
+//        final Object selectedItem = cbLocation.getSelectedItem();
+//        if (!(selectedItem instanceof SourceGroupProxy)) {
+//            return;
+//        }
         
         final String fileName = this.getBaseName();
         if (fileName == null || fileName.isEmpty()) {
@@ -223,14 +231,14 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
         tfFileName = new javax.swing.JTextField();
         tfProject = new javax.swing.JTextField();
         lProject = new javax.swing.JLabel();
-        cbLocation = new javax.swing.JComboBox();
         lLocation = new javax.swing.JLabel();
-        cbPackage = new javax.swing.JComboBox();
         lPackage = new javax.swing.JLabel();
         lInfoPrimaryFiles = new javax.swing.JLabel();
         separator = new javax.swing.JSeparator();
         spInfoPrimaryFiles = new javax.swing.JScrollPane();
         taInfoPrimaryFiles = new javax.swing.JTextArea();
+        tfPackage = new javax.swing.JTextField();
+        tfLocation = new javax.swing.JTextField();
 
         org.openide.awt.Mnemonics.setLocalizedText(lFileName, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lFileName.text")); // NOI18N
         lFileName.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -244,12 +252,8 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
         org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lProject.text")); // NOI18N
         lProject.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        cbLocation.setEnabled(false);
-
         org.openide.awt.Mnemonics.setLocalizedText(lLocation, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lLocation.text")); // NOI18N
         lLocation.setPreferredSize(new java.awt.Dimension(100, 20));
-
-        cbPackage.setEditable(true);
 
         org.openide.awt.Mnemonics.setLocalizedText(lPackage, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lPackage.text")); // NOI18N
         lPackage.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -268,6 +272,14 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
         taInfoPrimaryFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInfoPrimaryFiles.setViewportView(taInfoPrimaryFiles);
 
+        tfPackage.setEditable(false);
+        tfPackage.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfPackage.text")); // NOI18N
+        tfPackage.setEnabled(false);
+
+        tfLocation.setEditable(false);
+        tfLocation.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfLocation.text")); // NOI18N
+        tfLocation.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,7 +287,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,8 +298,8 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfProject)
                             .addComponent(tfFileName)
-                            .addComponent(cbLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbPackage, 0, 276, Short.MAX_VALUE)))
+                            .addComponent(tfPackage)
+                            .addComponent(tfLocation)))
                     .addComponent(separator)
                     .addComponent(spInfoPrimaryFiles))
                 .addContainerGap())
@@ -305,12 +317,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
                     .addComponent(lProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -322,10 +334,6 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    @SuppressWarnings("rawtypes")
-    private javax.swing.JComboBox cbLocation;
-    @SuppressWarnings("rawtypes")
-    private javax.swing.JComboBox cbPackage;
     private javax.swing.JLabel lFileName;
     private javax.swing.JLabel lInfoPrimaryFiles;
     private javax.swing.JLabel lLocation;
@@ -335,26 +343,28 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements Actio
     private javax.swing.JScrollPane spInfoPrimaryFiles;
     private javax.swing.JTextArea taInfoPrimaryFiles;
     private javax.swing.JTextField tfFileName;
+    private javax.swing.JTextField tfLocation;
+    private javax.swing.JTextField tfPackage;
     private javax.swing.JTextField tfProject;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (cbLocation == e.getSource()) {
-            if (!ignoreRootCombo) {
-                updatePackages();
-            }
-            
-            updateTextCreateFollowingFiles();
-            changeSupport.fireChange();
-        } else if (cbPackage == e.getSource()) {
-            updateTextCreateFollowingFiles();
-            changeSupport.fireChange();
-        } else if (cbPackage.getEditor() == e.getSource()) {
-            updateTextCreateFollowingFiles();
-            changeSupport.fireChange();
-        }
-    }
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        if (cbLocation == e.getSource()) {
+//            if (!ignoreRootCombo) {
+//                updatePackages();
+//            }
+//            
+//            updateTextCreateFollowingFiles();
+//            changeSupport.fireChange();
+//        } else if (cbPackage == e.getSource()) {
+//            updateTextCreateFollowingFiles();
+//            changeSupport.fireChange();
+//        } else if (cbPackage.getEditor() == e.getSource()) {
+//            updateTextCreateFollowingFiles();
+//            changeSupport.fireChange();
+//        }
+//    }
     
     @Override
     public void changedUpdate(DocumentEvent e) {

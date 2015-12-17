@@ -19,7 +19,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lInfoPrimaryFiles" max="32767" attributes="0"/>
+                  <Component id="lInfoPrimaryFiles" pref="380" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lFileName" min="-2" max="-2" attributes="0"/>
@@ -31,8 +31,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfProject" max="32767" attributes="0"/>
                           <Component id="tfFileName" max="32767" attributes="0"/>
-                          <Component id="cbLocation" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cbPackage" alignment="0" pref="276" max="32767" attributes="0"/>
+                          <Component id="tfPackage" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tfLocation" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="separator" alignment="1" max="32767" attributes="0"/>
@@ -57,13 +57,13 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cbLocation" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfLocation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cbPackage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lPackage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfPackage" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="separator" min="-2" pref="10" max="-2" attributes="0"/>
@@ -113,14 +113,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbLocation">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="@SuppressWarnings(&quot;rawtypes&quot;)"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="lLocation">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -130,14 +122,6 @@
           <Dimension value="[100, 20]"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbPackage">
-      <Properties>
-        <Property name="editable" type="boolean" value="true"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="@SuppressWarnings(&quot;rawtypes&quot;)"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lPackage">
       <Properties>
@@ -186,5 +170,23 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="tfPackage">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfPackage.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfLocation">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfLocation.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

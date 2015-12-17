@@ -28,6 +28,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 #### Refactoring
+#23 [Primary Files] Replace the ComboBoxes from Location and Package with TextFields.
 
 
 
