@@ -16,11 +16,17 @@
  */
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin.support;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
 /**
  *
  * @author PRo
  */
 public interface IPluginSupport {
+    
+    public static final Color LIGHTGRAY_COLOR = new Color(124, 127, 130);
     
     public static final String DEFAULT_MAVEN_FXML_PACKAGE = "fxml"; //NOI18N
     public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; //NOI18N

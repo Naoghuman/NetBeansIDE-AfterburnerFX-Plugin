@@ -16,10 +16,11 @@
  */
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
+import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public final class PluginVisualPanelSummary extends JPanel {
+public final class PluginVisualPanelSummary extends JPanel implements IPluginSupport {
 
     public PluginVisualPanelSummary() {
         initComponents();
@@ -31,8 +32,12 @@ public final class PluginVisualPanelSummary extends JPanel {
         final JTextField tf = new JTextField();
         tf.setEditable(false);
         tf.setEnabled(false);
+        
         taInfoPrimaryFiles.setBackground(tf.getBackground());
+        taInfoPrimaryFiles.setForeground(LIGHTGRAY_COLOR);
+        
         taInfoOptionalFiles.setBackground(tf.getBackground());
+        taInfoOptionalFiles.setForeground(LIGHTGRAY_COLOR);
     }
     
     void initValues(
@@ -95,7 +100,6 @@ public final class PluginVisualPanelSummary extends JPanel {
         taInfoPrimaryFiles.setColumns(20);
         taInfoPrimaryFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taInfoPrimaryFiles.setRows(4);
-        taInfoPrimaryFiles.setEnabled(false);
         taInfoPrimaryFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         jScrollPane2.setViewportView(taInfoPrimaryFiles);
 
@@ -108,7 +112,6 @@ public final class PluginVisualPanelSummary extends JPanel {
         taInfoOptionalFiles.setColumns(20);
         taInfoOptionalFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taInfoOptionalFiles.setRows(4);
-        taInfoOptionalFiles.setEnabled(false);
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         jScrollPane1.setViewportView(taInfoOptionalFiles);
 

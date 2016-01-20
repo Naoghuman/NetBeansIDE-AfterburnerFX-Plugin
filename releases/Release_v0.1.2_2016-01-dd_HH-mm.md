@@ -23,6 +23,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 #### Bug
+#25 [Wizard] Bad readable disable color under Ubuntu.
 #20 [Wizard] Generated files aren't open automatically after generation.
 
 

@@ -18,8 +18,6 @@ package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
-import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__CHOOSEN_PACKAGE;
-import static com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport.PROP__FILENAME_CHOOSEN_DEFAULT_VALUE;
 import java.awt.Component;
 import java.io.IOException;
 import java.util.ArrayList;

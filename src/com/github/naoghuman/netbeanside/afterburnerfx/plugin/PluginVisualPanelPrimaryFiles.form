@@ -100,7 +100,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfProject.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lProject">
@@ -162,7 +161,6 @@
               <Font name="Tahoma" size="11" style="0"/>
             </Property>
             <Property name="rows" type="int" value="4"/>
-            <Property name="enabled" type="boolean" value="false"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[3, 3, 0, 0]"/>
             </Property>
@@ -176,7 +174,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfPackage.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfLocation">
@@ -185,7 +182,6 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfLocation.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

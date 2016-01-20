@@ -16,14 +16,13 @@
  */
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
+import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public final class PluginVisualPanelOptionalFiles extends JPanel {
-    
-    private static final Color LIGHT_GRAY = new Color(109, 109, 109);
+public final class PluginVisualPanelOptionalFiles extends JPanel implements IPluginSupport {
     
     private String baseName;
     private String packageName;
@@ -36,38 +35,38 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
     private void initComponents2() {
         // CSS
         cbShouldCSScreated.addActionListener((ActionEvent e) -> {
-            cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             
             cbShouldCSSinjected.setEnabled(cbShouldCSScreated.isSelected());
             if (!cbShouldCSScreated.isSelected()) {
                 cbShouldCSSinjected.setSelected(Boolean.FALSE);
             }
-            taShouldCSSinjected.setDisabledTextColor(!cbShouldCSScreated.isSelected()
-                    ? LIGHT_GRAY : cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-            taShouldCSSinjected.invalidate();
-            taShouldCSSinjected.repaint();
+            taShouldCSSinjected.setForeground(!cbShouldCSScreated.isSelected()
+                    ? LIGHTGRAY_COLOR : cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+//            taShouldCSSinjected.invalidate();
+//            taShouldCSSinjected.repaint();
             
             updateTextCreateFollowingFiles();
         });
         
         cbShouldCSSinjected.addActionListener((ActionEvent e) -> {
-            taShouldCSSinjected.setDisabledTextColor(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
-            taShouldCSSinjected.invalidate();
-            taShouldCSSinjected.repaint();
+            taShouldCSSinjected.setForeground(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+//            taShouldCSSinjected.invalidate();
+//            taShouldCSSinjected.repaint();
             
             updateTextCreateFollowingFiles();
         });
         
         // Properties
         cbShouldPropertiesCreated.addActionListener((ActionEvent e) -> {
-            cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             
             cbShouldPropertiesInjected.setEnabled(cbShouldPropertiesCreated.isSelected());
             if (!cbShouldPropertiesCreated.isSelected()) {
                 cbShouldPropertiesInjected.setSelected(Boolean.FALSE);
             }
-            taShouldPropertiesInjected.setDisabledTextColor(!cbShouldPropertiesCreated.isSelected()
-                    ? LIGHT_GRAY : cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldPropertiesInjected.setForeground(!cbShouldPropertiesCreated.isSelected()
+                    ? LIGHTGRAY_COLOR : cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             taShouldPropertiesInjected.invalidate();
             taShouldPropertiesInjected.repaint();
             
@@ -75,7 +74,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         });
         
         cbShouldPropertiesInjected.addActionListener((ActionEvent e) -> {
-            taShouldPropertiesInjected.setDisabledTextColor(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHT_GRAY);
+            taShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             taShouldPropertiesInjected.invalidate();
             taShouldPropertiesInjected.repaint();
             
@@ -86,9 +85,15 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         final JTextField tf = new JTextField();
         tf.setEditable(false);
         tf.setEnabled(false);
+        
         taShouldCSSinjected.setBackground(tf.getBackground());
+        taShouldCSSinjected.setForeground(Color.BLACK);
+        
         taShouldPropertiesInjected.setBackground(tf.getBackground());
+        taShouldPropertiesInjected.setForeground(Color.BLACK);
+        
         taInfoOptionalFiles.setBackground(tf.getBackground());
+        taInfoOptionalFiles.setForeground(LIGHTGRAY_COLOR);
     }
     
     void initValues(String baseName, String packageName, boolean shouldCreateCSS, boolean shouldInjectCSS,
@@ -182,9 +187,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         taShouldCSSinjected.setRows(3);
         taShouldCSSinjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldCSSinjected.text")); // NOI18N
         taShouldCSSinjected.setWrapStyleWord(true);
-        taShouldCSSinjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
+        taShouldCSSinjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
         taShouldCSSinjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taShouldCSSinjected.setEnabled(false);
         taShouldCSSinjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInjectCSSfile.setViewportView(taShouldCSSinjected);
 
@@ -197,9 +201,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         taShouldPropertiesInjected.setRows(3);
         taShouldPropertiesInjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldPropertiesInjected.text")); // NOI18N
         taShouldPropertiesInjected.setWrapStyleWord(true);
-        taShouldPropertiesInjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 0, 0, 0));
+        taShouldPropertiesInjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
         taShouldPropertiesInjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taShouldPropertiesInjected.setEnabled(false);
         taShouldPropertiesInjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInjectPropertiesFile.setViewportView(taShouldPropertiesInjected);
 
@@ -212,7 +215,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
         taInfoOptionalFiles.setColumns(20);
         taInfoOptionalFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taInfoOptionalFiles.setRows(4);
-        taInfoOptionalFiles.setEnabled(false);
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInfoOptionalFiles.setViewportView(taInfoOptionalFiles);
 
@@ -285,7 +287,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel {
                 .addComponent(lInfoOptionalFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

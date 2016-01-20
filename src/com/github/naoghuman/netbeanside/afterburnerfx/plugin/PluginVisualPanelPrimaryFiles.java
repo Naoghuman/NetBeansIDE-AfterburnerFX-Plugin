@@ -20,17 +20,20 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSuppo
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport.SourceGroupProxy;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import javax.swing.BorderFactory;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.netbeans.api.project.Project;
@@ -84,7 +87,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
 //        }
 //        cbPackage.setRenderer(PackageView.listRenderer());
         
+        tfLocation.setForeground(LIGHTGRAY_COLOR);
+        tfPackage.setForeground(LIGHTGRAY_COLOR);
+        tfProject.setForeground(LIGHTGRAY_COLOR);
+        
         taInfoPrimaryFiles.setBackground(tfProject.getBackground());
+        taInfoPrimaryFiles.setForeground(LIGHTGRAY_COLOR);
     }
     
     @SuppressWarnings({"rawtypes", "unchecked"})
@@ -247,7 +255,6 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
 
         tfProject.setEditable(false);
         tfProject.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfProject.text")); // NOI18N
-        tfProject.setEnabled(false);
 
         org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lProject.text")); // NOI18N
         lProject.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -268,17 +275,14 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         taInfoPrimaryFiles.setColumns(20);
         taInfoPrimaryFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         taInfoPrimaryFiles.setRows(4);
-        taInfoPrimaryFiles.setEnabled(false);
         taInfoPrimaryFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInfoPrimaryFiles.setViewportView(taInfoPrimaryFiles);
 
         tfPackage.setEditable(false);
         tfPackage.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfPackage.text")); // NOI18N
-        tfPackage.setEnabled(false);
 
         tfLocation.setEditable(false);
         tfLocation.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfLocation.text")); // NOI18N
-        tfLocation.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
