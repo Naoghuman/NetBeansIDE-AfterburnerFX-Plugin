@@ -12,7 +12,7 @@ project.
 
 The following primary files `[FileName].fxml`, `[FileName]Presenter.java`, `[FileName]View.java` 
 and optional `[FileName].css` and `[FileName].properties` can be created in a new wizard.  
-One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen packagename.
+One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen package name.
 
 
 
@@ -80,7 +80,7 @@ Features<a name="Features" />
 Following files can be created in the new wizard:
 * Primary files are `[FileName].fxml`, `[FileName]Presenter.java` and 
   `[FileName]View.java` where *[FileName].toLowerCase()* must be **equals** with 
-  the *last* choosen packagename.
+  the *last* choosen package name.
 * Optional files are `[FileName]`.css, `[FileName]`.properties. The optional 
   files if checked for generation can also optional injected into following files:
     * The **.css** file can be injected into the `[FileName]`.fxml
