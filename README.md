@@ -44,22 +44,22 @@ The following screenshots shows the workflow to create the new 'AfterburnerFX Fi
 The screenshots are taken under [Windows 10].
 
 ##### 1. Open the Wizard
-![0_Open-Wizard_Windows-10.png][0_Open-Wizard_Windows-10]
+![plugin-1-open.png][plugin-1-open]
 
 ##### 2. Choose File Type  
-![1_Choose-File-Type_Windows-10.png][1_Choose-File-Type_Windows-10]
+![plugin-2-file-type.png][plugin-2-file-type]
 
 ##### 3. Primary Files 
-![2_Primary-Files_Windows-10.png][2_Primary-Files_Windows-10]
+![plugin-3-primary-files.png][plugin-3-primary-files]
 
 ##### 4. Optional Files  
-![3_Optional-Files_Windows-10.png][3_Optional-Files_Windows-10]
+![plugin-4-optional-files.png][plugin-4-optional-files]
 
 ##### 5. Summary  
-![4_Summary_Window-10.png][4_Summary_Window-10]
+![plugin-5-summary.png][plugin-5-summary]
 
 ##### 6. Generated files  
-![5_Generated-Files_Windows-10.png][5_Generated-Files_Windows-10]
+![plugin-6-generated-files.png][plugin-6-generated-files]
 
 
 
@@ -257,12 +257,12 @@ Contact<a name="Contact" />
 
 [//]: # (Images)
 
-[0_Open-Wizard_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164893/2a584f04-8afe-11e5-884a-59ad1680de73.png
-[1_Choose-File-Type_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164896/2a5a363e-8afe-11e5-9a0c-5434d7a24121.png
-[2_Primary-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164892/2a564646-8afe-11e5-8895-560e46135b8b.png
-[3_Optional-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11187278/2146d80c-8c86-11e5-8598-378dda5e225c.png
-[4_Summary_Window-10]:https://cloud.githubusercontent.com/assets/8161815/11164897/2a5b4182-8afe-11e5-8008-6cbde3131a63.png
-[5_Generated-Files_Windows-10]:https://cloud.githubusercontent.com/assets/8161815/11164895/2a596c9a-8afe-11e5-9154-6dd026215711.png
+[plugin-1-open]:https://cloud.githubusercontent.com/assets/8161815/12529507/70ffbc3e-c1b9-11e5-97c5-d611fec69af9.png
+[plugin-2-file-type]:https://cloud.githubusercontent.com/assets/8161815/12529508/743b7424-c1b9-11e5-85ac-d767f8cb2d70.png
+[plugin-3-primary-files]:https://cloud.githubusercontent.com/assets/8161815/12529509/765e15a4-c1b9-11e5-8654-86a07535d5af.png
+[plugin-4-optional-files]:https://cloud.githubusercontent.com/assets/8161815/12529510/783a2d04-c1b9-11e5-90e4-2a5e0f030a8e.png
+[plugin-5-summary]:https://cloud.githubusercontent.com/assets/8161815/12529512/7a1f831c-c1b9-11e5-9a2c-4684e05a9f4e.png
+[plugin-6-generated-files]:https://cloud.githubusercontent.com/assets/8161815/12529513/7bc02636-c1b9-11e5-9e5d-ed815fa17749.png
 
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
