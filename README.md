@@ -10,9 +10,9 @@ The `NetBeansIDE-AfterburnerFX-Plugin` is a [NetBeans IDE] plugin which supports
 the file generation in **convention** with the library [afterburner.fx] in a [JavaFX] 
 project.
 
-The following primary files `[prefix].fxml`, `[prefix]Presenter.java`, `[prefix]View.java` 
-and optional `[prefix].css` and `[prefix].properties` will be created in a new 
-wizard where **[prefix]** is your choosen `file and package` name.
+The following primary files `[FileName].fxml`, `[FileName]Presenter.java`, `[FileName]View.java` 
+and optional `[FileName].css` and `[FileName].properties` can be created in a new wizard.  
+One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen packagename.
 
 
 
@@ -78,15 +78,13 @@ Features<a name="Features" />
 
 ##### Generated Files<a name="GeneratedFiles" />
 Following files can be created in the new wizard:
-* Primary files: `[prefix].fxml`, `[prefix]Presenter.java` and `[prefix]View.java` 
-  where **[prefix]** *(lowercase)* must be equals like the last **package name** 
-  *(lowercase)*.
-* Optional files: `[prefix]`.css, `[prefix]`.properties. The optional files 
-  if checked for generation can also optional injected into following files: 
-  The **.css** file can be injected into the `[prefix]`.fxml and the 
-  **.properties** file into the `[prefix]Presenter.java`.
-    * In the page `Optional Files` from the wizard the decision from the user will 
-      be saved.
+* Primary files are `[FileName].fxml`, `[FileName]Presenter.java` and 
+  `[FileName]View.java` where *[FileName].toLowerCase()* must be **equals** with 
+  the *last* choosen packagename.
+* Optional files are `[FileName]`.css, `[FileName]`.properties. The optional 
+  files if checked for generation can also optional injected into following files:
+    * The **.css** file can be injected into the `[FileName]`.fxml
+    * The **.properties** file into the `[FileName]Presenter.java`.
 
 
 ##### Injection from the Optional Files<a name="InjectionOptionalFiles" />
@@ -140,10 +138,10 @@ public class ImportdialogPresenter implements Initializable {
 
 
 ##### Feedback<a name="Feedback" />
-* The wizard gives the user `feedback` if the choosen `[prefix]` and `package name`
-  aren't in convention with the library [afterburner.fx]. The **[prefix]** 
-  *(lowercase)*  and the last **package name** must be equals.
-* Feedback is also given if the choosen `[prefix]` and / or `package name` doesn't 
+* The wizard gives the user `feedback` if the choosen `[FileName]` and `package name`
+  aren't in convention with the library [afterburner.fx]. The *[FileName].toLowerCase()* 
+  and the last choosen *package name* must be **equals**.
+* Feedback is also given if the choosen `[FileName]` and / or `package name` doesn't 
   follow the rules from the [Java Naming Convention].
 
 
@@ -268,4 +266,3 @@ Contact<a name="Contact" />
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
 [emoticon_tongue]:https://cloud.githubusercontent.com/assets/8161815/10268706/741f41fe-6ac1-11e5-88ea-1b4d807b2283.png
 [iconfinder]:https://www.iconfinder.com/icons/211625/at_icon#size=16
-

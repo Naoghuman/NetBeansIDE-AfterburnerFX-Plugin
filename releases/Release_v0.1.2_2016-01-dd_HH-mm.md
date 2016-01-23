@@ -30,6 +30,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 #### Refactoring
 #27 [Wizard] Refactore the title from the wizard.
+#26 [Wizard] Refactore the plugin description in wizard when selecting the file type.
 #23 [Primary Files] Replace the ComboBoxes from Location and Package with TextFields.
 
 
@@ -39,6 +40,5 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 [//]: # (Issues which will be integrated in this release)
-#26 [Wizard] Refactore the plugin description in wizard when selecting the file type.
 #21 [Wizard] generated fxml, css and properties files should be lowercase.
 #17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.
