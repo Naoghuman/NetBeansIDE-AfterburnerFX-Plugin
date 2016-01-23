@@ -17,7 +17,7 @@
     </folder> -->
     <folder name="Templates">
         <folder name="javafx">
-            <file name="JavaFX AfterburnerFX Files">
+            <file name="JavaFX Files (afterburner.fx)">
                 <attr name="iconBase" stringvalue="com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/files.png"/>
                 <attr name="instantiatingIterator" newvalue="com.github.naoghuman.netbeanside.afterburnerfx.plugin.PluginWizardIterator"/>
                 <attr name="instantiatingWizardURL" urlvalue="nbresloc:/com/github/naoghuman/netbeanside/afterburnerfx/plugin/resources/PluginDescription.html"/>
