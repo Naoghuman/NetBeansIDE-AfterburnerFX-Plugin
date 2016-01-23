@@ -15,6 +15,6 @@
 # }
 #
 # The above shown sourcecode will be automatically generated if you have the
-# options to create (and to inject) an 'optional .properties' file into your 
+# options to create (and to inject) the 'optional' .properties file into your 
 # presenter selected in the page 'Optional Files'.
 #

@@ -81,10 +81,12 @@ Following files can be created in the new wizard:
 * Primary files are `[FileName].fxml`, `[FileName]Presenter.java` and 
   `[FileName]View.java` where *[FileName].toLowerCase()* must be **equals** with 
   the *last* choosen package name.
-* Optional files are `[FileName]`.css, `[FileName]`.properties. The optional 
-  files if checked for generation can also optional injected into following files:
-    * The **.css** file can be injected into the `[FileName]`.fxml
-    * The **.properties** file into the `[FileName]Presenter.java`.
+    * Additional option `[FileName].fxml` to lowercase.
+* Optional files are `[FileName]`.css, `[FileName]`.properties.
+    * Additional option `[FileName].css` and `[FileName].properties` to lowercase.
+* The optional files can also additional injected into following files:
+    * The **.css** file can additional injected into the `[FileName]`.fxml file.
+    * The **.properties** can additional injected into into the `[FileName]Presenter.java` file.
 
 
 ##### Injection from the Optional Files<a name="InjectionOptionalFiles" />

@@ -44,11 +44,14 @@ public interface IPluginSupport {
     public static final String PROP__CHOOSEN_PACKAGE = "PROP__CHOOSEN_PACKAGE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_CREATE = "PROP__CSS_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_INJECT = "PROP__CSS_FILE_SHOULD_INJECT"; // NOI18N
+    public static final String PROP__CSS_TO_LOWERCASE = "PROP__CSS_TO_LOWERCASE"; // NOI18N
     public static final String PROP__FILENAME = "PROP__FILENAME"; // NOI18N
     public static final String PROP__FILENAME_CHOOSEN = "PROP__FILENAME_CHOOSEN"; // NOI18N
     public static final String PROP__FILENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
+    public static final String PROP__FXML_TO_LOWERCASE = "PROP__FXML_TO_LOWERCASE"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_CREATE = "PROP__PROPERTIES_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_INJECT = "PROP__PROPERTIES_FILE_SHOULD_INJECT"; // NOI18N
+    public static final String PROP__PROPERTIES_TO_LOWERCASE = "PROP__PROPERTIES_TO_LOWERCASE"; // NOI18N
     public static final String PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES = "PROPERTY_SHOW_INFORMATION_CREATE_FOLLOWING_FILES"; // NOI8N
     
     public static final Character SIGN_CHAR_DOT = '.';

@@ -20,6 +20,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lInfoPrimaryFiles" pref="380" max="32767" attributes="0"/>
+                  <Component id="separator" alignment="1" max="32767" attributes="0"/>
+                  <Component id="spInfoPrimaryFiles" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lFileName" min="-2" max="-2" attributes="0"/>
@@ -29,14 +31,16 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="cbFxmlToLowerCase" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                           <Component id="tfProject" max="32767" attributes="0"/>
                           <Component id="tfFileName" max="32767" attributes="0"/>
                           <Component id="tfPackage" alignment="0" max="32767" attributes="0"/>
                           <Component id="tfLocation" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="separator" alignment="1" max="32767" attributes="0"/>
-                  <Component id="spInfoPrimaryFiles" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -65,13 +69,15 @@
                   <Component id="lPackage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfPackage" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="cbFxmlToLowerCase" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="separator" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lInfoPrimaryFiles" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="spInfoPrimaryFiles" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -182,6 +188,16 @@
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.tfLocation.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbFxmlToLowerCase">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelPrimaryFiles.cbFxmlToLowerCase.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="6"/>
       </Properties>
     </Component>
   </SubComponents>

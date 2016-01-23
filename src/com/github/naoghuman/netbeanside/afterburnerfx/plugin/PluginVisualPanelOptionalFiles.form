@@ -19,33 +19,48 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="separator" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lInfoOptionalFiles" alignment="0" max="32767" attributes="0"/>
-                  <Component id="spInfoOptionalFiles" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbShouldPropertiesCreated" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="separator" alignment="1" max="32767" attributes="0"/>
+                          <Component id="lInfoOptionalFiles" alignment="0" max="32767" attributes="0"/>
+                          <Component id="spInfoOptionalFiles" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cbShouldPropertiesInjected" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="spInjectPropertiesFile" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cbShouldCSSinjected" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="spInjectCSSfile" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                      <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="cbShouldPropertiesInjected" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="spInjectPropertiesFile" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="cbShouldCSSinjected" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="spInjectCSSfile" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="cbShouldPropertiesCreated" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,6 +70,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbShouldCSSinjected" min="-2" max="-2" attributes="0"/>
                   <Component id="spInjectCSSfile" min="-2" max="-2" attributes="0"/>
@@ -62,17 +79,19 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="cbShouldPropertiesCreated" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbShouldPropertiesInjected" min="-2" max="-2" attributes="0"/>
                   <Component id="spInjectPropertiesFile" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="separator" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="lInfoOptionalFiles" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="spInfoOptionalFiles" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,7 +117,7 @@
               <Font name="Tahoma" size="11" style="0"/>
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="3"/>
+            <Property name="rows" type="int" value="2"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.taShouldCSSinjected.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
@@ -138,7 +157,7 @@
               <Font name="Tahoma" size="11" style="0"/>
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="3"/>
+            <Property name="rows" type="int" value="2"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.taShouldPropertiesInjected.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
@@ -185,7 +204,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="0"/>
             </Property>
-            <Property name="rows" type="int" value="4"/>
+            <Property name="rows" type="int" value="3"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[3, 3, 0, 0]"/>
             </Property>
@@ -226,6 +245,7 @@
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.cbShouldCSScreated.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="cbShouldPropertiesCreated">
@@ -235,6 +255,27 @@
           <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.cbShouldPropertiesCreated.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbCSStoLowerCase">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.cbCSStoLowerCase.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbPropertiesToLowerCase">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties" key="PluginVisualPanelOptionalFiles.cbPropertiesToLowerCase.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="iconTextGap" type="int" value="6"/>
       </Properties>
     </Component>
   </SubComponents>

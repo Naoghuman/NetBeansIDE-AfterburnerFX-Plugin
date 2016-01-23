@@ -13,7 +13,7 @@
  * </AnchorPane>
  * 
  * The above shown soucecode will be automatically generated if you have the
- * options to create (and to inject) an 'optional .css' file into your 
+ * options to create (and to inject) the 'optional' .css file into your 
  * file ${fxml}.fxml selected in the page 'Optional Files'.
  * 
  * Created on : ${date}, ${time}

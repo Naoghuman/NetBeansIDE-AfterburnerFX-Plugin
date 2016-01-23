@@ -13,6 +13,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 #### Enhancement
+#21 [Wizard] generated fxml, css and properties files can be lowercase.
 #19 [Optional Files] Enhance the commentary in the optional .css file.
 #18 [Optional Files] Enhance the commentary in the optional .properties file.
 
@@ -40,5 +41,5 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 [//]: # (Issues which will be integrated in this release)
-#21 [Wizard] generated fxml, css and properties files should be lowercase.
+#28 [ReadMe] Add link to interview with Adam Bien to ReadMe.
 #17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.

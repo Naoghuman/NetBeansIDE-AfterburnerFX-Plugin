@@ -158,11 +158,13 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     
     private Map<String, String> mapParametersForPrimaryFiles() {
         final Map<String, String> parameters = new HashMap<>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
-        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, prefix + "Presenter"); // NOI18N
-        parameters.put(TEMPLATE_PARAMETER__FXML, prefix);
-        parameters.put(TEMPLATE_PARAMETER__PRESENTER, prefix + "Presenter"); // NOI18N
-        parameters.put(TEMPLATE_PARAMETER__VIEW, prefix + "View"); // NOI18N
+        final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
+        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + "Presenter"); // NOI18N
+        
+        final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
+        parameters.put(TEMPLATE_PARAMETER__FXML, shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName);
+        parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__VIEW, fileName + "View"); // NOI18N
         
         return parameters;
     }
@@ -212,22 +214,27 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     
     private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) {
         final Map<String, String> parameters = new HashMap<>();
-        final String prefix = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
+        final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
+        // .css
         if (shouldCreateCSS) {
-            parameters.put(TEMPLATE_PARAMETER__CONTROLLER, prefix + "Presenter"); // NOI18N
-            parameters.put(TEMPLATE_PARAMETER__CSS, prefix);
-            parameters.put(TEMPLATE_PARAMETER__FXML, prefix);
+            parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + "Presenter"); // NOI18N
+            
+            final boolean shouldCSStoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_TO_LOWERCASE, Boolean.TRUE);
+            parameters.put(TEMPLATE_PARAMETER__CSS, shouldCSStoLowerCase ? fileName.toLowerCase() : fileName);
+            parameters.put(TEMPLATE_PARAMETER__FXML, shouldCSStoLowerCase ? fileName.toLowerCase() : fileName);
             
             final String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
             parameters.put(TEMPLATE_PARAMETER__PACKAGE2, packageName);
         }
-            
+           
+        // .properties
         final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
         parameters.put(TEMPLATE_PARAMETER__CSS_FILE_INJECT, shouldInjectCSS ? "true" : "false"); // NOI18N
         
         if (shouldCreateProperties) {
-            parameters.put(TEMPLATE_PARAMETER__PROPERTIES, prefix);
-            parameters.put(TEMPLATE_PARAMETER__PRESENTER, prefix + "Presenter"); // NOI18N
+            final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
+            parameters.put(TEMPLATE_PARAMETER__PROPERTIES, shouldPropertiesToLowerCase ? fileName.toLowerCase() : fileName);
+            parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
         }
             
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
