@@ -1,4 +1,4 @@
-Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
+Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.2`.
 
 
 
