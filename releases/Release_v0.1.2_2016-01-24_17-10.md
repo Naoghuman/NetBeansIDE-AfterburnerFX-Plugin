@@ -3,8 +3,8 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v0.1.2`.
 
 
 #### Summary
-* Point
-* Other point
+* The files generated files .fxml, .css and .properties can now be lowercase.
+* The ComboBoxes from the parameters Location and Package are replaced with TextFields.
 
 
 
