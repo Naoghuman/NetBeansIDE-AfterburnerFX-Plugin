@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -24,13 +24,13 @@
                           <Component id="separator" alignment="1" max="32767" attributes="0"/>
                           <Component id="lInfoOptionalFiles" alignment="0" max="32767" attributes="0"/>
                           <Component id="spInfoOptionalFiles" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="cbShouldPropertiesInjected" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -41,17 +41,14 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="spInjectCSSfile" max="32767" attributes="0"/>
                                   </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                                      <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -70,28 +67,28 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cbShouldCSScreated" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbShouldCSSinjected" min="-2" max="-2" attributes="0"/>
-                  <Component id="spInjectCSSfile" min="-2" max="-2" attributes="0"/>
+                  <Component id="spInjectCSSfile" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="cbShouldPropertiesCreated" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
+              <Component id="cbCSStoLowerCase" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Component id="cbShouldPropertiesCreated" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbShouldPropertiesInjected" min="-2" max="-2" attributes="0"/>
                   <Component id="spInjectPropertiesFile" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbPropertiesToLowerCase" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="separator" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Component id="lInfoOptionalFiles" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="spInfoOptionalFiles" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
