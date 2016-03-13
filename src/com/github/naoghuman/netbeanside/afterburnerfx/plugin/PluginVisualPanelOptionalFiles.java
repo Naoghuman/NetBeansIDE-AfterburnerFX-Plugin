@@ -158,10 +158,10 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         taInfoOptionalFiles.setText(null);
         
         final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
-        cbCSStoLowerCase.setText("File " + cssFileName + ".css to lowercase"); // NOI18N
+        cbCSStoLowerCase.setText("File " + cssFileName + ".css should be lowercase."); // NOI18N
         
         final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
-        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties to lowercase"); // NOI18N
+        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties should be lowercase."); // NOI18N
         
         final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
         if (shouldCSScreated) {

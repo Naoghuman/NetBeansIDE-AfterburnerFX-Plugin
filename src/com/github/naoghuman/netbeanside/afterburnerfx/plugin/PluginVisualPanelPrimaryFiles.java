@@ -235,15 +235,13 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
             return;
         }
         
-        final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
-//        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml to lowercase"); // NOI18N
-        
         final StringBuilder sb = new StringBuilder();
         String packageName = this.getPackageName().replace(SIGN_CHAR_DOT, File.separatorChar);
         if (!packageName.endsWith(File.separator)) {
             packageName += File.separator;
         }
         
+        final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
         final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)\n" : "\n"; // NOI18N
         sb.append("- ").append(packageName).append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
         sb.append("- ").append(packageName).append(fileName).append("Presenter.java\n"); // NOI18N
@@ -259,7 +257,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         }
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
-        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml to lowercase"); // NOI18N
+        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml should be lowercase."); // NOI18N
     }
 
     /**
