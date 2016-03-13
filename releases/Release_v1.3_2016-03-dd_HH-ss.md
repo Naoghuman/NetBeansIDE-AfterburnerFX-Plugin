@@ -21,6 +21,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Bug
+#36 [Primary Files] Wrong FileName + action from CheckBox shows info in TextArea.
 #34 [Primary Files] Background color from CheckBox to LowerCase is wrong when opening the dialog again.
 #31 [Optional Files] Background color from CheckBoxes file should injected is wrong.
 
@@ -39,5 +40,4 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 [//]: # (Issues which will be integrated in this release)
-#33 [Optional Files] FileName.fxml should reflect the user choose in the page 'Primary Files'.
 #17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.

@@ -58,6 +58,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     private SourceGroupProxy preselectedGroup;
     
 //    private boolean ignoreRootCombo;
+    private boolean shouldInfoCreateFollwingFiles = Boolean.TRUE;
     private boolean shouldFXMLtoLowerCase;
     
 //    private RequestProcessor.Task updatePackagesTask;
@@ -95,7 +96,8 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         cbFxmlToLowerCase.addActionListener((ActionEvent e) -> {
             cbFxmlToLowerCase.setForeground(cbFxmlToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             shouldFXMLtoLowerCase = this.shouldFXMLtoLowerCase();
-            this.updateTextCreateFollowingFiles();
+            this.updateTextCreateFollowingFiles(shouldInfoCreateFollwingFiles);
+            this.updateTextUpdateFxmlToLowerCase();
         });
         
         taInfoPrimaryFiles.setBackground(tfProject.getBackground());
@@ -151,6 +153,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         
 //        this.updatePackages();
         this.updateTextCreateFollowingFiles();
+        this.updateTextUpdateFxmlToLowerCase();
     }
 
     public String getBaseName() {
@@ -233,7 +236,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         }
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
-        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml to lowercase"); // NOI18N
+//        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml to lowercase"); // NOI18N
         
         final StringBuilder sb = new StringBuilder();
         String packageName = this.getPackageName().replace(SIGN_CHAR_DOT, File.separatorChar);
@@ -247,6 +250,16 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         sb.append("- ").append(packageName).append(fileName).append("View.java"); // NOI18N
         
         taInfoPrimaryFiles.append(sb.toString());
+    }
+    
+    private void updateTextUpdateFxmlToLowerCase() {
+        final String fileName = this.getBaseName();
+        if (fileName == null || fileName.isEmpty()) {
+            return;
+        }
+        
+        final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
+        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml to lowercase"); // NOI18N
     }
 
     /**
@@ -425,7 +438,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     public void propertyChange(PropertyChangeEvent evt) {
         final String propertyName = evt.getPropertyName();
         if (propertyName.equals(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES)) {
-            final boolean shouldInfoCreateFollwingFiles = (Boolean) evt.getNewValue();
+            shouldInfoCreateFollwingFiles = (Boolean) evt.getNewValue();
             this.updateTextCreateFollowingFiles(shouldInfoCreateFollwingFiles);
         }
     }
