@@ -28,8 +28,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     private String packageName;
 
     public PluginVisualPanelOptionalFiles() {
-        initComponents();
-        initComponents2();
+        this.initComponents();
+        this.initComponents2();
     }
     
     private void initComponents2() {
@@ -49,19 +49,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             this.updateTextCreateFollowingFiles();
         });
         
-        cbCSStoLowerCase.addActionListener((ActionEvent e) -> {
-            cbCSStoLowerCase.setForeground(cbCSStoLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
-            this.updateTextCreateFollowingFiles();
-        });
-        
-        cbShouldCSSinjected.addActionListener((ActionEvent e) -> {
-            cbShouldCSSinjected.setForeground(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
-            this.updateTextCreateFollowingFiles();
-        });
-        
         // Properties
         cbShouldPropertiesCreated.addActionListener((ActionEvent e) -> {
-            
             final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
             cbShouldPropertiesCreated.setForeground(shouldPropertiesCreated ? Color.BLACK : LIGHTGRAY_COLOR);
             
@@ -70,19 +59,9 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                     (cbPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
             cbShouldPropertiesInjected.setEnabled(shouldPropertiesCreated);
-            cbShouldPropertiesInjected.setForeground(!shouldPropertiesCreated ? 
+            cbShouldPropertiesInjected.setForeground(shouldPropertiesCreated ? 
                     (cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
-            this.updateTextCreateFollowingFiles();
-        });
-        
-        cbPropertiesToLowerCase.addActionListener((ActionEvent e) -> {
-            cbPropertiesToLowerCase.setForeground(cbPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
-            this.updateTextCreateFollowingFiles();
-        });
-        
-        cbShouldPropertiesInjected.addActionListener((ActionEvent e) -> {
-            cbShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             this.updateTextCreateFollowingFiles();
         });
         
@@ -95,6 +74,30 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         taInfoOptionalFiles.setForeground(LIGHTGRAY_COLOR);
     }
     
+    private void initComponents3() {
+        // CSS
+        cbCSStoLowerCase.addActionListener((ActionEvent e) -> {
+            cbCSStoLowerCase.setForeground(cbCSStoLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            this.updateTextCreateFollowingFiles();
+        });
+        
+        cbShouldCSSinjected.addActionListener((ActionEvent e) -> {
+            cbShouldCSSinjected.setForeground(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            this.updateTextCreateFollowingFiles();
+        });
+        
+        // Properties
+        cbPropertiesToLowerCase.addActionListener((ActionEvent e) -> {
+            cbPropertiesToLowerCase.setForeground(cbPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            this.updateTextCreateFollowingFiles();
+        });
+        
+        cbShouldPropertiesInjected.addActionListener((ActionEvent e) -> {
+            cbShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            this.updateTextCreateFollowingFiles();
+        });
+    }
+    
     void initValues(String baseName, String packageName, 
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
             boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties
@@ -102,19 +105,21 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         this.baseName = baseName;
         this.packageName = packageName;
         
-        cbShouldCSScreated.setSelected(shouldCreateCSS);
+        cbShouldCSScreated.setSelected(!shouldCreateCSS);
         String info = cbShouldCSSinjected.getText().replace("{0}", baseName); // NOI18N
         cbShouldCSSinjected.setText(info);
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
         cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         
-        cbShouldPropertiesCreated.setSelected(shouldCreateProperties);
+        cbShouldPropertiesCreated.setSelected(!shouldCreateProperties);
         info = cbShouldPropertiesInjected.getText().replace("{0}", baseName); // NOI18N
         cbShouldPropertiesInjected.setText(info);
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
         cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
-        updateTextCreateFollowingFiles();
+        cbShouldCSScreated.doClick();
+        cbShouldPropertiesCreated.doClick();
+        this.initComponents3();
     }
 
     @Override

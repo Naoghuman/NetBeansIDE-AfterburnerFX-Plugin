@@ -21,6 +21,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Bug
+#31 [Optional Files] Background color from CheckBoxes file should injected is wrong.
 
 
 
@@ -37,5 +38,4 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 [//]: # (Issues which will be integrated in this release)
 #33 [Optional Files] FileName.fxml should reflect the user choose in the page 'Primary Files'.
 #32 [Optional Files] Refactore the description from the CheckBox to create a .properties file.
-#31 [Optional Files] Background color from CheckBox properties should injected is wrong.
 #17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.

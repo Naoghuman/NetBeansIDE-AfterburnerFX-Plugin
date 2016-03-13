@@ -79,7 +79,8 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
         final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         
-        component.initValues(baseName, packageName, shouldFXMLtoLowerCase, shouldCreateCSS, shouldCSStoLowerCase, 
+        this.getComponent().initValues(baseName, packageName,
+                shouldFXMLtoLowerCase, shouldCreateCSS, shouldCSStoLowerCase, 
                 shouldInjectCSS, shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties);
     }
 

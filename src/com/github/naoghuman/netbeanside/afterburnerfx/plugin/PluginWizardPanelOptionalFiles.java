@@ -77,7 +77,8 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
         final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         
-        component.initValues(baseName, packageName, shouldCreateCSS, shouldCSStoLowerCase, shouldInjectCSS,
+        this.getComponent().initValues(baseName, packageName,
+                shouldCreateCSS, shouldCSStoLowerCase, shouldInjectCSS,
                 shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties);
     }
 

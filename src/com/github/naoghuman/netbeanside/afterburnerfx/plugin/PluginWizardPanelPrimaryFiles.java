@@ -135,7 +135,7 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
         
         final FileObject preselectedFolder = Templates.getTargetFolder(settings);
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
-        component.initValues(Templates.getTemplate(settings), preselectedFolder, shouldFXMLtoLowerCase);
+        this.getComponent().initValues(Templates.getTemplate(settings), preselectedFolder, shouldFXMLtoLowerCase);
     }
 
     @Override
