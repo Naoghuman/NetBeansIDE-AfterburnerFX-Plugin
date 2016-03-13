@@ -35,14 +35,15 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     private void initComponents2() {
         // CSS
         cbShouldCSScreated.addActionListener((ActionEvent e) -> {
-            cbShouldCSScreated.setForeground(cbShouldCSScreated.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
+            cbShouldCSScreated.setForeground(shouldCSScreated ? Color.BLACK : LIGHTGRAY_COLOR);
             
-            cbCSStoLowerCase.setEnabled(cbShouldCSScreated.isSelected());
-            cbCSStoLowerCase.setForeground(cbShouldCSScreated.isSelected() ? 
+            cbCSStoLowerCase.setEnabled(shouldCSScreated);
+            cbCSStoLowerCase.setForeground(shouldCSScreated ? 
                     (cbCSStoLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
-            cbShouldCSSinjected.setEnabled(cbShouldCSScreated.isSelected());
-            taShouldCSSinjected.setForeground(cbShouldCSScreated.isSelected() ? 
+            cbShouldCSSinjected.setEnabled(shouldCSScreated);
+            cbShouldCSSinjected.setForeground(shouldCSScreated ? 
                     (cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
             this.updateTextCreateFollowingFiles();
@@ -54,20 +55,22 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         });
         
         cbShouldCSSinjected.addActionListener((ActionEvent e) -> {
-            taShouldCSSinjected.setForeground(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            cbShouldCSSinjected.setForeground(cbShouldCSSinjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             this.updateTextCreateFollowingFiles();
         });
         
         // Properties
         cbShouldPropertiesCreated.addActionListener((ActionEvent e) -> {
-            cbShouldPropertiesCreated.setForeground(cbShouldPropertiesCreated.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             
-            cbPropertiesToLowerCase.setEnabled(cbShouldPropertiesCreated.isSelected());
-            cbPropertiesToLowerCase.setForeground(cbShouldPropertiesCreated.isSelected() ? 
+            final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
+            cbShouldPropertiesCreated.setForeground(shouldPropertiesCreated ? Color.BLACK : LIGHTGRAY_COLOR);
+            
+            cbPropertiesToLowerCase.setEnabled(shouldPropertiesCreated);
+            cbPropertiesToLowerCase.setForeground(shouldPropertiesCreated ? 
                     (cbPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
-            cbShouldPropertiesInjected.setEnabled(cbShouldPropertiesCreated.isSelected());
-            taShouldPropertiesInjected.setForeground(!cbShouldPropertiesCreated.isSelected() ? 
+            cbShouldPropertiesInjected.setEnabled(shouldPropertiesCreated);
+            cbShouldPropertiesInjected.setForeground(!shouldPropertiesCreated ? 
                     (cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
             this.updateTextCreateFollowingFiles();
@@ -79,7 +82,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         });
         
         cbShouldPropertiesInjected.addActionListener((ActionEvent e) -> {
-            taShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            cbShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             this.updateTextCreateFollowingFiles();
         });
         
@@ -87,12 +90,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         final JTextField tf = new JTextField();
         tf.setEditable(false);
         tf.setEnabled(false);
-        
-        taShouldCSSinjected.setBackground(tf.getBackground());
-        taShouldCSSinjected.setForeground(Color.BLACK);
-        
-        taShouldPropertiesInjected.setBackground(tf.getBackground());
-        taShouldPropertiesInjected.setForeground(Color.BLACK);
         
         taInfoOptionalFiles.setBackground(tf.getBackground());
         taInfoOptionalFiles.setForeground(LIGHTGRAY_COLOR);
@@ -106,16 +103,16 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         this.packageName = packageName;
         
         cbShouldCSScreated.setSelected(shouldCreateCSS);
-        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
-        String info = taShouldCSSinjected.getText().replace("{0}", baseName); // NOI18N
-        taShouldCSSinjected.setText(info);
+        String info = cbShouldCSSinjected.getText().replace("{0}", baseName); // NOI18N
+        cbShouldCSSinjected.setText(info);
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
+        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         
         cbShouldPropertiesCreated.setSelected(shouldCreateProperties);
-        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
-        info = taShouldPropertiesInjected.getText().replace("{0}", baseName); // NOI18N
-        taShouldPropertiesInjected.setText(info);
+        info = cbShouldPropertiesInjected.getText().replace("{0}", baseName); // NOI18N
+        cbShouldPropertiesInjected.setText(info);
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
+        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
         updateTextCreateFollowingFiles();
     }
@@ -183,10 +180,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        spInjectCSSfile = new javax.swing.JScrollPane();
-        taShouldCSSinjected = new javax.swing.JTextArea();
-        spInjectPropertiesFile = new javax.swing.JScrollPane();
-        taShouldPropertiesInjected = new javax.swing.JTextArea();
         separator = new javax.swing.JSeparator();
         lInfoOptionalFiles = new javax.swing.JLabel();
         spInfoOptionalFiles = new javax.swing.JScrollPane();
@@ -197,34 +190,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbShouldPropertiesCreated = new javax.swing.JCheckBox();
         cbCSStoLowerCase = new javax.swing.JCheckBox();
         cbPropertiesToLowerCase = new javax.swing.JCheckBox();
-
-        spInjectCSSfile.setBorder(null);
-
-        taShouldCSSinjected.setEditable(false);
-        taShouldCSSinjected.setColumns(20);
-        taShouldCSSinjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taShouldCSSinjected.setLineWrap(true);
-        taShouldCSSinjected.setRows(2);
-        taShouldCSSinjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldCSSinjected.text")); // NOI18N
-        taShouldCSSinjected.setWrapStyleWord(true);
-        taShouldCSSinjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
-        taShouldCSSinjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taShouldCSSinjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
-        spInjectCSSfile.setViewportView(taShouldCSSinjected);
-
-        spInjectPropertiesFile.setBorder(null);
-
-        taShouldPropertiesInjected.setEditable(false);
-        taShouldPropertiesInjected.setColumns(20);
-        taShouldPropertiesInjected.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taShouldPropertiesInjected.setLineWrap(true);
-        taShouldPropertiesInjected.setRows(2);
-        taShouldPropertiesInjected.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.taShouldPropertiesInjected.text")); // NOI18N
-        taShouldPropertiesInjected.setWrapStyleWord(true);
-        taShouldPropertiesInjected.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
-        taShouldPropertiesInjected.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        taShouldPropertiesInjected.setMargin(new java.awt.Insets(3, 3, 0, 0));
-        spInjectPropertiesFile.setViewportView(taShouldPropertiesInjected);
 
         org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
 
@@ -241,7 +206,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbShouldCSSinjected.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldCSSinjected.text")); // NOI18N
         cbShouldCSSinjected.setFocusable(false);
-        cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(22, 22));
+        cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(317, 23));
         cbShouldCSSinjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldPropertiesInjected.setSelected(true);
@@ -277,34 +242,23 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbShouldPropertiesCreated, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lInfoOptionalFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cbShouldCSScreated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lInfoOptionalFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbShouldCSScreated)
-                                .addGap(0, 73, Short.MAX_VALUE))
+                                .addComponent(cbCSStoLowerCase)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spInjectPropertiesFile))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spInjectCSSfile))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbPropertiesToLowerCase)
-                                            .addComponent(cbCSStoLowerCase))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbShouldPropertiesCreated)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(cbPropertiesToLowerCase)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,26 +266,22 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                 .addContainerGap()
                 .addComponent(cbShouldCSScreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spInjectCSSfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbCSStoLowerCase)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbShouldPropertiesCreated)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spInjectPropertiesFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbPropertiesToLowerCase)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lInfoOptionalFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -345,11 +295,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     private javax.swing.JLabel lInfoOptionalFiles;
     private javax.swing.JSeparator separator;
     private javax.swing.JScrollPane spInfoOptionalFiles;
-    private javax.swing.JScrollPane spInjectCSSfile;
-    private javax.swing.JScrollPane spInjectPropertiesFile;
     private javax.swing.JTextArea taInfoOptionalFiles;
-    private javax.swing.JTextArea taShouldCSSinjected;
-    private javax.swing.JTextArea taShouldPropertiesInjected;
     // End of variables declaration//GEN-END:variables
 
 }
