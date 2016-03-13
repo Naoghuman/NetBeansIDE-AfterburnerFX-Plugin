@@ -31,7 +31,7 @@ Content
 * [Installation](#Installation)
     * [General installation](#GeneralInstallation)
     * [Manual installation from the plugin in NetBeans IDE](#ManualInstallation)
-    * [Installation through the Update Center from NetBeans IDE](#InstallationUpdateCenter)
+    * [Plugin installation through the Update Center from NetBeans IDE](#InstallationUpdateCenter)
 * [Contribution](#Contribution)
 * [License](#License)
 * [Autor](#Autor)
@@ -182,8 +182,8 @@ Installation<a name="Installation" />
     * Click the button `Continue` for installing the plugin.
 
 
-##### Installation through the `Update Center` from [NetBeans IDE]<a name="InstallationUpdateCenter" />
-* Use `Tool` -> `Plugins` action in the IDE.
+##### Plugin installation through the `Update Center` from [NetBeans IDE]<a name="InstallationUpdateCenter" />
+* Click on `Tool` -> `Plugins` action in the IDE.
 * Click on the tab `Available Plugins` and then `Check for Newest`.
 * Search and checked the plugin in the list from available plugins.
 * Clicking `Install` will prompt the dialog `Verify Certifcate`.
