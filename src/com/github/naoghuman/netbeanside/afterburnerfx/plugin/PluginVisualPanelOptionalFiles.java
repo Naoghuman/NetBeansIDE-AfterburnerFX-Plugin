@@ -98,7 +98,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         });
     }
     
-    void initValues(String baseName, String packageName,
+    void initValues(String baseName, String packageName, boolean shouldFXMLtoLowerCase,
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
             boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties
     ) {
@@ -106,15 +106,18 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         this.packageName = packageName;
         
         cbShouldCSScreated.setSelected(!shouldCreateCSS);
-        String info = cbShouldCSSinjected.getText().replace("{0}", baseName); // NOI18N
-        cbShouldCSSinjected.setText(info);
+        
+        final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
+        cbShouldCSSinjected.setText("Inject the created .css file into the file " + fxmlFileName + ".fxml."); // NOI18N
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
+        
         cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         
         cbShouldPropertiesCreated.setSelected(!shouldCreateProperties);
-        info = cbShouldPropertiesInjected.getText().replace("{0}", baseName); // NOI18N
-        cbShouldPropertiesInjected.setText(info);
+        
+        cbShouldPropertiesInjected.setText("Inject the created .properties file into the file " + fxmlFileName + ".fxml."); // NOI18N
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
+        
         cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
         cbShouldCSScreated.doClick();

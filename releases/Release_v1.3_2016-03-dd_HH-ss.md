@@ -28,6 +28,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Refactoring
+#37 [Wizard] Add new screenshots for v1.3.
 #35 [Wizard] Change description from the CheckBox xy to LowerCase.
 #32 [Optional Files] Refactore the description from the CheckBox to create a .properties file.
 #30 [Optional Files] Move the CheckBoxes to lowercase to bottom.

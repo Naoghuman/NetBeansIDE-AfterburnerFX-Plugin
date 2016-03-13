@@ -69,6 +69,8 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
             packageName += File.separator;
         }
         
+        final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
+        
         final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
         final boolean shouldCSStoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
@@ -77,7 +79,7 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
         final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         
-        this.getComponent().initValues(baseName, packageName,
+        this.getComponent().initValues(baseName, packageName, shouldFXMLtoLowerCase,
                 shouldCreateCSS, shouldCSStoLowerCase, shouldInjectCSS,
                 shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties);
     }
