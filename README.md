@@ -14,7 +14,7 @@ The following primary files `[FileName].fxml`, `[FileName]Presenter.java`, `[Fil
 and optional `[FileName].css` and `[FileName].properties` can be created in a new wizard.  
 One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen package name.
 
-**Press**
+**Press**  
 `Interview` with `Adam Bien` about me and the plugin: [afterburner.fx NetBeans plugin release - an interview]
 
 
