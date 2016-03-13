@@ -21,6 +21,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Bug
+#34 [Primary Files] Background color from CheckBox to LowerCase is wrong when opening the dialog again.
 #31 [Optional Files] Background color from CheckBoxes file should injected is wrong.
 
 

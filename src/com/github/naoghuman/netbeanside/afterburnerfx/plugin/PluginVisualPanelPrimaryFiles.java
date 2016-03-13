@@ -112,6 +112,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         
         this.shouldFXMLtoLowerCase = shouldFXMLtoLowerCase;
         cbFxmlToLowerCase.setSelected(shouldFXMLtoLowerCase);
+        cbFxmlToLowerCase.setForeground(cbFxmlToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
         
         tfProject.setText(ProjectUtils.getInformation(project).getDisplayName());
         
