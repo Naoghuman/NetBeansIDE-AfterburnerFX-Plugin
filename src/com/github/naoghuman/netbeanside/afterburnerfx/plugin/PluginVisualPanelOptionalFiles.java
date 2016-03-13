@@ -98,7 +98,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         });
     }
     
-    void initValues(String baseName, String packageName, 
+    void initValues(String baseName, String packageName,
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
             boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties
     ) {
@@ -154,10 +154,15 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     private void updateTextCreateFollowingFiles() {
         taInfoOptionalFiles.setText(null);
         
+        final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
+        cbCSStoLowerCase.setText("File " + cssFileName + ".css to lowercase"); // NOI18N
+        
+        final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
+        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties to lowercase"); // NOI18N
+        
         final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
         if (shouldCSScreated) {
             final StringBuilder sb = new StringBuilder();
-            final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
             sb.append(cbCSStoLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
             sb.append(cbShouldCSSinjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
@@ -168,7 +173,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
         if (shouldPropertiesCreated) {
             final StringBuilder sb = new StringBuilder();
-            final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
             sb.append(cbPropertiesToLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
             sb.append(cbShouldPropertiesInjected.isSelected() ? " (injected)" : ""); // NOI18N
@@ -211,12 +215,14 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbShouldCSSinjected.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldCSSinjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldCSSinjected.text")); // NOI18N
         cbShouldCSSinjected.setFocusable(false);
+        cbShouldCSSinjected.setIconTextGap(6);
         cbShouldCSSinjected.setPreferredSize(new java.awt.Dimension(317, 23));
         cbShouldCSSinjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         cbShouldPropertiesInjected.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldPropertiesInjected, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldPropertiesInjected.text")); // NOI18N
         cbShouldPropertiesInjected.setFocusable(false);
+        cbShouldPropertiesInjected.setIconTextGap(6);
         cbShouldPropertiesInjected.setPreferredSize(new java.awt.Dimension(22, 22));
         cbShouldPropertiesInjected.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
