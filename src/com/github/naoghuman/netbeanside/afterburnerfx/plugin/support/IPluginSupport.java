@@ -17,8 +17,6 @@
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin.support;
 
 import java.awt.Color;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 
 /**
  *
