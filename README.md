@@ -95,16 +95,16 @@ Following files can be created in the new wizard:
 Comparison with/without injection from the **Optional File** `ImportDialog.css` 
 in `ImportDialog.fxml`.
 
-```java
 Without injection:
+```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
 
 </AnchorPane>
 ```
 
 
-```java
 With injection:
+```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
     <stylesheets>
         <URL value="@Importdialog.css"/>
@@ -115,8 +115,8 @@ With injection:
 Comparison with/without injection from the **Optional File** `ImportDialog.properties` 
 in ImportDialogPresenter.java`.
 
-```java
 Without injection:
+```java
 public class ImportdialogPresenter implements Initializable {
 
     @Override
@@ -127,8 +127,8 @@ public class ImportdialogPresenter implements Initializable {
 ```
 
 
-```java
 With injection:
+```java
 public class ImportdialogPresenter implements Initializable {
 
     private ResourceBundle resources = null;
