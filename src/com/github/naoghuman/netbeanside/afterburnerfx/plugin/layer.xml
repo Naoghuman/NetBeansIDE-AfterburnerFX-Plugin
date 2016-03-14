@@ -25,6 +25,10 @@
                 <attr name="template" boolvalue="true"/>
                 <attr name="position" intvalue="0"/>
             </file>
+            <file name="TemplateConfiguration.properties" url="template/TemplateConfigurationProperties.ftl">
+                <attr name="template" boolvalue="false"/>
+                <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>
+            </file>
             <file name="Template.css" url="template/TemplateCss.ftl">
                 <attr name="template" boolvalue="false"/>
                 <attr name="javax.script.ScriptEngine" stringvalue="freemarker"/>

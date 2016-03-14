@@ -100,7 +100,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     
     void initValues(String baseName, String packageName, boolean shouldFXMLtoLowerCase,
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
-            boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties
+            boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties,
+            boolean shouldCreateConfigurationProperties
     ) {
         this.baseName = baseName;
         this.packageName = packageName;
@@ -120,8 +121,11 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
+        // cbShouldConfigurationPropertiesCreated.setSelected(shouldCreateConfigurationProperties);
+        
         cbShouldCSScreated.doClick();
         cbShouldPropertiesCreated.doClick();
+        // cbShouldConfigurationPropertiesCreated.doClick();
         this.initComponents3();
     }
 
@@ -152,6 +156,10 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     
     boolean shouldPropertiesToLowerCase() {
         return cbPropertiesToLowerCase.isSelected();
+    }
+    
+    boolean shouldCreateConfigurationProperties() {
+        return true; // cbShouldConfigurationPropertiesCreated.isSelected();
     }
     
     private void updateTextCreateFollowingFiles() {

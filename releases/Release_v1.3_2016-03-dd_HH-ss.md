@@ -41,3 +41,4 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 [//]: # (Issues which will be integrated in this release)
+#17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.

@@ -40,6 +40,7 @@ public interface IPluginSupport {
     public static final String MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS = "warning.file.and.package.name.arent.equals"; // NOI18N
     
     public static final String PROP__CHOOSEN_PACKAGE = "PROP__CHOOSEN_PACKAGE"; // NOI18N
+    public static final String PROP__CONFIGURATION_FILE_SHOULD_CREATE = "PROP__CONFIGURATION_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_CREATE = "PROP__CSS_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_INJECT = "PROP__CSS_FILE_SHOULD_INJECT"; // NOI18N
     public static final String PROP__CSS_TO_LOWERCASE = "PROP__CSS_TO_LOWERCASE"; // NOI18N
@@ -55,6 +56,7 @@ public interface IPluginSupport {
     public static final Character SIGN_CHAR_DOT = '.';
     
     public static final String TEMPLATE_FILE__CSS = "Template.css"; // NOI18N
+    public static final String TEMPLATE_FILE__CONFIGURATION_PROPERTIES = "TemplateConfiguration.properties"; // NOI18N
     public static final String TEMPLATE_FILE__FXML = "Template.fxml"; // NOI18N
     public static final String TEMPLATE_FILE__PROPERTIES = "Template.properties"; // NOI18N
     public static final String TEMPLATE_FILE__PRESENTER_JAVA = "TemplatePresenter.java"; // NOI18N
@@ -67,6 +69,7 @@ public interface IPluginSupport {
     public static final String TEMPLATE_PARAMETER__PACKAGE2 = "package2"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PRESENTER = "presenter"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES = "properties"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__PROPERTIES2 = "properties2"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES_INJECT = "propertiesinject"; // NOI18N
     public static final String TEMPLATE_PARAMETER__VIEW = "view"; // NOI18N
     

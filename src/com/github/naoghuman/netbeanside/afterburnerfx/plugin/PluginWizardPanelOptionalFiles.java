@@ -79,9 +79,12 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
         final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         
+        final boolean shouldCreateConfigurationProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CONFIGURATION_FILE_SHOULD_CREATE, Boolean.TRUE);
+        
         this.getComponent().initValues(baseName, packageName, shouldFXMLtoLowerCase,
                 shouldCreateCSS, shouldCSStoLowerCase, shouldInjectCSS,
-                shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties);
+                shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties,
+                shouldCreateConfigurationProperties);
     }
 
     @Override
@@ -93,6 +96,8 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, getComponent().shouldCreateProperties());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, getComponent().shouldInjectProperties());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_TO_LOWERCASE, getComponent().shouldPropertiesToLowerCase());
+        
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CONFIGURATION_FILE_SHOULD_CREATE, getComponent().shouldCreateConfigurationProperties());
     }
 
 }

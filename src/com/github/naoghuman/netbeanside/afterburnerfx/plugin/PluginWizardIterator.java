@@ -127,7 +127,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final Map<String, String> parameters = this.mapParametersForPrimaryFiles();
         final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
         final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
-        parameters.putAll(this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties));
+        parameters.putAll(this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties, Boolean.TRUE));
         
         for (String key : mapDataObjects.keySet()) {
             final DataObject dataObject = mapDataObjects.get(key);
@@ -172,14 +172,15 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     private List<DataObject> createDataObjectsForOptionalFiles() throws IOException {
         final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
         final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
-        if (!shouldCreateCSS && !shouldCreateProperties) {
+        final boolean shouldCreateConfigurationProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CONFIGURATION_FILE_SHOULD_CREATE, Boolean.TRUE);
+        if (!shouldCreateCSS && !shouldCreateProperties && !shouldCreateConfigurationProperties) {
             return new ArrayList<>();
         }
         
-        final Map<String, DataObject> mapDataObjects = this.mapDataObjectsForOptionalFiles(shouldCreateCSS, shouldCreateProperties);
+        final Map<String, DataObject> mapDataObjects = this.mapDataObjectsForOptionalFiles(shouldCreateCSS, shouldCreateProperties, shouldCreateConfigurationProperties);
         final List<DataObject> dataObjects = new ArrayList<>();
         final DataFolder dataFolder = DataFolder.findFolder(Templates.getTargetFolder(wizard));
-        final Map<String, String> parameters = this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties);
+        final Map<String, String> parameters = this.mapParametersForOptionalFiles(shouldCreateCSS, shouldCreateProperties, shouldCreateConfigurationProperties);
         
         for (String key : mapDataObjects.keySet()) {
             final DataObject dataObject = mapDataObjects.get(key);
@@ -189,7 +190,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         return dataObjects;
     }
     
-    private Map<String, DataObject> mapDataObjectsForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) throws IOException {
+    private Map<String, DataObject> mapDataObjectsForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties, boolean shouldCreateConfigurationProperties) throws IOException {
         final FileObject firstTemplate = Templates.getTemplate(wizard);
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
         
@@ -202,6 +203,10 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
             mapTemplatesAndExtentions.put(TEMPLATE_FILE__PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES);
         }
         
+        if (shouldCreateConfigurationProperties) {
+            mapTemplatesAndExtentions.put(TEMPLATE_FILE__CONFIGURATION_PROPERTIES, TEMPLATE_PARAMETER__PROPERTIES2);
+        }
+        
         final Map<String, DataObject> mapDataObjects = new HashMap<>();
         for (FileObject fileObject : fileObjects) {
             if (mapTemplatesAndExtentions.containsKey(fileObject.getNameExt())) {
@@ -212,7 +217,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         return mapDataObjects;
     }
     
-    private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties) {
+    private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties, boolean shouldCreateConfigurationProperties) {
         final Map<String, String> parameters = new HashMap<>();
         final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         // .css
@@ -227,10 +232,10 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
             parameters.put(TEMPLATE_PARAMETER__PACKAGE2, packageName);
         }
            
-        // .properties
         final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
         parameters.put(TEMPLATE_PARAMETER__CSS_FILE_INJECT, shouldInjectCSS ? "true" : "false"); // NOI18N
         
+        // .properties
         if (shouldCreateProperties) {
             final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
             parameters.put(TEMPLATE_PARAMETER__PROPERTIES, shouldPropertiesToLowerCase ? fileName.toLowerCase() : fileName);
@@ -239,6 +244,11 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
             
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
         parameters.put(TEMPLATE_PARAMETER__PROPERTIES_INJECT, shouldInjectProperties ? "true" : "false"); // NOI18N
+        
+        // configuration.properties
+        if (shouldCreateConfigurationProperties) {
+            parameters.put(TEMPLATE_PARAMETER__PROPERTIES2, "configuration"); // NOI18N
+        }
         
         return parameters;
     }
