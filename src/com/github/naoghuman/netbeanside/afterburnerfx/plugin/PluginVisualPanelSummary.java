@@ -42,25 +42,26 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
     
     void initValues(String baseName, String packageName, boolean shouldFXMLtoLowerCase,
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS, 
-            boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties
+            boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties,
+            boolean shouldCreateConfigurationProperties, boolean shouldConfigurationPropertiesToLowerCase 
     ) {
         // Primary files
         taInfoPrimaryFiles.setText(null);
-        
         StringBuilder sb = new StringBuilder();
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
         final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)\n" : "\n"; // NOI18N
         sb.append("- ").append(packageName).append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
         sb.append("- ").append(packageName).append(baseName).append("Presenter.java\n"); // NOI18N
-        sb.append("- ").append(packageName).append(baseName).append("View.java\n"); // NOI18N
+        sb.append("- ").append(packageName).append(baseName).append("View.java"); // NOI18N
         
         taInfoPrimaryFiles.setText(sb.toString());
         
         // Optional files
         taInfoOptionalFiles.setText(null);
-        
         sb = new StringBuilder();
+        
+        // css
         if (shouldCreateCSS) {
             final String cssFileName = shouldCSStoLowerCase ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
@@ -68,11 +69,19 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
             sb.append(shouldInjectCSS ? " (injected)\n" : "\n"); // NOI18N
         }
         
+        // properties
         if (shouldCreateProperties) {
             final String propertiesFileName = shouldPropertiesToLowerCase ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
             sb.append(shouldPropertiesToLowerCase ? " (lowercase)" : ""); // NOI18N
-            sb.append(shouldInjectProperties ? " (injected)" : ""); // NOI18N
+            sb.append(shouldInjectProperties ? " (injected)\n" : "\n"); // NOI18N
+        }
+        
+        // configuration.properties
+        if (shouldCreateConfigurationProperties) {
+            final String configurationPropertiesFileName = shouldConfigurationPropertiesToLowerCase ? "configuration.properties" : "Configuration.properties"; // NOI18N
+            sb.append("- ").append(packageName).append(configurationPropertiesFileName); // NOI18N
+            sb.append(shouldConfigurationPropertiesToLowerCase ? " (lowercase)" : ""); // NOI18N
         }
         
         taInfoOptionalFiles.setText(sb.toString());
@@ -118,7 +127,7 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
         taInfoOptionalFiles.setEditable(false);
         taInfoOptionalFiles.setColumns(20);
         taInfoOptionalFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taInfoOptionalFiles.setRows(3);
+        taInfoOptionalFiles.setRows(4);
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         jScrollPane1.setViewportView(taInfoOptionalFiles);
 
@@ -148,7 +157,7 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
                 .addComponent(lInfoOptionalFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

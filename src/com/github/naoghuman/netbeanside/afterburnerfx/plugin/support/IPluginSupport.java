@@ -41,6 +41,7 @@ public interface IPluginSupport {
     
     public static final String PROP__CHOOSEN_PACKAGE = "PROP__CHOOSEN_PACKAGE"; // NOI18N
     public static final String PROP__CONFIGURATION_FILE_SHOULD_CREATE = "PROP__CONFIGURATION_FILE_SHOULD_CREATE"; // NOI18N
+    public static final String PROP__CONFIGURATION_TO_LOWERCASE = "PROP__CONFIGURATION_TO_LOWERCASE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_CREATE = "PROP__CSS_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_INJECT = "PROP__CSS_FILE_SHOULD_INJECT"; // NOI18N
     public static final String PROP__CSS_TO_LOWERCASE = "PROP__CSS_TO_LOWERCASE"; // NOI18N

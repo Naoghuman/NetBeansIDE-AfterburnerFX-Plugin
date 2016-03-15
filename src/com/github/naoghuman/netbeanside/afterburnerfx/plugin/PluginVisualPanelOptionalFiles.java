@@ -33,7 +33,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     private void initComponents2() {
-        // CSS
+        // css
         cbShouldCSScreated.addActionListener((ActionEvent e) -> {
             final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
             cbShouldCSScreated.setForeground(shouldCSScreated ? Color.BLACK : LIGHTGRAY_COLOR);
@@ -49,7 +49,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             this.updateTextCreateFollowingFiles();
         });
         
-        // Properties
+        // properties
         cbShouldPropertiesCreated.addActionListener((ActionEvent e) -> {
             final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
             cbShouldPropertiesCreated.setForeground(shouldPropertiesCreated ? Color.BLACK : LIGHTGRAY_COLOR);
@@ -61,6 +61,18 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             cbShouldPropertiesInjected.setEnabled(shouldPropertiesCreated);
             cbShouldPropertiesInjected.setForeground(shouldPropertiesCreated ? 
                     (cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
+            
+            this.updateTextCreateFollowingFiles();
+        });
+        
+        // configuration.properties
+        cbShouldConfigurationPropertiesCreated.addActionListener((ActionEvent e) -> {
+            final boolean shouldConfigurationPropertiesCreated = cbShouldConfigurationPropertiesCreated.isSelected();
+            cbShouldConfigurationPropertiesCreated.setForeground(shouldConfigurationPropertiesCreated ? Color.BLACK : LIGHTGRAY_COLOR);
+            
+            cbConfigurationPropertiesToLowerCase.setEnabled(shouldConfigurationPropertiesCreated);
+            cbConfigurationPropertiesToLowerCase.setForeground(shouldConfigurationPropertiesCreated ? 
+                    (cbConfigurationPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR) : LIGHTGRAY_COLOR);
             
             this.updateTextCreateFollowingFiles();
         });
@@ -86,7 +98,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             this.updateTextCreateFollowingFiles();
         });
         
-        // Properties
+        // properties
         cbPropertiesToLowerCase.addActionListener((ActionEvent e) -> {
             cbPropertiesToLowerCase.setForeground(cbPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             this.updateTextCreateFollowingFiles();
@@ -96,36 +108,45 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             cbShouldPropertiesInjected.setForeground(cbShouldPropertiesInjected.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
             this.updateTextCreateFollowingFiles();
         });
+        
+        // configuration.properties
+        cbConfigurationPropertiesToLowerCase.addActionListener((ActionEvent e) -> {
+            cbConfigurationPropertiesToLowerCase.setForeground(cbConfigurationPropertiesToLowerCase.isSelected() ? Color.BLACK : LIGHTGRAY_COLOR);
+            this.updateTextCreateFollowingFiles();
+        });
     }
     
     void initValues(String baseName, String packageName, boolean shouldFXMLtoLowerCase,
             boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
             boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties,
-            boolean shouldCreateConfigurationProperties
+            boolean shouldCreateConfigurationProperties, boolean shouldConfigurationPropertiesToLowerCase
     ) {
         this.baseName = baseName;
         this.packageName = packageName;
         
+        // css
         cbShouldCSScreated.setSelected(!shouldCreateCSS);
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
         cbShouldCSSinjected.setText("Inject the created .css file into the file " + fxmlFileName + ".fxml."); // NOI18N
+        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
         
-        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         
+        // properties
         cbShouldPropertiesCreated.setSelected(!shouldCreateProperties);
-        
         cbShouldPropertiesInjected.setText("Inject the created .properties file into the file " + fxmlFileName + ".fxml."); // NOI18N
+        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
         
-        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
+        // configuration.properties
+        cbShouldConfigurationPropertiesCreated.setSelected(!shouldCreateConfigurationProperties);
+        cbConfigurationPropertiesToLowerCase.setSelected(shouldConfigurationPropertiesToLowerCase);
         
-        // cbShouldConfigurationPropertiesCreated.setSelected(shouldCreateConfigurationProperties);
-        
+        // update gui
         cbShouldCSScreated.doClick();
         cbShouldPropertiesCreated.doClick();
-        // cbShouldConfigurationPropertiesCreated.doClick();
+        cbShouldConfigurationPropertiesCreated.doClick();
         this.initComponents3();
     }
 
@@ -158,18 +179,20 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         return cbPropertiesToLowerCase.isSelected();
     }
     
+    boolean shouldConfigurationPropertiesToLowerCase() {
+        return cbConfigurationPropertiesToLowerCase.isSelected();
+    }
+    
     boolean shouldCreateConfigurationProperties() {
-        return true; // cbShouldConfigurationPropertiesCreated.isSelected();
+        return cbShouldConfigurationPropertiesCreated.isSelected();
     }
     
     private void updateTextCreateFollowingFiles() {
         taInfoOptionalFiles.setText(null);
         
+        // css
         final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
         cbCSStoLowerCase.setText("File " + cssFileName + ".css should be lowercase."); // NOI18N
-        
-        final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
-        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties should be lowercase."); // NOI18N
         
         final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
         if (shouldCSScreated) {
@@ -181,12 +204,29 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
             taInfoOptionalFiles.append(sb.toString());
         }
         
+        // properties
+        final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
+        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties should be lowercase."); // NOI18N
+        
         final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
         if (shouldPropertiesCreated) {
             final StringBuilder sb = new StringBuilder();
             sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
             sb.append(cbPropertiesToLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
-            sb.append(cbShouldPropertiesInjected.isSelected() ? " (injected)" : ""); // NOI18N
+            sb.append(cbShouldPropertiesInjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
+            
+            taInfoOptionalFiles.append(sb.toString());
+        }
+        
+        // configuration.properties
+        final String configurationPropertiesFileName = cbConfigurationPropertiesToLowerCase.isSelected() ? "configuration.properties" : "Configuration.properties"; // NOI18N
+        cbConfigurationPropertiesToLowerCase.setText("File " + configurationPropertiesFileName + " should be lowercase."); // NOI18N
+        
+        final boolean shouldConfigurationPropertiesCreated = cbShouldConfigurationPropertiesCreated.isSelected();
+        if (shouldConfigurationPropertiesCreated) {
+            final StringBuilder sb = new StringBuilder();
+            sb.append("- ").append(packageName).append(configurationPropertiesFileName); // NOI18N
+            sb.append(cbConfigurationPropertiesToLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
             
             taInfoOptionalFiles.append(sb.toString());
         }
@@ -210,6 +250,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbShouldPropertiesCreated = new javax.swing.JCheckBox();
         cbCSStoLowerCase = new javax.swing.JCheckBox();
         cbPropertiesToLowerCase = new javax.swing.JCheckBox();
+        cbShouldConfigurationPropertiesCreated = new javax.swing.JCheckBox();
+        cbConfigurationPropertiesToLowerCase = new javax.swing.JCheckBox();
 
         org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
 
@@ -219,7 +261,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         taInfoOptionalFiles.setEditable(false);
         taInfoOptionalFiles.setColumns(20);
         taInfoOptionalFiles.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        taInfoOptionalFiles.setRows(3);
+        taInfoOptionalFiles.setRows(4);
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         spInfoOptionalFiles.setViewportView(taInfoOptionalFiles);
 
@@ -257,28 +299,36 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbPropertiesToLowerCase.setFocusable(false);
         cbPropertiesToLowerCase.setIconTextGap(6);
 
+        org.openide.awt.Mnemonics.setLocalizedText(cbShouldConfigurationPropertiesCreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldConfigurationPropertiesCreated.text")); // NOI18N
+        cbShouldConfigurationPropertiesCreated.setIconTextGap(6);
+
+        cbConfigurationPropertiesToLowerCase.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(cbConfigurationPropertiesToLowerCase, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbConfigurationPropertiesToLowerCase.text")); // NOI18N
+        cbConfigurationPropertiesToLowerCase.setIconTextGap(6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbShouldPropertiesCreated, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lInfoOptionalFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbShouldCSScreated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(separator)
+                    .addComponent(lInfoOptionalFiles, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spInfoOptionalFiles)
+                    .addComponent(cbShouldCSScreated, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbShouldPropertiesCreated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbShouldCSSinjected, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                             .addComponent(cbShouldPropertiesInjected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbCSStoLowerCase)
-                                    .addComponent(cbPropertiesToLowerCase))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(cbCSStoLowerCase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbPropertiesToLowerCase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(cbShouldConfigurationPropertiesCreated, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(cbConfigurationPropertiesToLowerCase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -297,20 +347,26 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbPropertiesToLowerCase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbShouldConfigurationPropertiesCreated)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbConfigurationPropertiesToLowerCase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lInfoOptionalFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cbCSStoLowerCase;
+    private javax.swing.JCheckBox cbConfigurationPropertiesToLowerCase;
     private javax.swing.JCheckBox cbPropertiesToLowerCase;
     private javax.swing.JCheckBox cbShouldCSScreated;
     private javax.swing.JCheckBox cbShouldCSSinjected;
+    private javax.swing.JCheckBox cbShouldConfigurationPropertiesCreated;
     private javax.swing.JCheckBox cbShouldPropertiesCreated;
     private javax.swing.JCheckBox cbShouldPropertiesInjected;
     private javax.swing.JLabel lInfoOptionalFiles;
