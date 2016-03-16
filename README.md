@@ -262,10 +262,10 @@ Contact<a name="Contact" />
 
 [plugin-1-open]:https://cloud.githubusercontent.com/assets/8161815/12529507/70ffbc3e-c1b9-11e5-97c5-d611fec69af9.png
 [plugin-2-file-type]:https://cloud.githubusercontent.com/assets/8161815/12529508/743b7424-c1b9-11e5-85ac-d767f8cb2d70.png
-[plugin-3-primary-files]:https://cloud.githubusercontent.com/assets/8161815/12529509/765e15a4-c1b9-11e5-8654-86a07535d5af.png
-[plugin-4-optional-files]:https://cloud.githubusercontent.com/assets/8161815/12529510/783a2d04-c1b9-11e5-90e4-2a5e0f030a8e.png
-[plugin-5-summary]:https://cloud.githubusercontent.com/assets/8161815/12529512/7a1f831c-c1b9-11e5-9a2c-4684e05a9f4e.png
-[plugin-6-generated-files]:https://cloud.githubusercontent.com/assets/8161815/12529513/7bc02636-c1b9-11e5-9e5d-ed815fa17749.png
+[plugin-3-primary-files]:https://cloud.githubusercontent.com/assets/8161815/13826310/0f7c704c-ebb7-11e5-9c93-1d4b0077179a.png
+[plugin-4-optional-files]:https://cloud.githubusercontent.com/assets/8161815/13826318/191a0b6e-ebb7-11e5-94a9-29ae7c99f056.png
+[plugin-5-summary]:https://cloud.githubusercontent.com/assets/8161815/13826328/22cf1e2e-ebb7-11e5-98da-819924c1b65d.png
+[plugin-6-generated-files]:https://cloud.githubusercontent.com/assets/8161815/13826336/2c9b65b6-ebb7-11e5-9a58-5b97c3086463.png
 
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
