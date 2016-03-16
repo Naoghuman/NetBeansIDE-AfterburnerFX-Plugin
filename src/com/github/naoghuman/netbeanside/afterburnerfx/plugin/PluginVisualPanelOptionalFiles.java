@@ -300,10 +300,12 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbPropertiesToLowerCase.setIconTextGap(6);
 
         org.openide.awt.Mnemonics.setLocalizedText(cbShouldConfigurationPropertiesCreated, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbShouldConfigurationPropertiesCreated.text")); // NOI18N
+        cbShouldConfigurationPropertiesCreated.setFocusable(false);
         cbShouldConfigurationPropertiesCreated.setIconTextGap(6);
 
         cbConfigurationPropertiesToLowerCase.setSelected(true);
         org.openide.awt.Mnemonics.setLocalizedText(cbConfigurationPropertiesToLowerCase, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.cbConfigurationPropertiesToLowerCase.text")); // NOI18N
+        cbConfigurationPropertiesToLowerCase.setFocusable(false);
         cbConfigurationPropertiesToLowerCase.setIconTextGap(6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
