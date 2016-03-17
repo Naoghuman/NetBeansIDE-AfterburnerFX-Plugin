@@ -26,7 +26,7 @@ Content
     * [General](#General)
     * [Generated Files](#GeneratedFiles)
     * [Injection from the Optional Files](#InjectionOptionalFiles)
-    * [Feedback](#Feedback)
+    * [Validation from user input](#Validation)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
     * [General installation](#GeneralInstallation)
@@ -83,19 +83,19 @@ Following files can be created in the new wizard:
 * Primary files are `[FileName].fxml`, `[FileName]Presenter.java` and 
   `[FileName]View.java` where *[FileName].toLowerCase()* must be **equals** with 
   the *last* choosen package name.
-    * Additional option `[FileName].fxml` to lowercase.
-* Optional files are `[FileName]`.css, `[FileName]`.properties.
-    * Additional option `[FileName].css` and `[FileName].properties` to lowercase.
+    * Additional option: File `[FileName].fxml` should be lowercase.
+* Optional files are `[FileName]`.css, `[FileName]`.properties and `configuration.properties`.
+    * Additional options: File `[FileName].css` and/or file `[FileName].properties` and/or `configuration.properties` should be lowercase.
 * The optional files can also additional injected into following files:
-    * The **.css** file can additional injected into the `[FileName]`.fxml file.
-    * The **.properties** can additional injected into into the `[FileName]Presenter.java` file.
+    * The `[FileName].css` file can additional injected into the `[FileName]`.fxml file.
+    * The `[FileName].properties` can additional injected into into the `[FileName]Presenter.java` file.
 
 
 ##### Injection from the Optional Files<a name="InjectionOptionalFiles" />
 Comparison with/without injection from the **Optional File** `ImportDialog.css` 
 in `ImportDialog.fxml`.
 
-Without injection:
+Without injection:  
 ```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
 
@@ -103,7 +103,7 @@ Without injection:
 ```
 
 
-With injection:
+With injection:  
 ```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
     <stylesheets>
@@ -115,7 +115,7 @@ With injection:
 Comparison with/without injection from the **Optional File** `ImportDialog.properties` 
 in ImportDialogPresenter.java`.
 
-Without injection:
+Without injection:  
 ```java
 public class ImportdialogPresenter implements Initializable {
 
@@ -127,7 +127,7 @@ public class ImportdialogPresenter implements Initializable {
 ```
 
 
-With injection:
+With injection:  
 ```java
 public class ImportdialogPresenter implements Initializable {
 
@@ -141,7 +141,7 @@ public class ImportdialogPresenter implements Initializable {
 ```
 
 
-##### Feedback<a name="Feedback" />
+##### Validation from user input<a name="Validation" />
 * The wizard gives the user `feedback` if the choosen `[FileName]` and `package name`
   aren't in convention with the library [afterburner.fx]. The *[FileName].toLowerCase()* 
   and the last choosen *package name* must be **equals**.
