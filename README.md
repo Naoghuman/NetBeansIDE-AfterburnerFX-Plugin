@@ -11,7 +11,8 @@ the file generation in **convention** with the library [afterburner.fx] in a [Ja
 project.
 
 The following primary files `[FileName].fxml`, `[FileName]Presenter.java`, `[FileName]View.java` 
-and optional `[FileName].css` and `[FileName].properties` can be created in a new wizard.  
+and optional `[FileName].css`, `[FileName].properties` and `configuration.properties` 
+can be created in a new wizard.  
 One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen package name.
 
 **Press**  
@@ -95,7 +96,7 @@ Following files can be created in the new wizard:
 Comparison with/without injection from the **Optional File** `ImportDialog.css` 
 in `ImportDialog.fxml`.
 
-Without injection:  
+Without injection:
 ```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
 
@@ -103,7 +104,7 @@ Without injection:
 ```
 
 
-With injection:  
+With injection:
 ```java
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.my.demoapplication.importdialog.ImportdialogPresenter">
     <stylesheets>
@@ -115,7 +116,7 @@ With injection:
 Comparison with/without injection from the **Optional File** `ImportDialog.properties` 
 in ImportDialogPresenter.java`.
 
-Without injection:  
+Without injection:
 ```java
 public class ImportdialogPresenter implements Initializable {
 
@@ -127,7 +128,7 @@ public class ImportdialogPresenter implements Initializable {
 ```
 
 
-With injection:  
+With injection:
 ```java
 public class ImportdialogPresenter implements Initializable {
 

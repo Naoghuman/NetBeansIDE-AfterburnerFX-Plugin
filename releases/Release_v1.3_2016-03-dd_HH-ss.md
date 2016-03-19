@@ -43,3 +43,4 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 [//]: # (Issues which will be integrated in this release)
+#39 [Wizard] Add screenshot for the page 'Choose File Typ...'
