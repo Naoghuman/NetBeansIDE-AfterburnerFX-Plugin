@@ -30,6 +30,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Refactoring
+#39 [Wizard] Add screenshot for the page 'Choose File Typ...'
 #37 [Wizard] Add new screenshots for v1.3.
 #35 [Wizard] Change description from the CheckBox xy to LowerCase.
 #32 [Optional Files] Refactore the description from the CheckBox to create a .properties file.
@@ -43,4 +44,3 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 [//]: # (Issues which will be integrated in this release)
-#39 [Wizard] Add screenshot for the page 'Choose File Typ...'

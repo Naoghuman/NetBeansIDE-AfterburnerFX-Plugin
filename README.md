@@ -262,7 +262,7 @@ Contact<a name="Contact" />
 [//]: # (Images)
 
 [plugin-1-open]:https://cloud.githubusercontent.com/assets/8161815/12529507/70ffbc3e-c1b9-11e5-97c5-d611fec69af9.png
-[plugin-2-file-type]:https://cloud.githubusercontent.com/assets/8161815/12529508/743b7424-c1b9-11e5-85ac-d767f8cb2d70.png
+[plugin-2-file-type]:https://cloud.githubusercontent.com/assets/8161815/13905137/ff140d20-eeb6-11e5-913d-a68352e754ea.png
 [plugin-3-primary-files]:https://cloud.githubusercontent.com/assets/8161815/13826310/0f7c704c-ebb7-11e5-9c93-1d4b0077179a.png
 [plugin-4-optional-files]:https://cloud.githubusercontent.com/assets/8161815/13826318/191a0b6e-ebb7-11e5-94a9-29ae7c99f056.png
 [plugin-5-summary]:https://cloud.githubusercontent.com/assets/8161815/13826328/22cf1e2e-ebb7-11e5-98da-819924c1b65d.png
@@ -271,4 +271,3 @@ Contact<a name="Contact" />
 [emoticon_smile]:https://cloud.githubusercontent.com/assets/8161815/10268707/76d6c5f2-6ac1-11e5-9330-15a8943f1b0d.png
 [emoticon_grin]:https://cloud.githubusercontent.com/assets/8161815/10268709/7b073800-6ac1-11e5-85b3-d0e342acc403.png
 [emoticon_tongue]:https://cloud.githubusercontent.com/assets/8161815/10268706/741f41fe-6ac1-11e5-88ea-1b4d807b2283.png
-[iconfinder]:https://www.iconfinder.com/icons/211625/at_icon#size=16
