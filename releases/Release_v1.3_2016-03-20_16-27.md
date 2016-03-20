@@ -3,8 +3,11 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Summary
-* First main point
-* another main point
+* A new 'Optional File' `configuration.properties` can now created. The properties 
+  from this file can access in the `[FileName]Presenter` through injection via 
+  `@javax.inject.Inject private String myProperty;`.
+* Some minor bugfixes (wrong information msg, wrong background-color) and refactoring
+  (update descriptions, new screenshots).
 
 
 
