@@ -16,7 +16,12 @@ can be created in a new wizard.
 One conditional is that *[FileName].toLowerCase()* must be **equals** with the *last* choosen package name.
 
 **Press**  
-`Interview` with `Adam Bien` about me and the plugin: [afterburner.fx NetBeans plugin release - an interview]
+* `Interview` with `Adam Bien` about me and the plugin: [afterburner.fx NetBeans plugin release - an interview]
+* `Adam Bien` introduced my plugin in one of his videos 
+  `DI, IoC and MVP With Java FX -- afterburner.fx Deep Dive` &#40;see at 48:00)&#41;:
+
+[![NetBeansIDE-AfterburnerFX-Plugin.png][NetBeansIDE-AfterburnerFX-Plugin]](https://www.youtube.com/watch?v=WsV7kSSSOGs "NetBeansIDE-AfterburnerFX-Plugin")
+
 
 
 Content
@@ -251,6 +256,7 @@ Contact<a name="Contact" />
 [MIT License]:https://opensource.org/licenses/MIT
 [Model-View-Controller]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 [NetBeans IDE]:https://netbeans.org/
+[NetBeansIDE-AfterburnerFX-Plugin]:https://cloud.githubusercontent.com/assets/8161815/15169398/3b51c3de-173b-11e6-8a8f-39cc6b826260.png
 [NetBeansIDE-AfterburnerFX-Plugin.nbm (GitHub)]:https://github.com/Naoghuman/NetbeansIDE-AfterburnerFX-Plugin/releases
 [NetBeansIDE-AfterburnerFX-Plugin.nbm (NetBeans Plugin Portal)]:http://plugins.netbeans.org/plugin/60847/netbeanside-afterburnerfx-plugin
 [Open Source]:https://en.wikipedia.org/wiki/Open_source

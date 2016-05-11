@@ -16,6 +16,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.3`.
 
 
 #### Enhancement
+#42 [Documentation] Add hint to ReadMe for the video from Adam Bien where he mention my plugin.
 #38 [Documentation] Update ReadMe to reflect the new features.
 #17 [Optional Files] Add functionality for creating/checking a 'configuration.properties'.
 
