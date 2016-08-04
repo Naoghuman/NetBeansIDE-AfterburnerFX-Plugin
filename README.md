@@ -261,7 +261,7 @@ Contact<a name="Contact" />
 [NetBeansIDE-AfterburnerFX-Plugin.nbm (NetBeans Plugin Portal)]:http://plugins.netbeans.org/plugin/60847/netbeanside-afterburnerfx-plugin
 [Open Source]:https://en.wikipedia.org/wiki/Open_source
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Windows 7]:https://de.wikipedia.org/wiki/Microsoft_Windows_7
+[Windows 10]:https://en.wikipedia.org/wiki/Windows_10
 
 
 
