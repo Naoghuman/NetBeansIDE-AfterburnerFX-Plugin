@@ -135,7 +135,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         // properties
         cbShouldPropertiesCreated.setSelected(!shouldCreateProperties);
-        cbShouldPropertiesInjected.setText("Inject the created .properties file into the file " + fxmlFileName + ".fxml."); // NOI18N
+        cbShouldPropertiesInjected.setText("Inject the .properties file into " + baseName + "Presenter.java."); // NOI18N
         cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
         

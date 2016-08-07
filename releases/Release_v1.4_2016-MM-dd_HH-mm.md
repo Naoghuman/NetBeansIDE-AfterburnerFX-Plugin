@@ -21,6 +21,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Bug
+#47 [Optional Files] Msg for xy.properties file is wrong.
 #45 [ReadMe] Update defect link for 'Windows 10'.
 
 
