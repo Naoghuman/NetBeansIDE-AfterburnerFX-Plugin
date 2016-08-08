@@ -128,7 +128,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbShouldCSScreated.setSelected(!shouldCreateCSS);
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
-        cbShouldCSSinjected.setText("Inject the created .css file into the file " + fxmlFileName + ".fxml."); // NOI18N
+        cbShouldCSSinjected.setText("Inject the .css file into " + fxmlFileName + ".fxml."); // NOI18N
         cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
         
