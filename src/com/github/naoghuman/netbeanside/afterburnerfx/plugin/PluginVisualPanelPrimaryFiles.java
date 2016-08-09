@@ -21,29 +21,19 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroup
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.SourceGroupSupport.SourceGroupProxy;
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import javax.swing.BorderFactory;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.border.Border;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectUtils;
-import org.netbeans.spi.java.project.support.ui.PackageView;
 import org.openide.filesystems.FileObject;
 import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
-import org.openide.util.RequestProcessor;
 
 public final class PluginVisualPanelPrimaryFiles extends JPanel implements// ActionListener, 
         DocumentListener, IPluginSupport, PropertyChangeListener
@@ -257,7 +247,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         }
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
-        cbFxmlToLowerCase.setText("File " + fxmlFileName + ".fxml should be lowercase."); // NOI18N
+        cbFxmlToLowerCase.setText(fxmlFileName + ".fxml to lowercase."); // NOI18N
     }
 
     /**
