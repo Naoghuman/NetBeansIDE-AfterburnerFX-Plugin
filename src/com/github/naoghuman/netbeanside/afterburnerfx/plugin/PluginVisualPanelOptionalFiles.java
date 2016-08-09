@@ -192,7 +192,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         // css
         final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
-        cbCSStoLowerCase.setText("File " + cssFileName + ".css should be lowercase."); // NOI18N
+        cbCSStoLowerCase.setText(cssFileName + ".css to lowercase."); // NOI18N
         
         final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
         if (shouldCSScreated) {
@@ -206,7 +206,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         // properties
         final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
-        cbPropertiesToLowerCase.setText("File " + propertiesFileName + ".properties should be lowercase."); // NOI18N
+        cbPropertiesToLowerCase.setText(propertiesFileName + ".properties to lowercase."); // NOI18N
         
         final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
         if (shouldPropertiesCreated) {
@@ -220,7 +220,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         // configuration.properties
         final String configurationPropertiesFileName = cbConfigurationPropertiesToLowerCase.isSelected() ? "configuration.properties" : "Configuration.properties"; // NOI18N
-        cbConfigurationPropertiesToLowerCase.setText("File " + configurationPropertiesFileName + " should be lowercase."); // NOI18N
+        cbConfigurationPropertiesToLowerCase.setText(configurationPropertiesFileName + " to lowercase."); // NOI18N
         
         final boolean shouldConfigurationPropertiesCreated = cbShouldConfigurationPropertiesCreated.isSelected();
         if (shouldConfigurationPropertiesCreated) {
