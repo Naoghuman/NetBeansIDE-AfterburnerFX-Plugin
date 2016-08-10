@@ -164,6 +164,10 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     boolean shouldInjectCSS() {
+        if (!this.shouldCreateCSS()) {
+            return Boolean.FALSE;
+        }
+        
         return cbShouldCSSinjected.isSelected();
     }
     
