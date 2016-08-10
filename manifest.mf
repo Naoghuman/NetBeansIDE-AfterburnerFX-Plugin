@@ -3,5 +3,5 @@ AutoUpdate-Show-In-Client: true
 OpenIDE-Module: netbeanside.afterburnerfx.plugin
 OpenIDE-Module-Layer: com/github/naoghuman/netbeanside/afterburnerfx/plugin/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/github/naoghuman/netbeanside/afterburnerfx/plugin/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.3
+OpenIDE-Module-Specification-Version: 1.4
 
