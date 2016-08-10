@@ -24,6 +24,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 #47 [Optional Files] Msg for xy.properties file is wrong.
 #45 [ReadMe] Update defect link for 'Windows 10'.
 #43 [Optional Files] css will be injected although the checkbox isn't selected.
+#41 [Optional Files] ResourceBundle will be injected although the checkbox isn't selected.
 
 
 

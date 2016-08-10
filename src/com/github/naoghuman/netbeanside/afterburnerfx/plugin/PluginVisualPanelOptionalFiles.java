@@ -176,6 +176,10 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     boolean shouldInjectProperties() {
+        if (!this.shouldCreateProperties()) {
+            return Boolean.FALSE;
+        }
+        
         return cbShouldPropertiesInjected.isSelected();
     }
     
