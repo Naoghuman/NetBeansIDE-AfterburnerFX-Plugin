@@ -161,8 +161,12 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + "Presenter"); // NOI18N
         
+        final String layoutContainer = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__LAYOUT_CONTAINER, DEFAULT_LAYOUT_CONTAINER);
+        parameters.put(TEMPLATE_PARAMETER__LAYOUT_CONTAINER, layoutContainer);
+        
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
         parameters.put(TEMPLATE_PARAMETER__FXML, shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName);
+        
         parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
         parameters.put(TEMPLATE_PARAMETER__VIEW, fileName + "View"); // NOI18N
         

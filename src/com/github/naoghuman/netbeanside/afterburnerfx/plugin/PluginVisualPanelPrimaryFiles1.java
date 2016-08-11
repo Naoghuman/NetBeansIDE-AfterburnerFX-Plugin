@@ -35,7 +35,7 @@ import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
 
-public final class PluginVisualPanelPrimaryFiles extends JPanel implements// ActionListener, 
+public final class PluginVisualPanelPrimaryFiles1 extends JPanel implements// ActionListener, 
         DocumentListener, IPluginSupport, PropertyChangeListener
 {
 //    @SuppressWarnings("rawtypes")
@@ -53,7 +53,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     
 //    private RequestProcessor.Task updatePackagesTask;
 
-    public PluginVisualPanelPrimaryFiles(
+    public PluginVisualPanelPrimaryFiles1(
             Project project, SourceGroupSupport sourceGroupSupport,
             ChangeSupport changeSupport
     ) {
@@ -95,14 +95,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     }
     
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public void initValues(FileObject template, FileObject preselectedFolder, String layoutContainer, boolean shouldFXMLtoLowerCase) {
+    public void initValues(FileObject template, FileObject preselectedFolder, boolean shouldFXMLtoLowerCase) {
         if (template == null) {
                 throw new IllegalArgumentException(
                         NbBundle.getMessage(PluginWizardIterator.class,
                             "MSG_ConfigureFXMLPanel_Template_Error")); // NOI18N
         }
-        
-        cbLayoutContainer.setSelectedItem(layoutContainer);
         
         this.shouldFXMLtoLowerCase = shouldFXMLtoLowerCase;
         cbFxmlToLowerCase.setSelected(shouldFXMLtoLowerCase);
@@ -151,11 +149,6 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     public String getBaseName() {
         final String text = tfFileName.getText().trim();
         return (text.length()) == 0 ? null : text;
-    }
-    
-    public String getLayoutContainer() {
-        final String layoutContainer = String.valueOf(cbLayoutContainer.getSelectedItem());
-        return layoutContainer;
     }
     
     public FileObject getLocationFolder() {
@@ -279,29 +272,25 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         tfPackage = new javax.swing.JTextField();
         tfLocation = new javax.swing.JTextField();
         cbFxmlToLowerCase = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        cbLayoutContainer = new javax.swing.JComboBox();
 
-        setPreferredSize(new java.awt.Dimension(400, 300));
-
-        org.openide.awt.Mnemonics.setLocalizedText(lFileName, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lFileName.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lFileName, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.lFileName.text")); // NOI18N
         lFileName.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        tfFileName.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfFileName.text")); // NOI18N
+        tfFileName.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.tfFileName.text")); // NOI18N
 
         tfProject.setEditable(false);
-        tfProject.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfProject.text")); // NOI18N
+        tfProject.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.tfProject.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lProject.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lProject, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.lProject.text")); // NOI18N
         lProject.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        org.openide.awt.Mnemonics.setLocalizedText(lLocation, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lLocation.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lLocation, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.lLocation.text")); // NOI18N
         lLocation.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        org.openide.awt.Mnemonics.setLocalizedText(lPackage, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lPackage.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lPackage, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.lPackage.text")); // NOI18N
         lPackage.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.lInfoPrimaryFiles.text")); // NOI18N
         lInfoPrimaryFiles.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         spInfoPrimaryFiles.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -315,48 +304,41 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         spInfoPrimaryFiles.setViewportView(taInfoPrimaryFiles);
 
         tfPackage.setEditable(false);
-        tfPackage.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfPackage.text")); // NOI18N
+        tfPackage.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.tfPackage.text")); // NOI18N
 
         tfLocation.setEditable(false);
-        tfLocation.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.tfLocation.text")); // NOI18N
+        tfLocation.setText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.tfLocation.text")); // NOI18N
 
         cbFxmlToLowerCase.setSelected(true);
-        org.openide.awt.Mnemonics.setLocalizedText(cbFxmlToLowerCase, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.cbFxmlToLowerCase.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(cbFxmlToLowerCase, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles1.class, "PluginVisualPanelPrimaryFiles1.cbFxmlToLowerCase.text")); // NOI18N
         cbFxmlToLowerCase.setFocusable(false);
         cbFxmlToLowerCase.setIconTextGap(6);
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.jLabel1.text")); // NOI18N
-
-        cbLayoutContainer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AnchorPane", "BorderPane", "FlowPane", "HBox", "Pane", "StackPane", "TilePane", "VBox" }));
-        cbLayoutContainer.setToolTipText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.cbLayoutContainer.toolTipText")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spInfoPrimaryFiles, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(separator)
+                    .addComponent(spInfoPrimaryFiles)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lFileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(lLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfProject)
-                            .addComponent(tfFileName)
-                            .addComponent(tfPackage)
-                            .addComponent(tfLocation)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cbFxmlToLowerCase)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cbLayoutContainer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(tfProject)
+                            .addComponent(tfFileName)
+                            .addComponent(tfPackage)
+                            .addComponent(tfLocation))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -378,11 +360,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbLayoutContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbFxmlToLowerCase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,14 +368,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
                 .addComponent(lInfoPrimaryFiles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoPrimaryFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cbFxmlToLowerCase;
-    private javax.swing.JComboBox cbLayoutContainer;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lFileName;
     private javax.swing.JLabel lInfoPrimaryFiles;
     private javax.swing.JLabel lLocation;

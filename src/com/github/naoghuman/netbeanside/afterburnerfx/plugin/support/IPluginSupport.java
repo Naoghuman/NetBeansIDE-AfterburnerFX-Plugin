@@ -26,6 +26,7 @@ public interface IPluginSupport {
     
     public static final Color LIGHTGRAY_COLOR = new Color(124, 127, 130);
     
+    public static final String DEFAULT_LAYOUT_CONTAINER  = "AnchorPane"; //NOI18N
     public static final String DEFAULT_MAVEN_FXML_PACKAGE = "fxml"; //NOI18N
     public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; //NOI18N
     public static final String DEFAULT_MAVEN_CSS_PACKAGE = "styles"; //NOI18N
@@ -49,6 +50,7 @@ public interface IPluginSupport {
     public static final String PROP__FILENAME_CHOOSEN = "PROP__FILENAME_CHOOSEN"; // NOI18N
     public static final String PROP__FILENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N
     public static final String PROP__FXML_TO_LOWERCASE = "PROP__FXML_TO_LOWERCASE"; // NOI18N
+    public static final String PROP__LAYOUT_CONTAINER = "PROP__LAYOUT_CONTAINER"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_CREATE = "PROP__PROPERTIES_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__PROPERTIES_FILE_SHOULD_INJECT = "PROP__PROPERTIES_FILE_SHOULD_INJECT"; // NOI18N
     public static final String PROP__PROPERTIES_TO_LOWERCASE = "PROP__PROPERTIES_TO_LOWERCASE"; // NOI18N
@@ -67,6 +69,7 @@ public interface IPluginSupport {
     public static final String TEMPLATE_PARAMETER__CSS = "css"; // NOI18N
     public static final String TEMPLATE_PARAMETER__CSS_FILE_INJECT = "cssinject"; // NOI18N
     public static final String TEMPLATE_PARAMETER__FXML = "fxml"; // NOI18N
+    public static final String TEMPLATE_PARAMETER__LAYOUT_CONTAINER = "layoutcontainer"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PACKAGE2 = "package2"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PRESENTER = "presenter"; // NOI18N
     public static final String TEMPLATE_PARAMETER__PROPERTIES = "properties"; // NOI18N
