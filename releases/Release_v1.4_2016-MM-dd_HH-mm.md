@@ -13,6 +13,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Enhancement
+#51 [Primary Files] Add GridPane to the ComboBox cbLayoutContainer.
 #44 [Primary Files] Add ComboBox where the user can define which container should be shown in the FXML file.
 
 

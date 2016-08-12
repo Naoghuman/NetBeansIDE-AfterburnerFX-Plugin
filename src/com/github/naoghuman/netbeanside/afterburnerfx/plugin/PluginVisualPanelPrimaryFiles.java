@@ -327,7 +327,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.jLabel1.text")); // NOI18N
 
-        cbLayoutContainer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AnchorPane", "BorderPane", "FlowPane", "HBox", "Pane", "StackPane", "TilePane", "VBox" }));
+        cbLayoutContainer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AnchorPane", "BorderPane", "FlowPane", "GridPane", "HBox", "Pane", "StackPane", "TilePane", "VBox" }));
         cbLayoutContainer.setToolTipText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.cbLayoutContainer.toolTipText")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
