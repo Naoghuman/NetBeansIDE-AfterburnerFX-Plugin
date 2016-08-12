@@ -117,8 +117,8 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     void initValues(String baseName, String packageName, boolean shouldFXMLtoLowerCase,
-            boolean shouldCreateCSS, boolean shouldCSStoLowerCase, boolean shouldInjectCSS,
-            boolean shouldCreateProperties, boolean shouldPropertiesToLowerCase, boolean shouldInjectProperties,
+            boolean shouldCreateCSS, boolean shouldInjectCSS, boolean shouldCSStoLowerCase,
+            boolean shouldCreateProperties, boolean shouldInjectProperties, boolean shouldPropertiesToLowerCase,
             boolean shouldCreateConfigurationProperties, boolean shouldConfigurationPropertiesToLowerCase
     ) {
         this.baseName = baseName;
@@ -129,15 +129,15 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
         cbShouldCSSinjected.setText("Inject the .css file into " + fxmlFileName + ".fxml."); // NOI18N
-        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         cbShouldCSSinjected.setSelected(shouldInjectCSS);
+        cbCSStoLowerCase.setSelected(shouldCSStoLowerCase);
         
         
         // properties
         cbShouldPropertiesCreated.setSelected(!shouldCreateProperties);
         cbShouldPropertiesInjected.setText("Inject the .properties file into " + baseName + "Presenter.java."); // NOI18N
-        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         cbShouldPropertiesInjected.setSelected(shouldInjectProperties);
+        cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
         // configuration.properties
         cbShouldConfigurationPropertiesCreated.setSelected(!shouldCreateConfigurationProperties);
@@ -164,10 +164,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     boolean shouldInjectCSS() {
-        if (!this.shouldCreateCSS()) {
-            return Boolean.FALSE;
-        }
-        
         return cbShouldCSSinjected.isSelected();
     }
     
@@ -176,10 +172,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     boolean shouldInjectProperties() {
-        if (!this.shouldCreateProperties()) {
-            return Boolean.FALSE;
-        }
-        
         return cbShouldPropertiesInjected.isSelected();
     }
     

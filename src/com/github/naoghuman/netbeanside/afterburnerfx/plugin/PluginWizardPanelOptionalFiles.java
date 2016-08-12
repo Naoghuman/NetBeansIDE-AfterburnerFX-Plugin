@@ -72,31 +72,31 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
         
         final boolean shouldCreateCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldCSStoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
+        final boolean shouldCSStoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_TO_LOWERCASE, Boolean.TRUE);
         
         final boolean shouldCreateProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, Boolean.TRUE);
-        final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
+        final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
         
         final boolean shouldCreateConfigurationProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CONFIGURATION_FILE_SHOULD_CREATE, Boolean.FALSE);
         final boolean shouldConfigurationPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CONFIGURATION_TO_LOWERCASE, Boolean.TRUE);
         
         this.getComponent().initValues(baseName, packageName, shouldFXMLtoLowerCase,
-                shouldCreateCSS, shouldCSStoLowerCase, shouldInjectCSS,
-                shouldCreateProperties, shouldPropertiesToLowerCase, shouldInjectProperties,
+                shouldCreateCSS, shouldInjectCSS, shouldCSStoLowerCase,
+                shouldCreateProperties, shouldInjectProperties, shouldPropertiesToLowerCase,
                 shouldCreateConfigurationProperties, shouldConfigurationPropertiesToLowerCase);
     }
 
     @Override
     public void storeSettings(WizardDescriptor wiz) {
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE_SHOULD_CREATE, getComponent().shouldCreateCSS());
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_TO_LOWERCASE, getComponent().shouldCSStoLowerCase());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE_SHOULD_INJECT, getComponent().shouldInjectCSS());
-       
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_TO_LOWERCASE, getComponent().shouldCSStoLowerCase());
+        
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE_SHOULD_CREATE, getComponent().shouldCreateProperties());
-        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_TO_LOWERCASE, getComponent().shouldPropertiesToLowerCase());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, getComponent().shouldInjectProperties());
+        NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__PROPERTIES_TO_LOWERCASE, getComponent().shouldPropertiesToLowerCase());
         
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CONFIGURATION_FILE_SHOULD_CREATE, getComponent().shouldCreateConfigurationProperties());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CONFIGURATION_TO_LOWERCASE, getComponent().shouldConfigurationPropertiesToLowerCase());

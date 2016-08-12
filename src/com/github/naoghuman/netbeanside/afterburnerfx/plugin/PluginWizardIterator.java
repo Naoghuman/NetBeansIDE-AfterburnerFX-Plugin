@@ -236,7 +236,8 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
             parameters.put(TEMPLATE_PARAMETER__PACKAGE2, packageName);
         }
            
-        final boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
+        boolean shouldInjectCSS = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_FILE_SHOULD_INJECT, Boolean.TRUE);
+        shouldInjectCSS = !shouldCreateCSS ? Boolean.FALSE : shouldInjectCSS;
         parameters.put(TEMPLATE_PARAMETER__CSS_FILE_INJECT, shouldInjectCSS ? "true" : "false"); // NOI18N
         
         // .properties
@@ -246,7 +247,8 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
             parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
         }
             
-        final boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
+        boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);
+        shouldInjectProperties = !shouldCreateProperties ? Boolean.FALSE : shouldInjectProperties;
         parameters.put(TEMPLATE_PARAMETER__PROPERTIES_INJECT, shouldInjectProperties ? "true" : "false"); // NOI18N
         
         // configuration.properties
