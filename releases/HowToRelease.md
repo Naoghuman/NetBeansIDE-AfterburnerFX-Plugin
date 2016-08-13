@@ -61,6 +61,7 @@ Step 6
 
 * Prepare the project for the new version.
     * Properties -> API Versioning -> `Specification Version`.
+* Prepare the new `release notes` file for the next release.
 
 
 
