@@ -17,6 +17,7 @@
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
@@ -198,8 +199,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         if (shouldCSScreated) {
             final StringBuilder sb = new StringBuilder();
             sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
-            sb.append(cbCSStoLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
-            sb.append(cbShouldCSSinjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(PluginSupport.extractAdditionalInformations(cbShouldCSSinjected.isSelected(), cbCSStoLowerCase.isSelected()));
             
             taInfoOptionalFiles.append(sb.toString());
         }
@@ -212,8 +212,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         if (shouldPropertiesCreated) {
             final StringBuilder sb = new StringBuilder();
             sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
-            sb.append(cbPropertiesToLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
-            sb.append(cbShouldPropertiesInjected.isSelected() ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(PluginSupport.extractAdditionalInformations(cbShouldPropertiesInjected.isSelected(), cbPropertiesToLowerCase.isSelected()));
             
             taInfoOptionalFiles.append(sb.toString());
         }

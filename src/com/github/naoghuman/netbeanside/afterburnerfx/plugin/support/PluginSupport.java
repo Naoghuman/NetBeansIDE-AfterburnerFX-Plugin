@@ -42,6 +42,21 @@ public final class PluginSupport implements IPluginSupport {
                 : targetFolder.getFileObject(relFileName) != null;
     }
     
+    public static String extractAdditionalInformations(boolean shouldInject, boolean shouldLowercase) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(""); // NOI18N
+        
+        if (shouldInject || shouldLowercase) {
+            sb.append(" ("); // NOI18N
+            sb.append((shouldInject                   ) ? "injected"  : ""); // NOI18N
+            sb.append((shouldInject && shouldLowercase) ? ", "        : ""); // NOI18N
+            sb.append((shouldLowercase                ) ? "lowercase" : ""); // NOI18N
+            sb.append(")\n"); // NOI18N
+        }
+        
+        return sb.toString();
+    }
+    
     public static String extractClassNameFromPackage(String packageName) {
         if (packageName == null) {
             return ""; // NOI18N

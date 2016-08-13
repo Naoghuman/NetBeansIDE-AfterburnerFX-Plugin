@@ -17,6 +17,7 @@
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -65,16 +66,14 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
         if (shouldCreateCSS) {
             final String cssFileName = shouldCSStoLowerCase ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
-            sb.append(shouldCSStoLowerCase ? " (lowercase)" : ""); // NOI18N
-            sb.append(shouldInjectCSS ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(PluginSupport.extractAdditionalInformations(shouldInjectCSS, shouldCSStoLowerCase));
         }
         
         // properties
         if (shouldCreateProperties) {
             final String propertiesFileName = shouldPropertiesToLowerCase ? baseName.toLowerCase() : baseName;
             sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
-            sb.append(shouldPropertiesToLowerCase ? " (lowercase)" : ""); // NOI18N
-            sb.append(shouldInjectProperties ? " (injected)\n" : "\n"); // NOI18N
+            sb.append(PluginSupport.extractAdditionalInformations(shouldInjectProperties, shouldPropertiesToLowerCase));
         }
         
         // configuration.properties

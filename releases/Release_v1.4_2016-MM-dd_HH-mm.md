@@ -32,6 +32,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Refactoring
+#55 [Optional Files] Reorder the hint about 'lowercase' and 'injected'.
 #48 [Wizard] Simplified the msg for inject xy file.
 #46 [Wizard] Simplified the msg for xy to lowercase.
 
