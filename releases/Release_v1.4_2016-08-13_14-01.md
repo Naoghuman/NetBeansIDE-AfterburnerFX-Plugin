@@ -3,8 +3,10 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Summary
-* ...
-* ...
+* The main feature in this release is the ability that the user can choose the 
+  root container for the generated FXML file. Its now possible to choose as root:
+    * AnchorPane, BorderPane, FlowPane, GridPane, HBox, Pane, StackPane, TilePane 
+      and VBox.
 
 
 
@@ -39,6 +41,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Additional
+#57 [Wizard] Prepare the plugin for the release 1.4.
 #53 [Screenshots] Add screenshots for version 0.1.4.
 
 
