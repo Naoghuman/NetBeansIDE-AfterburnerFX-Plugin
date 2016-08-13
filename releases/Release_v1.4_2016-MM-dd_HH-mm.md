@@ -39,6 +39,7 @@ Welcome to `NetBeansIDE-AfterburnerFX-Plugin` with the new release `v1.4`.
 
 
 #### Additional
+#53 [Screenshots] Add screenshots for version 0.1.4.
 
 
 
