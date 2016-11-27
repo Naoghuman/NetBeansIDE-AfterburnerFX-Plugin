@@ -159,7 +159,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
     private Map<String, String> mapParametersForPrimaryFiles() {
         final Map<String, String> parameters = new HashMap<>();
         final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
-        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + "Presenter"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + FILE_SUFFIX__PRESENTER);
         
         final String layoutContainer = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__LAYOUT_CONTAINER, DEFAULT_LAYOUT_CONTAINER);
         parameters.put(TEMPLATE_PARAMETER__LAYOUT_CONTAINER, layoutContainer);
@@ -167,8 +167,8 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
         parameters.put(TEMPLATE_PARAMETER__FXML, shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName);
         
-        parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
-        parameters.put(TEMPLATE_PARAMETER__VIEW, fileName + "View"); // NOI18N
+        parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + FILE_SUFFIX__PRESENTER);
+        parameters.put(TEMPLATE_PARAMETER__VIEW, fileName + FILE_SUFFIX__VIEW);
         
         return parameters;
     }
@@ -194,7 +194,12 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         return dataObjects;
     }
     
-    private Map<String, DataObject> mapDataObjectsForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties, boolean shouldCreateConfigurationProperties) throws IOException {
+    private Map<String, DataObject> mapDataObjectsForOptionalFiles(
+            boolean shouldCreateCSS, boolean shouldCreateProperties,
+            boolean shouldCreateConfigurationProperties
+    ) 
+            throws IOException
+    {
         final FileObject firstTemplate = Templates.getTemplate(wizard);
         final FileObject[] fileObjects = firstTemplate.getParent().getChildren();
         
@@ -221,12 +226,15 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         return mapDataObjects;
     }
     
-    private Map<String, String> mapParametersForOptionalFiles(boolean shouldCreateCSS, boolean shouldCreateProperties, boolean shouldCreateConfigurationProperties) {
+    private Map<String, String> mapParametersForOptionalFiles(
+            boolean shouldCreateCSS, boolean shouldCreateProperties, 
+            boolean shouldCreateConfigurationProperties
+    ) {
         final Map<String, String> parameters = new HashMap<>();
         final String fileName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         // .css
         if (shouldCreateCSS) {
-            parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + "Presenter"); // NOI18N
+            parameters.put(TEMPLATE_PARAMETER__CONTROLLER, fileName + FILE_SUFFIX__PRESENTER);
             
             final boolean shouldCSStoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__CSS_TO_LOWERCASE, Boolean.TRUE);
             parameters.put(TEMPLATE_PARAMETER__CSS, shouldCSStoLowerCase ? fileName.toLowerCase() : fileName);
@@ -244,7 +252,7 @@ public final class PluginWizardIterator implements WizardDescriptor.Instantiatin
         if (shouldCreateProperties) {
             final boolean shouldPropertiesToLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_TO_LOWERCASE, Boolean.TRUE);
             parameters.put(TEMPLATE_PARAMETER__PROPERTIES, shouldPropertiesToLowerCase ? fileName.toLowerCase() : fileName);
-            parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + "Presenter"); // NOI18N
+            parameters.put(TEMPLATE_PARAMETER__PRESENTER, fileName + FILE_SUFFIX__PRESENTER);
         }
             
         boolean shouldInjectProperties = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__PROPERTIES_FILE_SHOULD_INJECT, Boolean.TRUE);

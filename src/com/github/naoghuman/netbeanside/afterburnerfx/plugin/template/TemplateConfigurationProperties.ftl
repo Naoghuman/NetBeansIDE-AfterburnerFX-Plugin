@@ -2,6 +2,8 @@
 <#assign licensePrefix = "# ">
 <#include "${project.licensePath}">
 
+################################################################################
+#
 # Access to the parameters in this files can be done via injection in your 
 # presenter. Currently dot named keys aren't supported.
 #
@@ -15,8 +17,8 @@
 # 
 #     @Override
 #     public void initialize(URL location, ResourceBundle resources) {
-#         System.out.println("parameter.equals("MyParameter"): " 
-#                 + parameter.equals("MyParameter")); // true
+#         assert (parameter.equals("MyParameter")); // true
 #     }
 # }
 #
+################################################################################

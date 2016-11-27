@@ -26,10 +26,13 @@ public interface IPluginSupport {
     
     public static final Color LIGHTGRAY_COLOR = new Color(124, 127, 130);
     
-    public static final String DEFAULT_LAYOUT_CONTAINER  = "AnchorPane"; //NOI18N
-    public static final String DEFAULT_MAVEN_FXML_PACKAGE = "fxml"; //NOI18N
-    public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; //NOI18N
-    public static final String DEFAULT_MAVEN_CSS_PACKAGE = "styles"; //NOI18N
+    public static final String DEFAULT_LAYOUT_CONTAINER  = "AnchorPane"; // NOI18N
+    public static final String DEFAULT_MAVEN_FXML_PACKAGE = "fxml"; // NOI18N
+    public static final String DEFAULT_MAVEN_IMAGES_PACKAGE = "images"; // NOI18N
+    public static final String DEFAULT_MAVEN_CSS_PACKAGE = "styles"; // NOI18N
+    
+    public static final String FILE_SUFFIX__PRESENTER = "Presenter"; // NOI18N
+    public static final String FILE_SUFFIX__VIEW = "View"; // NOI18N
     
     public static final String MSG_INFO__FILE_NAME_ISNT_VALID = "info.filename.isnt.valid"; // NOI18N
     public static final String MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS = "error.filename.contains.wrong.chars"; // NOI18N

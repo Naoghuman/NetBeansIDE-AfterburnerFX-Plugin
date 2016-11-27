@@ -2,6 +2,8 @@
 <#assign licensePrefix = "# ">
 <#include "${project.licensePath}">
 
+################################################################################
+#
 # Access to the parameters in this files can be done in your presenter via:
 #
 # public class ${presenter} implements Initializable {
@@ -18,3 +20,4 @@
 # options to create (and to inject) the 'optional' .properties file into your 
 # presenter selected in the page 'Optional Files'.
 #
+################################################################################
