@@ -22,7 +22,7 @@
                   <Component id="lInfoPrimaryFiles" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="lInfoOptionalFiles" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="197" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>

@@ -22,6 +22,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.openide.util.NbBundle;
 
 public final class PluginVisualPanelOptionalFiles extends JPanel implements IPluginSupport {
     
@@ -189,16 +190,17 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     private void updateTextCreateFollowingFiles() {
+        lInfoOptionalFiles.setText(NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
         taInfoOptionalFiles.setText(null);
         
         // css
         final String cssFileName = cbCSStoLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
         cbCSStoLowerCase.setText(cssFileName + ".css to lowercase."); // NOI18N
         
-        final boolean shouldCSScreated = cbShouldCSScreated.isSelected();
-        if (shouldCSScreated) {
+        final boolean shouldCreateCSS = cbShouldCSScreated.isSelected();
+        if (shouldCreateCSS) {
             final StringBuilder sb = new StringBuilder();
-            sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
+            sb.append("- ").append(cssFileName).append(".css"); // NOI18N
             sb.append(PluginSupport.extractAdditionalInformations(cbShouldCSSinjected.isSelected(), cbCSStoLowerCase.isSelected()));
             
             taInfoOptionalFiles.append(sb.toString());
@@ -208,10 +210,10 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         final String propertiesFileName = cbPropertiesToLowerCase.isSelected() ? baseName.toLowerCase() : baseName;
         cbPropertiesToLowerCase.setText(propertiesFileName + ".properties to lowercase."); // NOI18N
         
-        final boolean shouldPropertiesCreated = cbShouldPropertiesCreated.isSelected();
-        if (shouldPropertiesCreated) {
+        final boolean shouldCreateProperties = cbShouldPropertiesCreated.isSelected();
+        if (shouldCreateProperties) {
             final StringBuilder sb = new StringBuilder();
-            sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
+            sb.append("- ").append(propertiesFileName).append(".properties"); // NOI18N
             sb.append(PluginSupport.extractAdditionalInformations(cbShouldPropertiesInjected.isSelected(), cbPropertiesToLowerCase.isSelected()));
             
             taInfoOptionalFiles.append(sb.toString());
@@ -221,13 +223,23 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         final String configurationPropertiesFileName = cbConfigurationPropertiesToLowerCase.isSelected() ? "configuration.properties" : "Configuration.properties"; // NOI18N
         cbConfigurationPropertiesToLowerCase.setText(configurationPropertiesFileName + " to lowercase."); // NOI18N
         
-        final boolean shouldConfigurationPropertiesCreated = cbShouldConfigurationPropertiesCreated.isSelected();
-        if (shouldConfigurationPropertiesCreated) {
+        final boolean shouldCreateConfigurationProperties = cbShouldConfigurationPropertiesCreated.isSelected();
+        if (shouldCreateConfigurationProperties) {
             final StringBuilder sb = new StringBuilder();
-            sb.append("- ").append(packageName).append(configurationPropertiesFileName); // NOI18N
+            sb.append("- ").append(configurationPropertiesFileName); // NOI18N
             sb.append(cbConfigurationPropertiesToLowerCase.isSelected() ? " (lowercase)" : ""); // NOI18N
             
             taInfoOptionalFiles.append(sb.toString());
+        }
+        
+        final boolean shouldUpdateInfoOptionalFiles =
+                shouldCreateCSS
+                || shouldCreateProperties
+                || shouldCreateConfigurationProperties;
+        if (shouldUpdateInfoOptionalFiles) {
+            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", packageName)); // NOI18N
+        }else {
+            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", "")); // NOI18N
         }
     }
 

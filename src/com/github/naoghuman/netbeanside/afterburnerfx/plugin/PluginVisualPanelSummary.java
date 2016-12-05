@@ -20,6 +20,7 @@ import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupp
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.openide.util.NbBundle;
 
 public final class PluginVisualPanelSummary extends JPanel implements IPluginSupport {
 
@@ -47,43 +48,56 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
             boolean shouldCreateConfigurationProperties, boolean shouldConfigurationPropertiesToLowerCase 
     ) {
         // Primary files
+        lInfoPrimaryFiles.setText(NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoPrimaryFiles.text")); // NOI18N
         taInfoPrimaryFiles.setText(null);
+        
         StringBuilder sb = new StringBuilder();
-        
+        sb.append("- ").append(baseName).append("Presenter.java\n"); // NOI18N
+        sb.append("- ").append(baseName).append("View.java\n"); // NOI18N
         final String fxmlFileName = shouldFXMLtoLowerCase ? baseName.toLowerCase() : baseName;
-        final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)\n" : "\n"; // NOI18N
-        sb.append("- ").append(packageName).append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
-        sb.append("- ").append(packageName).append(baseName).append("Presenter.java\n"); // NOI18N
-        sb.append("- ").append(packageName).append(baseName).append("View.java"); // NOI18N
+        final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)" : ""; // NOI18N
+        sb.append("- ").append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
         
+        lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", packageName)); // NOI18N
         taInfoPrimaryFiles.setText(sb.toString());
         
         // Optional files
+        lInfoOptionalFiles.setText(NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoOptionalFiles.text")); // NOI18N
         taInfoOptionalFiles.setText(null);
         sb = new StringBuilder();
         
         // css
         if (shouldCreateCSS) {
             final String cssFileName = shouldCSStoLowerCase ? baseName.toLowerCase() : baseName;
-            sb.append("- ").append(packageName).append(cssFileName).append(".css"); // NOI18N
+            sb.append("- ").append(cssFileName).append(".css"); // NOI18N
             sb.append(PluginSupport.extractAdditionalInformations(shouldInjectCSS, shouldCSStoLowerCase));
         }
         
         // properties
         if (shouldCreateProperties) {
             final String propertiesFileName = shouldPropertiesToLowerCase ? baseName.toLowerCase() : baseName;
-            sb.append("- ").append(packageName).append(propertiesFileName).append(".properties"); // NOI18N
+            sb.append("- ").append(propertiesFileName).append(".properties"); // NOI18N
             sb.append(PluginSupport.extractAdditionalInformations(shouldInjectProperties, shouldPropertiesToLowerCase));
         }
         
         // configuration.properties
         if (shouldCreateConfigurationProperties) {
             final String configurationPropertiesFileName = shouldConfigurationPropertiesToLowerCase ? "configuration.properties" : "Configuration.properties"; // NOI18N
-            sb.append("- ").append(packageName).append(configurationPropertiesFileName); // NOI18N
+            sb.append("- ").append(configurationPropertiesFileName); // NOI18N
             sb.append(shouldConfigurationPropertiesToLowerCase ? " (lowercase)" : ""); // NOI18N
         }
         
         taInfoOptionalFiles.setText(sb.toString());
+        
+        final boolean shouldUpdateInfoOptionalFiles =
+                shouldCreateCSS
+                || shouldCreateProperties
+                || shouldCreateConfigurationProperties;
+        if (shouldUpdateInfoOptionalFiles) {
+            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", packageName)); // NOI18N
+        } else {
+            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", "")); // NOI18N
+        }
     }
 
     @Override
@@ -140,7 +154,7 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
                     .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lInfoOptionalFiles)
-                        .addGap(0, 197, Short.MAX_VALUE))
+                        .addGap(0, 279, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())

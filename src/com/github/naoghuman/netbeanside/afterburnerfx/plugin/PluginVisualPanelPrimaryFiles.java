@@ -216,9 +216,11 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     }
     
     private void updateTextCreateFollowingFiles(boolean shouldInfoCreateFollwingFiles) {
+        lInfoPrimaryFiles.setText(NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles.text")); // NOI18N
         taInfoPrimaryFiles.setText(null);
         
         if (!shouldInfoCreateFollwingFiles) {
+            lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", "")); // NOI18N
             return;
         }
             
@@ -233,16 +235,15 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         }
         
         final StringBuilder sb = new StringBuilder();
-        String packageName = this.getPackageName().replace(SIGN_CHAR_DOT, File.separatorChar);
-        if (!packageName.endsWith(File.separator)) {
-            packageName += File.separator;
-        }
+        final String packageName = this.getPackageName();
+        lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", packageName)); // NOI18N
+        
+        sb.append("- ").append(fileName).append("Presenter.java\n"); // NOI18N
+        sb.append("- ").append(fileName).append("View.java\n"); // NOI18N
         
         final String fxmlFileName = shouldFXMLtoLowerCase ? fileName.toLowerCase() : fileName;
-        final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)\n" : "\n"; // NOI18N
-        sb.append("- ").append(packageName).append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
-        sb.append("- ").append(packageName).append(fileName).append("Presenter.java\n"); // NOI18N
-        sb.append("- ").append(packageName).append(fileName).append("View.java"); // NOI18N
+        final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)" : ""; // NOI18N
+        sb.append("- ").append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
         
         taInfoPrimaryFiles.append(sb.toString());
     }

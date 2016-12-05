@@ -17,7 +17,6 @@
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
-import java.io.File;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
@@ -62,12 +61,7 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
     @Override
     public void readSettings(WizardDescriptor wiz) {
         final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, "Afterburner"); // NOI18N
-        
-        String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
-        packageName = packageName.replace(SIGN_CHAR_DOT, File.separatorChar);
-        if (!packageName.endsWith(File.separator)) {
-            packageName += File.separator;
-        }
+        final String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
         
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
         
