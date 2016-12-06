@@ -29,6 +29,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 #### Refactoring
 #59 [Template] Refactore the templates.
+#52 [Wizard] Simplified the msg for the wizard.
 #49 [Wizard] Check the output messages in the wizard.
 
 
