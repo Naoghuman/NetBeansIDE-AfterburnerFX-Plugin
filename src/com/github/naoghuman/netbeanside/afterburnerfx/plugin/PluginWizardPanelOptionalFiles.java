@@ -17,6 +17,7 @@
 package com.github.naoghuman.netbeanside.afterburnerfx.plugin;
 
 import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.IPluginSupport;
+import com.github.naoghuman.netbeanside.afterburnerfx.plugin.support.PluginSupport;
 import javax.swing.event.ChangeListener;
 import org.openide.WizardDescriptor;
 import org.openide.util.HelpCtx;
@@ -24,11 +25,14 @@ import org.openide.util.NbPreferences;
 
 public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<WizardDescriptor>, IPluginSupport {
 
+    private String packageName = null;
+    
     /**
      * The visual component that displays this panel. If you need to access the
      * component from this class, just use getComponent().
      */
     private PluginVisualPanelOptionalFiles component;
+    private WizardDescriptor wizardDescriptor;
     
     @Override
     public PluginVisualPanelOptionalFiles getComponent() {
@@ -45,6 +49,10 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
 
     @Override
     public boolean isValid() {
+        if (PluginSupport.isLastPackageNameConfiguration(packageName)) {
+            PluginSupport.setWarningMessage(MSG_WARNING__OPTION_GENERATION_CONFIGURATION_PROPERTIES_DEACTIVATED, wizardDescriptor);
+        }
+        
         return true;
     }
 
@@ -59,9 +67,11 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
     }
 
     @Override
-    public void readSettings(WizardDescriptor wiz) {
+    public void readSettings(WizardDescriptor wizardDescriptor) {
+        this.wizardDescriptor = wizardDescriptor;
+        
         final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
-        final String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
+        packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, PROP__FILENAME_CHOOSEN_DEFAULT_VALUE);
         
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
         
@@ -83,7 +93,7 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
     }
 
     @Override
-    public void storeSettings(WizardDescriptor wiz) {
+    public void storeSettings(WizardDescriptor wizardDescriptor) {
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE_SHOULD_CREATE, getComponent().shouldCreateCSS());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_FILE_SHOULD_INJECT, getComponent().shouldInjectCSS());
         NbPreferences.forModule(PluginWizardIterator.class).putBoolean(PROP__CSS_TO_LOWERCASE, getComponent().shouldCSStoLowerCase());

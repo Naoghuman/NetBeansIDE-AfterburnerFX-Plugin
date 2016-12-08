@@ -42,6 +42,7 @@ public interface IPluginSupport {
     public static final String MSG_ERROR__TARGET_FOLDER_DOESNT_EXISTS = "error.target.folder.doesnt.exists"; // NOI18N
     public static final String MSG_ERROR__TARGET_FOLDER_IS_READONLY = "error.target.folder.is.readonly"; // NOI18N
     public static final String MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS = "warning.file.and.package.name.arent.equals"; // NOI18N
+    public static final String MSG_WARNING__OPTION_GENERATION_CONFIGURATION_PROPERTIES_DEACTIVATED = "warning.option.generation.configuration.properties.deactivated"; // NOI18N
     
     public static final String PROP__CHOOSEN_PACKAGE = "PROP__CHOOSEN_PACKAGE"; // NOI18N
     public static final String PROP__CONFIGURATION_FILE_SHOULD_CREATE = "PROP__CONFIGURATION_FILE_SHOULD_CREATE"; // NOI18N

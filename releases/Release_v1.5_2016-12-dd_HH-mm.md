@@ -44,6 +44,7 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
+#50 [Optional Files] Special case -> package name is configuration. (Enhancement)
 
 
 

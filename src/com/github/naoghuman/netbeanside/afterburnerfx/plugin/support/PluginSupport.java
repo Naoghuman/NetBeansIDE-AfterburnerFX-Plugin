@@ -184,7 +184,7 @@ public final class PluginSupport implements IPluginSupport {
             return false;
         }
         
-        fo = fo.getFileObject("pom.xml"); //NOI18N
+        fo = fo.getFileObject("pom.xml"); // NOI18N
         if (fo != null) {
             return true;
         }
@@ -206,11 +206,24 @@ public final class PluginSupport implements IPluginSupport {
             return false;
         }
         
-        if (!packageName.toLowerCase().endsWith(baseName.toLowerCase())) { // NOI18N
+        if (!packageName.toLowerCase().endsWith(baseName.toLowerCase())) {
             return false;
         }
         
         return true;
+    }
+
+    public static boolean isLastPackageNameConfiguration(String packageName) {
+        boolean isLastPackageNameConfiguration = false;
+        if (packageName == null) {
+            return isLastPackageNameConfiguration;
+        }
+        
+        if (packageName.toLowerCase().endsWith("configuration")) { // NOI18N
+            isLastPackageNameConfiguration = true;
+        }
+        
+        return isLastPackageNameConfiguration;
     }
     
     public static boolean isValidBaseNameAndPackage(String baseName, FileObject root, String packageName) {
@@ -291,12 +304,12 @@ public final class PluginSupport implements IPluginSupport {
         wizardDescriptor.getNotificationLineSupport().setErrorMessage(NbBundle.getMessage(PluginSupport.class, key));
     }
 
-    public static void setInfoMessage(String key, WizardDescriptor settings) {
-        settings.getNotificationLineSupport().setInformationMessage(NbBundle.getMessage(PluginSupport.class, key));
+    public static void setInfoMessage(String key, WizardDescriptor wizardDescriptor) {
+        wizardDescriptor.getNotificationLineSupport().setInformationMessage(NbBundle.getMessage(PluginSupport.class, key));
     }
 
-    public static void setWarningMessage(String key, WizardDescriptor settings) {
-        settings.getNotificationLineSupport().setWarningMessage(NbBundle.getMessage(PluginSupport.class, key));
+    public static void setWarningMessage(String key, WizardDescriptor wizardDescriptor) {
+        wizardDescriptor.getNotificationLineSupport().setWarningMessage(NbBundle.getMessage(PluginSupport.class, key));
     }
     
 }

@@ -59,7 +59,7 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
     }
 
     @Override
-    public void readSettings(WizardDescriptor wiz) {
+    public void readSettings(WizardDescriptor wizardDescriptor) {
         final String baseName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__FILENAME_CHOOSEN, "Afterburner"); // NOI18N
         final String packageName = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__CHOOSEN_PACKAGE, "Afterburner"); // NOI18N
         
@@ -83,7 +83,7 @@ public class PluginWizardPanelSummary implements WizardDescriptor.Panel<WizardDe
     }
 
     @Override
-    public void storeSettings(WizardDescriptor wiz) {
+    public void storeSettings(WizardDescriptor wizardDescriptor) {
         
     }
 

@@ -37,7 +37,7 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     private final SourceGroupSupport sourceGroupSupport;
     
     private final PropertyChangeSupport propertyChangeSupport;
-    private WizardDescriptor settings;
+    private WizardDescriptor wizardDescriptor;
     
     /**
      * The visual component that displays this panel. If you need to access the
@@ -70,35 +70,35 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     @Override
     public boolean isValid() {
         if (!PluginSupport.isValidBaseName(component.getBaseName())) {
-            PluginSupport.setInfoMessage(MSG_INFO__FILE_NAME_ISNT_VALID, settings);
+            PluginSupport.setInfoMessage(MSG_INFO__FILE_NAME_ISNT_VALID, wizardDescriptor);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
         }
         
         if (!PluginSupport.isBaseNameContainsWrongFileNameChars(component.getBaseName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__FILE_NAME_CONTAINS_WRONG_CHARS, wizardDescriptor);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
         }
           
         if (!PluginSupport.isValidPackageName(component.getPackageName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_NAME_ISNT_VALID, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_NAME_ISNT_VALID, wizardDescriptor);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
         }
         
         if (!PluginSupport.isValidPackage(component.getLocationFolder(), component.getPackageName())) {
-            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_ISNT_FOLDER, settings);
+            PluginSupport.setErrorMessage(MSG_ERROR__PACKAGE_ISNT_FOLDER, wizardDescriptor);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
         }
         
         if (!PluginSupport.isValidBaseNameAndPackage(component.getBaseName(), component.getLocationFolder(), component.getPackageName())) {
-            PluginSupport.setWarningMessage(MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS, settings);
+            PluginSupport.setWarningMessage(MSG_WARNING__FILE_AND_PACKAGE_NAME_ARENT_EQUALS, wizardDescriptor);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
@@ -107,13 +107,13 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
         final String errorMessage = PluginSupport.canUseFileName(component.getLocationFolder(), component.getPackageFileName(), 
                 component.getBaseName(), TEMPLATE_PARAMETER__FXML);
         if (errorMessage != null) {
-            settings.getNotificationLineSupport().setErrorMessage(errorMessage);
+            wizardDescriptor.getNotificationLineSupport().setErrorMessage(errorMessage);
             propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.FALSE);
             
             return false;
         }
         
-        PluginSupport.clearMessages(settings);
+        PluginSupport.clearMessages(wizardDescriptor);
         propertyChangeSupport.firePropertyChange(PROP__SHOW_INFORMATION_CREATE_FOLLOWING_FILES, null, Boolean.TRUE);
             
         return true;
@@ -130,17 +130,17 @@ public class PluginWizardPanelPrimaryFiles implements WizardDescriptor.Panel<Wiz
     }
 
     @Override
-    public void readSettings(WizardDescriptor settings) {
-        this.settings = settings;
+    public void readSettings(WizardDescriptor wizardDescriptor) {
+        this.wizardDescriptor = wizardDescriptor;
         
-        final FileObject preselectedFolder = Templates.getTargetFolder(settings);
+        final FileObject preselectedFolder = Templates.getTargetFolder(wizardDescriptor);
         final String layoutContainer = NbPreferences.forModule(PluginWizardIterator.class).get(PROP__LAYOUT_CONTAINER, DEFAULT_LAYOUT_CONTAINER);
         final boolean shouldFXMLtoLowerCase = NbPreferences.forModule(PluginWizardIterator.class).getBoolean(PROP__FXML_TO_LOWERCASE, Boolean.TRUE);
-        this.getComponent().initValues(Templates.getTemplate(settings), preselectedFolder, layoutContainer, shouldFXMLtoLowerCase);
+        this.getComponent().initValues(Templates.getTemplate(wizardDescriptor), preselectedFolder, layoutContainer, shouldFXMLtoLowerCase);
     }
 
     @Override
-    public void storeSettings(WizardDescriptor wiz) {
+    public void storeSettings(WizardDescriptor wizardDescriptor) {
         NbPreferences.forModule(PluginWizardIterator.class).put(PROP__CHOOSEN_PACKAGE, getComponent().getPackageName());
         NbPreferences.forModule(PluginWizardIterator.class).put(PROP__FILENAME_CHOOSEN, getComponent().getBaseName());
         NbPreferences.forModule(PluginWizardIterator.class).put(PROP__LAYOUT_CONTAINER, getComponent().getLayoutContainer());
