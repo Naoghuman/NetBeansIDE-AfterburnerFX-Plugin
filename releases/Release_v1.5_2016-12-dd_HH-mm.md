@@ -6,7 +6,9 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 
 #### Summary
-* ...
+* In the case that the last `packagename` is `configuration` the option to create 
+  the `configuration.properties` file is in the page `Optional Files` deactivated.
+  A warning is shown to inform the user about this subject.
 * ...
 
 
@@ -20,6 +22,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 
 #### Enhancement
+#50 [Optional Files] Special case -> package name is configuration.
 
 
 
@@ -44,7 +47,6 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#50 [Optional Files] Special case -> package name is configuration. (Enhancement)
 
 
 

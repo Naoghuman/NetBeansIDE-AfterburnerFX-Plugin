@@ -25,7 +25,6 @@ import javax.swing.JTextField;
 import org.openide.util.NbBundle;
 
 public final class PluginVisualPanelOptionalFiles extends JPanel implements IPluginSupport {
-    
     private String baseName;
     private String packageName;
 
@@ -142,8 +141,17 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbPropertiesToLowerCase.setSelected(shouldPropertiesToLowerCase);
         
         // configuration.properties
-        cbShouldConfigurationPropertiesCreated.setSelected(!shouldCreateConfigurationProperties);
-        cbConfigurationPropertiesToLowerCase.setSelected(shouldConfigurationPropertiesToLowerCase);
+        final boolean isLastPackageNameConfiguration = PluginSupport.isLastPackageNameConfiguration(packageName);
+        if (isLastPackageNameConfiguration) {
+            cbShouldConfigurationPropertiesCreated.setSelected(Boolean.FALSE);
+            cbConfigurationPropertiesToLowerCase.setSelected(shouldConfigurationPropertiesToLowerCase);
+            cbShouldConfigurationPropertiesCreated.setEnabled(Boolean.FALSE);
+            cbConfigurationPropertiesToLowerCase.setEnabled(Boolean.FALSE);
+        }
+        else {
+            cbShouldConfigurationPropertiesCreated.setSelected(!shouldCreateConfigurationProperties);
+            cbConfigurationPropertiesToLowerCase.setSelected(shouldConfigurationPropertiesToLowerCase);
+        }
         
         // update gui
         cbShouldCSScreated.doClick();

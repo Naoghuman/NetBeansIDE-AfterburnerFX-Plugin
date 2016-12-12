@@ -20,7 +20,7 @@ import java.awt.Color;
 
 /**
  *
- * @author PRo
+ * @author Naoghuman
  */
 public interface IPluginSupport {
     
@@ -50,6 +50,7 @@ public interface IPluginSupport {
     public static final String PROP__CSS_FILE_SHOULD_CREATE = "PROP__CSS_FILE_SHOULD_CREATE"; // NOI18N
     public static final String PROP__CSS_FILE_SHOULD_INJECT = "PROP__CSS_FILE_SHOULD_INJECT"; // NOI18N
     public static final String PROP__CSS_TO_LOWERCASE = "PROP__CSS_TO_LOWERCASE"; // NOI18N
+    public static final String PROP__DEACTIVATE_OPTION_GENERATION_CONFIGURATION_PROPERTIES = "PROP__DEACTIVATE_OPTION_GENERATION_CONFIGURATION_PROPERTIES"; // NOI18N
     public static final String PROP__FILENAME = "PROP__FILENAME"; // NOI18N
     public static final String PROP__FILENAME_CHOOSEN = "PROP__FILENAME_CHOOSEN"; // NOI18N
     public static final String PROP__FILENAME_CHOOSEN_DEFAULT_VALUE = "Prefix"; // NOI18N

@@ -34,6 +34,10 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
     private PluginVisualPanelOptionalFiles component;
     private WizardDescriptor wizardDescriptor;
     
+    PluginWizardPanelOptionalFiles() {
+        
+    }
+    
     @Override
     public PluginVisualPanelOptionalFiles getComponent() {
         if (component == null) {
@@ -49,7 +53,8 @@ public class PluginWizardPanelOptionalFiles implements WizardDescriptor.Panel<Wi
 
     @Override
     public boolean isValid() {
-        if (PluginSupport.isLastPackageNameConfiguration(packageName)) {
+        final boolean isLastPackageNameConfiguration = PluginSupport.isLastPackageNameConfiguration(packageName);
+        if (isLastPackageNameConfiguration) {
             PluginSupport.setWarningMessage(MSG_WARNING__OPTION_GENERATION_CONFIGURATION_PROPERTIES_DEACTIVATED, wizardDescriptor);
         }
         
