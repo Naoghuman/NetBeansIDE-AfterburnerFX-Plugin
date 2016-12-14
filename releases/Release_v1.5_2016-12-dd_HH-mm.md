@@ -8,7 +8,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 #### Summary
 * In the case that the last `packagename` is `configuration` the option to create 
   the `configuration.properties` file is in the page `Optional Files` deactivated.
-  A warning is shown to inform the user about this subject.
+  A warning is shown to inform the user about this topic.
 * ...
 
 
@@ -22,6 +22,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 
 #### Enhancement
+#56 [Wizard] Extend the generated fxml file with additional inclusion.
 #50 [Optional Files] Special case -> package name is configuration.
 
 

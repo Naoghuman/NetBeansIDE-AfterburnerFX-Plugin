@@ -11,8 +11,8 @@
 
 <#if package?? && package != "">
 <#if cssinject?? && cssinject != "false">
-<${layoutcontainer} id="${layoutcontainer}" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${package}.${controller}">
-    <stylesheets>
+<${layoutcontainer} id="${layoutcontainer}" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${package}.${controller}">
+    <stylesheets> <!-- TODO check the tags 'styleClass' and 'stylesheets' same result? -->
         <URL value="@${css}.css"/>
     </stylesheets>
 <#if layoutcontainer?? && layoutcontainer == "GridPane">
@@ -27,7 +27,7 @@
     </rowConstraints>
 </#if>
 <#else>
-<${layoutcontainer} id="${layoutcontainer}" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${package}.${controller}">
+<${layoutcontainer} id="${layoutcontainer}" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${package}.${controller}">
 <#if layoutcontainer?? && layoutcontainer == "GridPane">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,7 +42,7 @@
 </#if>
 <#else>
 <#if cssinject?? && cssinject != "false">
-<${layoutcontainer} id="${layoutcontainer}" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${controller}">
+<${layoutcontainer} id="${layoutcontainer}" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${controller}">
     <stylesheets>
         <URL value="@${css}.css"/>
     </stylesheets>
@@ -58,7 +58,7 @@
     </rowConstraints>
 </#if>
 <#else>
-<${layoutcontainer} id="${layoutcontainer}" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${controller}">
+<${layoutcontainer} id="${layoutcontainer}" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="${controller}">
 <#if layoutcontainer?? && layoutcontainer == "GridPane">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
