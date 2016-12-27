@@ -22,7 +22,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import org.openide.util.NbBundle;
 
 public final class PluginVisualPanelOptionalFiles extends JPanel implements IPluginSupport {
     private String baseName;
@@ -198,7 +197,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     }
     
     private void updateTextCreateFollowingFiles() {
-        lInfoOptionalFiles.setText(NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
+        lInfoOptionalFiles2.setText(""); // NOI18N
         taInfoOptionalFiles.setText(null);
         
         // css
@@ -245,9 +244,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                 || shouldCreateProperties
                 || shouldCreateConfigurationProperties;
         if (shouldUpdateInfoOptionalFiles) {
-            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", packageName)); // NOI18N
-        }else {
-            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", "")); // NOI18N
+            lInfoOptionalFiles2.setText(packageName);
         }
     }
 
@@ -271,6 +268,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbPropertiesToLowerCase = new javax.swing.JCheckBox();
         cbShouldConfigurationPropertiesCreated = new javax.swing.JCheckBox();
         cbConfigurationPropertiesToLowerCase = new javax.swing.JCheckBox();
+        lInfoOptionalFiles2 = new javax.swing.JLabel();
 
         org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles.text")); // NOI18N
 
@@ -327,6 +325,9 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
         cbConfigurationPropertiesToLowerCase.setFocusable(false);
         cbConfigurationPropertiesToLowerCase.setIconTextGap(6);
 
+        lInfoOptionalFiles2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles2, org.openide.util.NbBundle.getMessage(PluginVisualPanelOptionalFiles.class, "PluginVisualPanelOptionalFiles.lInfoOptionalFiles2.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -335,7 +336,6 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(separator)
-                    .addComponent(lInfoOptionalFiles, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(spInfoOptionalFiles)
                     .addComponent(cbShouldCSScreated, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbShouldPropertiesCreated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -349,7 +349,11 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                     .addComponent(cbShouldConfigurationPropertiesCreated, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(cbConfigurationPropertiesToLowerCase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cbConfigurationPropertiesToLowerCase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lInfoOptionalFiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lInfoOptionalFiles2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -374,7 +378,9 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lInfoOptionalFiles)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lInfoOptionalFiles)
+                    .addComponent(lInfoOptionalFiles2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoOptionalFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -391,6 +397,7 @@ public final class PluginVisualPanelOptionalFiles extends JPanel implements IPlu
     private javax.swing.JCheckBox cbShouldPropertiesCreated;
     private javax.swing.JCheckBox cbShouldPropertiesInjected;
     private javax.swing.JLabel lInfoOptionalFiles;
+    private javax.swing.JLabel lInfoOptionalFiles2;
     private javax.swing.JSeparator separator;
     private javax.swing.JScrollPane spInfoOptionalFiles;
     private javax.swing.JTextArea taInfoOptionalFiles;

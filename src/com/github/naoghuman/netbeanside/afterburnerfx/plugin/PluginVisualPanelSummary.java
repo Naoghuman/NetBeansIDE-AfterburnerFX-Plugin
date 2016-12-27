@@ -48,7 +48,7 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
             boolean shouldCreateConfigurationProperties, boolean shouldConfigurationPropertiesToLowerCase 
     ) {
         // Primary files
-        lInfoPrimaryFiles.setText(NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoPrimaryFiles.text")); // NOI18N
+        lInfoPrimaryFiles2.setText(""); // NOI18N
         taInfoPrimaryFiles.setText(null);
         
         StringBuilder sb = new StringBuilder();
@@ -58,11 +58,11 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
         final String hitLowerCase = shouldFXMLtoLowerCase ? " (lowercase)" : ""; // NOI18N
         sb.append("- ").append(fxmlFileName).append(".fxml").append(hitLowerCase); // NOI18N
         
-        lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", packageName)); // NOI18N
+        lInfoPrimaryFiles2.setText(packageName);
         taInfoPrimaryFiles.setText(sb.toString());
         
         // Optional files
-        lInfoOptionalFiles.setText(NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoOptionalFiles.text")); // NOI18N
+        lInfoOptionalFiles2.setText(""); // NOI18N
         taInfoOptionalFiles.setText(null);
         sb = new StringBuilder();
         
@@ -94,9 +94,7 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
                 || shouldCreateProperties
                 || shouldCreateConfigurationProperties;
         if (shouldUpdateInfoOptionalFiles) {
-            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", packageName)); // NOI18N
-        } else {
-            lInfoOptionalFiles.setText(lInfoOptionalFiles.getText().replace("%s", "")); // NOI18N
+            lInfoOptionalFiles2.setText(packageName);
         }
     }
 
@@ -119,6 +117,8 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
         lInfoOptionalFiles = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taInfoOptionalFiles = new javax.swing.JTextArea();
+        lInfoPrimaryFiles2 = new javax.swing.JLabel();
+        lInfoOptionalFiles2 = new javax.swing.JLabel();
 
         org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles, org.openide.util.NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoPrimaryFiles.text")); // NOI18N
 
@@ -144,6 +144,12 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
         taInfoOptionalFiles.setMargin(new java.awt.Insets(3, 3, 0, 0));
         jScrollPane1.setViewportView(taInfoOptionalFiles);
 
+        lInfoPrimaryFiles2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles2, org.openide.util.NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoPrimaryFiles2.text")); // NOI18N
+
+        lInfoOptionalFiles2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoOptionalFiles2, org.openide.util.NbBundle.getMessage(PluginVisualPanelSummary.class, "PluginVisualPanelSummary.lInfoOptionalFiles2.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,23 +157,31 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lInfoOptionalFiles)
-                        .addGap(0, 279, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lInfoOptionalFiles2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lInfoPrimaryFiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lInfoPrimaryFiles2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lInfoPrimaryFiles)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lInfoPrimaryFiles)
+                    .addComponent(lInfoPrimaryFiles2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lInfoOptionalFiles)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lInfoOptionalFiles)
+                    .addComponent(lInfoOptionalFiles2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(105, Short.MAX_VALUE))
@@ -178,7 +192,9 @@ public final class PluginVisualPanelSummary extends JPanel implements IPluginSup
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lInfoOptionalFiles;
+    private javax.swing.JLabel lInfoOptionalFiles2;
     private javax.swing.JLabel lInfoPrimaryFiles;
+    private javax.swing.JLabel lInfoPrimaryFiles2;
     private javax.swing.JTextArea taInfoOptionalFiles;
     private javax.swing.JTextArea taInfoPrimaryFiles;
     // End of variables declaration//GEN-END:variables

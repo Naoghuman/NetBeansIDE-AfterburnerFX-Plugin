@@ -216,18 +216,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     }
     
     private void updateTextCreateFollowingFiles(boolean shouldInfoCreateFollwingFiles) {
-        lInfoPrimaryFiles.setText(NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles.text")); // NOI18N
+        lInfoPrimaryFiles2.setText(""); // NOI18N
         taInfoPrimaryFiles.setText(null);
         
         if (!shouldInfoCreateFollwingFiles) {
-            lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", "")); // NOI18N
             return;
         }
-            
-//        final Object selectedItem = cbLocation.getSelectedItem();
-//        if (!(selectedItem instanceof SourceGroupProxy)) {
-//            return;
-//        }
         
         final String fileName = this.getBaseName();
         if (fileName == null || fileName.isEmpty()) {
@@ -236,7 +230,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         
         final StringBuilder sb = new StringBuilder();
         final String packageName = this.getPackageName();
-        lInfoPrimaryFiles.setText(lInfoPrimaryFiles.getText().replace("%s", packageName)); // NOI18N
+        lInfoPrimaryFiles2.setText(packageName);
         
         sb.append("- ").append(fileName).append("Presenter.java\n"); // NOI18N
         sb.append("- ").append(fileName).append("View.java\n"); // NOI18N
@@ -282,6 +276,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         cbFxmlToLowerCase = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         cbLayoutContainer = new javax.swing.JComboBox();
+        lInfoPrimaryFiles2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(400, 300));
 
@@ -331,6 +326,9 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
         cbLayoutContainer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AnchorPane", "BorderPane", "FlowPane", "GridPane", "HBox", "Pane", "StackPane", "TilePane", "VBox" }));
         cbLayoutContainer.setToolTipText(org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.cbLayoutContainer.toolTipText")); // NOI18N
 
+        lInfoPrimaryFiles2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(lInfoPrimaryFiles2, org.openide.util.NbBundle.getMessage(PluginVisualPanelPrimaryFiles.class, "PluginVisualPanelPrimaryFiles.lInfoPrimaryFiles2.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -338,7 +336,6 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lInfoPrimaryFiles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addComponent(separator, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(spInfoPrimaryFiles, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -356,8 +353,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
                             .addComponent(tfLocation)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cbFxmlToLowerCase)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cbLayoutContainer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(0, 141, Short.MAX_VALUE))
+                            .addComponent(cbLayoutContainer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lInfoPrimaryFiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lInfoPrimaryFiles2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -388,10 +389,12 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lInfoPrimaryFiles)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lInfoPrimaryFiles)
+                    .addComponent(lInfoPrimaryFiles2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spInfoPrimaryFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -401,6 +404,7 @@ public final class PluginVisualPanelPrimaryFiles extends JPanel implements// Act
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lFileName;
     private javax.swing.JLabel lInfoPrimaryFiles;
+    private javax.swing.JLabel lInfoPrimaryFiles2;
     private javax.swing.JLabel lLocation;
     private javax.swing.JLabel lPackage;
     private javax.swing.JLabel lProject;
