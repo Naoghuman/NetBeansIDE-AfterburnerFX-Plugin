@@ -18,6 +18,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 
 #### Feature
+#60 [NetBeans] Check new version for compability in NetBeans 8.2.
 
 
 
