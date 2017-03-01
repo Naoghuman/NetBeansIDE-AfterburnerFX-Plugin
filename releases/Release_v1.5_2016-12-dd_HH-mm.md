@@ -9,7 +9,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 * In the case that the last `packagename` is `configuration` the option to create 
   the `configuration.properties` file is in the page `Optional Files` deactivated.
   A warning is shown to inform the user about this topic.
-* ...
+* Checks if the new version compatible with NetBeans 8.2.
 
 
 
