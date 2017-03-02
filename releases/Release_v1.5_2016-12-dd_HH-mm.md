@@ -40,6 +40,7 @@ the file generation in `convention` with the library `afterburner.fx` in a
 
 
 #### Additional
+#61 [Wizard] Prepare the plugin for the release 1.5.0.
 
 
 
